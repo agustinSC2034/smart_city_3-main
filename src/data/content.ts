@@ -72,6 +72,6 @@ export const navItems = [
   { id: "dispositivos", label: "Dispositivos" },
   { id: "cuadrillas", label: "Cuadrillas" },
   { id: "control", label: "Centro de control" },
-  { id: "tecnologia", label: "Tecnología" },
+  { id: "incidentes", label: "Incidentes" },
   { id: "contacto", label: "Contacto" },
 ];

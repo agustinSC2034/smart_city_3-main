@@ -13,8 +13,6 @@ import {
 import { ControlCenter } from "@/components/ControlCenter";
 import { IncidentCoordination } from "@/components/IncidentCoordination";
 import { Citizens } from "@/components/Citizens";
-import { Maintenance } from "@/components/Maintenance";
-import { HowItWorks } from "@/components/HowItWorks";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { Impact } from "@/components/Impact";
 import { Integrations } from "@/components/Integrations";
@@ -48,8 +46,6 @@ export default function App() {
         <ControlCenter />
         <IncidentCoordination />
         <Citizens />
-        <Maintenance />
-        <HowItWorks />
         <BeforeAfter />
         <Impact />
         <Integrations />
