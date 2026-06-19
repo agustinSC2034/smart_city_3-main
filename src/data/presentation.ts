@@ -1,212 +1,207 @@
-import {
-  AlertTriangle,
-  BarChart3,
-  Bell,
-  Camera,
-  CheckCircle2,
-  Factory,
-  GitBranch,
-  Lightbulb,
-  Map,
-  Radio,
-  Recycle,
-  Route,
-  ShieldCheck,
-  TrafficCone,
-  Users,
-} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  Radio,
+  Camera,
+  MessageSquareWarning,
+  MapPin,
+  TrafficCone,
+  Lightbulb,
+  Cctv,
+  Trash2,
+  Users,
+  Wind,
+  AlertTriangle,
+  CheckCircle2,
+  Gauge,
+  BusFront,
+  Navigation,
+  Bell,
+  Wrench,
+  Droplets,
+  Volume2,
+  ShieldCheck,
+} from "lucide-react";
 
-export type DeckVisual =
-  | "hero"
-  | "problem"
-  | "vision"
-  | "platform"
-  | "solutions"
-  | "mobility"
-  | "waste"
-  | "crews"
-  | "incident"
-  | "environment"
-  | "integration"
-  | "closing";
+export type SlideLayout =
+  | "cover"        // full-screen background image
+  | "statement"    // big text, minimal visual
+  | "diagram"      // central diagram
+  | "dashboard"    // platform mockup protagonist
+  | "split"        // visual + text lateral
+  | "flow"         // horizontal/vertical flow
+  | "closing";     // full-screen dark
 
 export type DeckSlide = {
   id: string;
+  layout: SlideLayout;
   kicker: string;
   title: string;
-  body: string;
-  points: string[];
-  metric?: {
-    value: string;
-    label: string;
-  };
-  visual: DeckVisual;
+  subtitle?: string;
+  points?: string[];
+  bgImage?: string;       // optional image path
+  bgGradient?: boolean;   // use hero gradient fallback
+  demo?: boolean;         // show "Escenario demostrativo"
 };
 
 export const deckSlides: DeckSlide[] = [
   {
     id: "portada",
-    kicker: "GRUPO ITTEL Smart City",
-    title: "Ciudades inteligentes en operacion",
-    body:
-      "Una plataforma para conectar infraestructura urbana, datos operativos y equipos de campo en una vista ejecutiva y accionable.",
-    points: ["Mapa operativo", "Alertas en tiempo real", "Gestion trazable"],
-    metric: { value: "360", label: "vision urbana integrada" },
-    visual: "hero",
+    layout: "cover",
+    kicker: "GRUPO ITTEL",
+    title: "Ciudades inteligentes en operación",
+    subtitle: "Infraestructura, datos y equipos de campo trabajando como un solo sistema.",
+    bgImage: "/presentation/cover-city.jpg",
+    bgGradient: true,
   },
   {
     id: "problema",
-    kicker: "Punto de partida",
-    title: "Servicios urbanos dispersos",
-    body:
-      "Las areas trabajan con sistemas, planillas y canales separados. La informacion llega tarde, cuesta priorizar y la respuesta pierde trazabilidad.",
-    points: ["Datos aislados", "Reclamos sin contexto", "Cuadrillas reactivas"],
-    metric: { value: "-45%", label: "potencial de demora operativa" },
-    visual: "problem",
+    layout: "statement",
+    kicker: "El problema",
+    title: "La ciudad funciona con información fragmentada",
+    subtitle: "Tránsito, alumbrado, residuos y cuadrillas operan en sistemas aislados.",
+    points: ["Planillas", "Llamadas", "Sistemas separados", "Poca trazabilidad"],
   },
   {
     id: "vision",
-    kicker: "Vision operativa",
-    title: "Una ciudad operada en tiempo real",
-    body:
-      "Cada evento urbano se detecta, se georreferencia, se prioriza y se convierte en accion medible desde un centro de control comun.",
-    points: ["Operacion en vivo", "Decision con evidencia", "Indicadores siempre visibles"],
-    visual: "vision",
+    layout: "diagram",
+    kicker: "La visión",
+    title: "Una ciudad conectada responde mejor",
+    subtitle: "Sensores + cámaras + reclamos + GPS → operación coordinada → resultados medibles.",
   },
   {
     id: "plataforma",
-    kicker: "Plataforma central",
-    title: "Mapa, alertas, activos y cuadrillas",
-    body:
-      "El tablero integra capas urbanas, estado de activos, alertas, ordenes de trabajo y equipos en territorio para operar con una sola verdad.",
-    points: ["Activos conectados", "Eventos priorizados", "Despacho coordinado"],
-    metric: { value: "1", label: "centro de control para multiples verticales" },
-    visual: "platform",
+    layout: "dashboard",
+    kicker: "La plataforma",
+    title: "Una sola pantalla para ver y operar la ciudad",
+    subtitle: "Mapa, activos, alertas, cuadrillas e indicadores en tiempo real.",
+    demo: true,
   },
   {
     id: "soluciones",
-    kicker: "Soluciones urbanas",
-    title: "Semaforos, alumbrado, camaras y residuos",
-    body:
-      "Cada vertical puede iniciar de forma independiente y compartir la misma base de mapas, reglas, alertas e indicadores.",
-    points: ["Movilidad", "Alumbrado y seguridad", "Higiene urbana"],
-    visual: "solutions",
+    layout: "diagram",
+    kicker: "Soluciones",
+    title: "Soluciones para cada servicio urbano",
+    subtitle: "Cada solución puede comenzar de forma independiente.",
   },
   {
     id: "movilidad",
+    layout: "split",
     kicker: "Movilidad inteligente",
-    title: "Cruces, flujo y prioridad urbana",
-    body:
-      "Los datos de transito y eventos en via publica permiten detectar congestiones, ajustar respuestas y coordinar desvio o asistencia.",
-    points: ["Cruces monitoreados", "Alertas por zona", "Recorridos optimizados"],
-    metric: { value: "96%", label: "servicios operativos visibles" },
-    visual: "mobility",
+    title: "Movilidad que se adapta a lo que ocurre",
+    subtitle: "Medir · Adaptar · Priorizar",
+    bgImage: "/presentation/mobility-corridor.jpg",
+    bgGradient: true,
   },
   {
     id: "residuos",
-    kicker: "Residuos inteligentes",
-    title: "Recoleccion basada en estado real",
-    body:
-      "Sensores, rutas y reclamos se combinan para priorizar contenedores, evitar recorridos innecesarios y auditar cumplimiento.",
-    points: ["Nivel de llenado", "Ruta de camion", "SLA por zona"],
-    visual: "waste",
+    layout: "flow",
+    kicker: "Residuos y cuadrillas",
+    title: "Recolectar donde hace falta. Auditar lo que se hizo.",
+    subtitle: "Sensor → Ruta → Tarea → Evidencia",
   },
   {
-    id: "cuadrillas",
-    kicker: "Gestion territorial",
-    title: "Cuadrillas coordinadas y auditables",
-    body:
-      "Las ordenes de trabajo se asignan con contexto, evidencia, ubicacion y prioridad. La supervision ve avance, desvio y cierre.",
-    points: ["Asignacion por cercania", "Evidencia antes y despues", "Historial completo"],
-    metric: { value: "12", label: "cuadrillas activas en mapa" },
-    visual: "crews",
+    id: "auditoria",
+    layout: "split",
+    kicker: "Gestión y auditoría",
+    title: "Cada tarea con responsable, tiempo y evidencia",
+    subtitle: "Ubicación · Cuadrilla · SLA · Foto antes/después · Validación",
   },
   {
     id: "incidentes",
-    kicker: "Respuesta coordinada",
-    title: "Gestion integral de incidentes",
-    body:
-      "Un incidente conecta sensor, camara, activo, responsable y tarea. El flujo deja trazabilidad desde la deteccion hasta el cierre.",
-    points: ["Detectar", "Validar", "Resolver y auditar"],
-    visual: "incident",
+    layout: "flow",
+    kicker: "Incidentes coordinados",
+    title: "La plataforma no solo alerta. Coordina la respuesta.",
+    subtitle: "Detectar → Validar → Activar protocolo → Coordinar → Resolver → Auditar",
+    bgImage: "/presentation/incident-response.jpg",
+    bgGradient: true,
   },
   {
     id: "ambiente",
-    kicker: "Ambiente y prevencion",
-    title: "Monitoreo ambiental para anticipar riesgos",
-    body:
-      "Estaciones, alertas climaticas y reportes territoriales ayudan a anticipar eventos y activar protocolos preventivos.",
-    points: ["Calidad de aire", "Lluvia y anegamiento", "Alertas preventivas"],
-    metric: { value: "24/7", label: "monitoreo continuo" },
-    visual: "environment",
+    layout: "statement",
+    kicker: "Ambiente y prevención",
+    title: "Medir para anticiparse",
+    subtitle: "Aire · Ruido · Lluvia · Riesgo hídrico",
+    bgImage: "/presentation/environment-city.jpg",
+    bgGradient: true,
   },
   {
     id: "integracion",
-    kicker: "Como se integra",
-    title: "Sensores, plataforma, operacion e indicadores",
-    body:
-      "El modelo conecta fuentes de datos, motor operativo, equipos de campo e indicadores para cerrar el ciclo de mejora continua.",
-    points: ["Capturar", "Procesar", "Accionar", "Medir"],
-    visual: "integration",
+    layout: "diagram",
+    kicker: "Integración",
+    title: "Soluciones independientes. Una operación conectada.",
+    subtitle: "Dispositivos y sistemas → plataforma → alertas y tickets → cuadrillas → evidencia e indicadores.",
   },
   {
     id: "cierre",
-    kicker: "Propuesta de valor",
-    title: "Implementacion gradual, impacto visible",
-    body:
-      "GRUPO ITTEL permite iniciar por una vertical prioritaria y escalar hacia una operacion urbana integrada, medible y sostenible.",
-    points: ["Piloto focalizado", "Integracion progresiva", "Tablero ejecutivo"],
-    metric: { value: "30-60", label: "dias para un piloto operativo" },
-    visual: "closing",
+    layout: "closing",
+    kicker: "GRUPO ITTEL",
+    title: "Empezar por una necesidad. Escalar hacia una ciudad conectada.",
+    subtitle: "Diseñemos un piloto.",
+    bgImage: "/presentation/closing-city.jpg",
+    bgGradient: true,
   },
 ];
 
-export const solutionIcons: Array<{ label: string; icon: LucideIcon; tone: string }> = [
-  { label: "Semaforos", icon: TrafficCone, tone: "text-warn" },
-  { label: "Alumbrado", icon: Lightbulb, tone: "text-cyan-glow" },
-  { label: "Camaras", icon: Camera, tone: "text-ops" },
-  { label: "Residuos", icon: Recycle, tone: "text-cyan-tech" },
+// --- Data for visual components ---
+
+export const solutionNodes: Array<{ label: string; icon: LucideIcon; angle: number }> = [
+  { label: "Movilidad", icon: TrafficCone, angle: 0 },
+  { label: "Alumbrado", icon: Lightbulb, angle: 60 },
+  { label: "Cámaras", icon: Cctv, angle: 120 },
+  { label: "Residuos", icon: Trash2, angle: 180 },
+  { label: "Cuadrillas", icon: Users, angle: 240 },
+  { label: "Ambiente", icon: Wind, angle: 300 },
 ];
 
-export const integrationSteps: Array<{ label: string; icon: LucideIcon }> = [
+export const visionFlow: Array<{ label: string; icon: LucideIcon }> = [
   { label: "Sensores", icon: Radio },
-  { label: "Plataforma", icon: Map },
-  { label: "Operacion", icon: Users },
-  { label: "Indicadores", icon: BarChart3 },
+  { label: "Cámaras", icon: Camera },
+  { label: "Reclamos", icon: MessageSquareWarning },
+  { label: "GPS", icon: MapPin },
 ];
 
-export const closingPillars: Array<{ label: string; icon: LucideIcon }> = [
-  { label: "Diagnostico", icon: ShieldCheck },
-  { label: "Integracion", icon: GitBranch },
-  { label: "Operacion", icon: Bell },
-  { label: "Mejora", icon: CheckCircle2 },
+export const visionResult: Array<{ label: string; icon: LucideIcon }> = [
+  { label: "Operación coordinada", icon: Wrench },
+  { label: "Resultados medibles", icon: CheckCircle2 },
 ];
 
-export const alertStack = [
-  { title: "Luminaria fuera de servicio", zone: "Av. Rivadavia 2140", tone: "warn" },
-  { title: "Contenedor al 92%", zone: "Puerto Madero", tone: "alert" },
-  { title: "Cuadrilla en camino", zone: "Comuna 3", tone: "ok" },
+export const wasteFlow: Array<{ label: string; icon: LucideIcon }> = [
+  { label: "Sensor", icon: Radio },
+  { label: "Ruta", icon: Navigation },
+  { label: "Tarea", icon: Wrench },
+  { label: "Evidencia", icon: CheckCircle2 },
 ];
 
-export const crewRoute = [
-  { label: "Base", icon: Factory },
-  { label: "OT-2207", icon: AlertTriangle },
-  { label: "Evidencia", icon: Camera },
-  { label: "Cierre", icon: CheckCircle2 },
+export const incidentFlow: Array<{ label: string; icon: LucideIcon }> = [
+  { label: "Detectar", icon: AlertTriangle },
+  { label: "Validar", icon: Bell },
+  { label: "Protocolo", icon: ShieldCheck },
+  { label: "Coordinar", icon: Users },
+  { label: "Resolver", icon: CheckCircle2 },
+  { label: "Auditar", icon: Gauge },
 ];
 
-export const environmentSignals = [
-  { label: "PM2.5", value: "18", suffix: "ug/m3" },
-  { label: "Lluvia", value: "12", suffix: "mm/h" },
-  { label: "Viento", value: "21", suffix: "km/h" },
-  { label: "Riesgo", value: "Medio", suffix: "" },
+export const integrationFlow: Array<{ label: string; icon: LucideIcon }> = [
+  { label: "Dispositivos y sistemas", icon: Radio },
+  { label: "Plataforma", icon: MapPin },
+  { label: "Alertas y tickets", icon: Bell },
+  { label: "Cuadrillas", icon: Users },
+  { label: "Evidencia e indicadores", icon: CheckCircle2 },
 ];
 
-export const mobilityRoutes = [
-  { label: "Corredor Norte", value: "flujo alto", icon: Route },
-  { label: "Cruce Central", value: "prioridad", icon: TrafficCone },
-  { label: "Desvio activo", value: "7 min", icon: GitBranch },
+export const environmentLayers: Array<{ label: string; icon: LucideIcon; value: string }> = [
+  { label: "Aire", icon: Wind, value: "PM2.5 · PM10 · CO · NOx" },
+  { label: "Ruido", icon: Volume2, value: "Decibeles · patrones sonoros" },
+  { label: "Lluvia", icon: Droplets, value: "Nivel · sumideros · zonas de riesgo" },
 ];
+
+export const mobilityHighlights: Array<{ label: string; icon: LucideIcon }> = [
+  { label: "Corredor urbano", icon: Navigation },
+  { label: "Transporte público", icon: BusFront },
+  { label: "Prioridad de emergencia", icon: AlertTriangle },
+];
+
+// Re-export for convenience
+export { ShieldCheck };
 
 export const deckRoutePath = "/presentacion";
