@@ -1,138 +1,20 @@
 import {
   Activity,
   AlertTriangle,
-  BusFront,
   Camera,
   CheckCircle2,
-  Clock,
   Gauge,
   Lightbulb,
-  MapPin,
   Navigation,
-  Radio,
   Trash2,
-  TrendingDown,
   Waypoints,
   Zap,
 } from "lucide-react";
 import { FeatureSection, MockFrame } from "@/components/ui/Feature";
-import { CityMap, type MapNode } from "@/components/ui/CityMap";
 import { statusStyles, type StatusKey } from "@/components/ui/Card";
 import { cn } from "@/lib/cn";
 
 /* ============================================================
- * 1) SEMÁFOROS INTELIGENTES
- * ============================================================ */
-export function SmartTrafficLights() {
-  return (
-    <FeatureSection
-      id="semaforos"
-      eyebrow="Movilidad · ITS"
-      title="Semáforos inteligentes"
-      description="Cruces conectados con regulación adaptativa: la fase cambia según la demanda real, no por un plan fijo. Prioridad a transporte público y emergencias, y alertas de fallas de inmediato."
-      highlights={[
-        "Regulación adaptativa por conteo y detección de congestión",
-        "Onda verde y prioridad para buses, ambulancias y patrulleros",
-        "Estado de cada controlador en vivo, con alertas de falla",
-        "Tiempos de viaje y demora media por corredor",
-      ]}
-      platformNote="Cada cruce aparece en el mapa del Centro de Control con estado, eventos y SLA — y una falla dispara una orden de trabajo para la cuadrilla más cercana."
-      ctaLabel="Verlo en el centro de control"
-      ctaTarget="control"
-      mock={<TrafficLightMock />}
-    />
-  );
-}
-
-function TrafficLightMock() {
-  const lights = [
-    { side: "N", color: "#ef4444", label: "Rojo · 22s" },
-    { side: "S", color: "#10b981", label: "Verde · 18s" },
-    { side: "E", color: "#f59e0b", label: "Amarillo · 3s" },
-    { side: "O", color: "#ef4444", label: "Rojo · 22s" },
-  ];
-  return (
-    <MockFrame title="semaforos.ittel · cruce Callao & Corrientes" rightLabel="adaptativo · en línea">
-      <div className="grid gap-3 sm:grid-cols-[1.5fr_1fr]">
-        {/* intersection */}
-        <div className="relative aspect-square overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[260px]">
-          <svg viewBox="0 0 200 200" className="absolute inset-0 size-full" aria-hidden>
-            <rect width="200" height="200" fill="#081a33" />
-            {/* blocks */}
-            <rect x="0" y="0" width="78" height="78" fill="#0c2447" />
-            <rect x="122" y="0" width="78" height="78" fill="#0c2447" />
-            <rect x="0" y="122" width="78" height="78" fill="#0c2447" />
-            <rect x="122" y="122" width="78" height="78" fill="#0c2447" />
-            {/* roads */}
-            <rect x="78" y="0" width="44" height="200" fill="#16315a" />
-            <rect x="0" y="78" width="200" height="44" fill="#16315a" />
-            {/* lane markings */}
-            <line x1="100" y1="0" x2="100" y2="78" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.5" />
-            <line x1="100" y1="122" x2="100" y2="200" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.5" />
-            <line x1="0" y1="100" x2="78" y2="100" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.5" />
-            <line x1="122" y1="100" x2="200" y2="100" stroke="#22d3ee" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.5" />
-            {/* green wave path */}
-            <path d="M100 4 L100 78 L100 122 L100 196" fill="none" stroke="#10b981" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="6 6" className="animate-pulse-soft" opacity="0.7" />
-            {/* stop lines */}
-            <rect x="80" y="74" width="40" height="3" fill="#fff" opacity="0.7" />
-            <rect x="80" y="123" width="40" height="3" fill="#fff" opacity="0.7" />
-            <rect x="74" y="80" width="3" height="40" fill="#fff" opacity="0.7" />
-            <rect x="123" y="80" width="3" height="40" fill="#fff" opacity="0.7" />
-            {/* vehicles */}
-            <rect x="92" y="20" width="16" height="28" rx="3" fill="#22d3ee" opacity="0.85" />
-            <rect x="92" y="160" width="16" height="28" rx="3" fill="#94a3b8" opacity="0.6" />
-            <rect x="20" y="92" width="28" height="16" rx="3" fill="#94a3b8" opacity="0.6" />
-            {/* bus priority */}
-            <rect x="156" y="92" width="30" height="16" rx="3" fill="#10b981" />
-            <circle cx="170" cy="100" r="3" fill="#081a33" />
-          </svg>
-          {/* traffic light heads */}
-          <span className="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-black/55 px-2 py-0.5 text-[9px] font-semibold text-white backdrop-blur">N</span>
-          <TLDot className="left-1/2 top-9 -translate-x-1/2" color="#ef4444" />
-          <TLDot className="left-1/2 bottom-9 -translate-x-1/2" color="#10b981" />
-          <TLDot className="left-9 top-1/2 -translate-y-1/2" color="#f59e0b" />
-          <TLDot className="right-9 top-1/2 -translate-y-1/2" color="#ef4444" />
-          <div className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
-            <BusFront className="size-3 text-ops" /> Bus prioritario · onda verde
-          </div>
-        </div>
-
-        {/* side stats */}
-        <div className="flex flex-col gap-2.5">
-          {lights.map((l) => (
-            <div key={l.side} className="flex items-center justify-between rounded-lg border border-ink-200 bg-white px-3 py-2">
-              <span className="flex items-center gap-2 text-[12px] font-semibold text-ink-800">
-                <span className="size-2.5 rounded-full" style={{ backgroundColor: l.color }} />
-                Acceso {l.side}
-              </span>
-              <span className="nums text-[11px] text-ink-600">{l.label}</span>
-            </div>
-          ))}
-          <div className="mt-1 rounded-lg bg-ops/10 p-3">
-            <p className="flex items-center gap-1.5 text-[11px] font-semibold text-ops-dark">
-              <TrendingDown className="size-3.5" /> Demora media del corredor
-            </p>
-            <p className="nums mt-1 text-2xl font-bold text-ink-900">-18%</p>
-            <p className="text-[10px] text-ink-600">vs. plan fijo · últimas 24h</p>
-          </div>
-        </div>
-      </div>
-    </MockFrame>
-  );
-}
-
-function TLDot({ className, color }: { className?: string; color: string }) {
-  return (
-    <span
-      className={cn("absolute inline-flex size-4 items-center justify-center rounded-full ring-2 ring-white/80", className)}
-      style={{ backgroundColor: color, boxShadow: `0 0 10px ${color}` }}
-      aria-hidden
-    />
-  );
-}
-
-/* ============================================================
- * 2) ALUMBRADO INTELIGENTE
  * ============================================================ */
 export function SmartLighting() {
   return (
@@ -350,15 +232,15 @@ export function SmartWaste() {
       mockSide="left"
       eyebrow="Higiene urbana · Sensores"
       title="Residuos inteligentes"
-      description="Sensores ultrasónicos de llenado en cada contenedor, más sensores de olor y temperatura. La plataforma calcula rutas optimizadas para recolectar sólo donde hace falta."
+      description="Sensores instalados en contenedores seleccionados y puntos críticos para medir llenado, temperatura y otras variables según el equipamiento instalado. La plataforma selecciona qué puntos atender, calcula una ruta y la cuadrilla registra el servicio."
       highlights={[
-        "Sensores de llenado, olor y temperatura por contenedor",
-        "Rutas de recolección optimizadas según llenado real",
+        "Sensores de llenado, temperatura y otras variables según equipamiento",
+        "El sistema selecciona qué puntos atender y calcula la ruta",
         "Detección de desbordes y puntos críticos en mapa",
-        "Control de cumplimiento por punto y por cuadrilla",
+        "Control de cumplimiento por punto, GPS y evidencia fotográfica",
       ]}
-      platformNote="El sensor reporta llenado, la plataforma arma la ruta y la cuadrilla la ejecuta con evidencia GPS y foto — todo trazado en el mismo mapa."
-      ctaLabel="Ver seguimiento de cuadrillas"
+      platformNote="El sensor prioriza el punto, la plataforma calcula la ruta y la cuadrilla registra el servicio."
+      ctaLabel="Ver gestión de cuadrillas"
       ctaTarget="cuadrillas"
       mock={<WasteMock />}
     />
@@ -370,71 +252,93 @@ function WasteMock() {
     { id: "C-091", pct: 92, tone: "alert" as StatusKey },
     { id: "C-088", pct: 64, tone: "warn" as StatusKey },
     { id: "C-072", pct: 31, tone: "ok" as StatusKey },
-    { id: "C-069", pct: 48, tone: "warn" as StatusKey },
-    { id: "C-054", pct: 18, tone: "ok" as StatusKey },
   ];
   const barColor = (t: StatusKey) =>
     t === "alert" ? "#ef4444" : t === "warn" ? "#f59e0b" : "#10b981";
   return (
-    <MockFrame title="residuos.ittel · ruta optimizada · Comuna 1" rightLabel="1.204 contenedores">
-      <div className="grid gap-3 sm:grid-cols-[1fr_1.3fr]">
-        {/* bins */}
+    <MockFrame title="residuos.ittel · monitoreo de contenedores" rightLabel="puntos críticos · en línea">
+      <div className="grid gap-3 sm:grid-cols-[1fr_1fr]">
+        {/* Container visual representations */}
         <div className="flex flex-col gap-2.5">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-500">
-            Nivel de llenado
+            Contenedores con sensor
           </p>
           {bins.map((b) => (
-            <div key={b.id} className="rounded-lg border border-ink-200 bg-white p-2.5">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink-800">
-                  <Trash2 className="size-3.5 text-ink-600" /> {b.id}
-                </span>
-                <span className="nums text-[12px] font-bold text-ink-900">{b.pct}%</span>
+            <div key={b.id} className="flex items-center gap-3 rounded-lg border border-ink-200 bg-white p-2.5">
+              {/* Container icon with fill level */}
+              <div className="relative flex h-12 w-10 shrink-0 flex-col justify-end overflow-hidden rounded-md border-2 border-ink-300 bg-ink-100">
+                <div
+                  className="w-full rounded-sm transition-all"
+                  style={{ height: `${b.pct}%`, backgroundColor: barColor(b.tone) }}
+                />
+                {/* lid */}
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-ink-300" />
               </div>
-              <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink-100">
-                <div className="h-full rounded-full" style={{ width: `${b.pct}%`, backgroundColor: barColor(b.tone) }} />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink-800">
+                    <Trash2 className="size-3.5 text-ink-600" /> {b.id}
+                  </span>
+                  <span className="nums text-[14px] font-bold text-ink-900">{b.pct}%</span>
+                </div>
+                <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-ink-100">
+                  <div className="h-full rounded-full" style={{ width: `${b.pct}%`, backgroundColor: barColor(b.tone) }} />
+                </div>
+                <p className="mt-0.5 text-[10px] text-ink-500">
+                  {b.tone === "alert" ? "Crítico · atender hoy" : b.tone === "warn" ? "Medio · priorizar" : "Ok · rutina"}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* route map */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[260px]">
-          <svg viewBox="0 0 200 150" className="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
-            <rect width="200" height="150" fill="#081a33" />
-            <defs>
-              <pattern id="wgrid" width="14" height="14" patternUnits="userSpaceOnUse">
-                <path d="M14 0H0V14" fill="none" stroke="#16356a" strokeWidth="0.4" />
-              </pattern>
-            </defs>
-            <rect width="200" height="150" fill="url(#wgrid)" opacity="0.6" />
-            {/* optimized route */}
-            <path d="M20 30 L60 40 L70 80 L120 70 L130 110 L180 120" fill="none" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round" strokeDasharray="5 4" />
-            {/* stops */}
-            {[
-              { x: 20, y: 30, c: "#10b981" },
-              { x: 60, y: 40, c: "#10b981" },
-              { x: 70, y: 80, c: "#f59e0b" },
-              { x: 120, y: 70, c: "#f59e0b" },
-              { x: 130, y: 110, c: "#ef4444" },
-              { x: 180, y: 120, c: "#10b981" },
-            ].map((p, i) => (
-              <g key={i}>
-                <circle cx={p.x} cy={p.y} r="3.2" fill={p.c} />
-                <circle cx={p.x} cy={p.y} r="1.2" fill="#fff" />
-              </g>
-            ))}
-          </svg>
-          <div className="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
-            Ruta optimizada · 6 paradas
+        {/* Route map + platform integration */}
+        <div className="flex flex-col gap-2.5">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[180px]">
+            <svg viewBox="0 0 200 150" className="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
+              <rect width="200" height="150" fill="#081a33" />
+              <defs>
+                <pattern id="wgrid" width="14" height="14" patternUnits="userSpaceOnUse">
+                  <path d="M14 0H0V14" fill="none" stroke="#16356a" strokeWidth="0.4" />
+                </pattern>
+              </defs>
+              <rect width="200" height="150" fill="url(#wgrid)" opacity="0.6" />
+              {/* optimized route */}
+              <path d="M20 30 L60 40 L70 80 L130 110 L180 120" fill="none" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round" strokeDasharray="5 4" />
+              {/* stops with container icons */}
+              {[
+                { x: 20, y: 30, c: "#10b981" },
+                { x: 60, y: 40, c: "#f59e0b" },
+                { x: 70, y: 80, c: "#f59e0b" },
+                { x: 130, y: 110, c: "#ef4444" },
+                { x: 180, y: 120, c: "#10b981" },
+              ].map((p, i) => (
+                <g key={i}>
+                  <circle cx={p.x} cy={p.y} r="3.5" fill={p.c} />
+                  <circle cx={p.x} cy={p.y} r="1.2" fill="#fff" />
+                </g>
+              ))}
+            </svg>
+            <div className="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
+              Ruta optimizada · 5 paradas
+            </div>
+            <div className="absolute right-2.5 bottom-2.5 rounded-md bg-ops/90 px-2 py-1 text-[10px] font-bold text-white">
+              <Navigation className="inline size-3" /> -30% km
+            </div>
           </div>
-          <div className="absolute bottom-2.5 left-2.5 flex flex-wrap items-center gap-3 rounded-md bg-black/55 px-2.5 py-1 text-[10px] text-white backdrop-blur">
-            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-ops" /> Ok</span>
-            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-warn" /> Medio</span>
-            <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-alert" /> Crítico</span>
-          </div>
-          <div className="absolute right-2.5 bottom-2.5 rounded-md bg-ops/90 px-2 py-1 text-[10px] font-bold text-white">
-            <Navigation className="inline size-3" /> -30% km recorridos
+
+          {/* Platform flow */}
+          <div className="rounded-lg border border-ink-200 bg-ink-50/60 p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-500">Flujo operativo</p>
+            <div className="mt-2 flex items-center gap-1.5 text-[11px] text-ink-700">
+              <span className="rounded bg-white px-1.5 py-0.5 font-medium">Sensor</span>
+              <span className="text-ink-400">→</span>
+              <span className="rounded bg-white px-1.5 py-0.5 font-medium">Ruta</span>
+              <span className="text-ink-400">→</span>
+              <span className="rounded bg-white px-1.5 py-0.5 font-medium">Cuadrilla</span>
+              <span className="text-ink-400">→</span>
+              <span className="rounded bg-white px-1.5 py-0.5 font-medium">Evidencia</span>
+            </div>
           </div>
         </div>
       </div>
@@ -443,101 +347,7 @@ function WasteMock() {
 }
 
 /* ============================================================
- * 5) SEGUIMIENTO DE CUADRILLAS EN TIEMPO REAL
- * ============================================================ */
-const crewNodes: MapNode[] = [
-  { id: "c1", x: 22, y: 30, status: "ok", pulse: true, label: "M-7" },
-  { id: "c2", x: 54, y: 26, status: "warn", pulse: true, label: "L-1" },
-  { id: "c3", x: 70, y: 52, status: "info", pulse: true, label: "T-3" },
-  { id: "c4", x: 36, y: 64, status: "ok", label: "R-2" },
-  { id: "c5", x: 78, y: 78, status: "alert", pulse: true, label: "H-4" },
-];
-
-const crewRoads: [string, string][] = [
-  ["c1", "c2"],
-  ["c2", "c3"],
-  ["c1", "c4"],
-  ["c4", "c5"],
-  ["c3", "c5"],
-  ["c2", "c4"],
-];
-
-export function CrewTracking() {
-  return (
-    <FeatureSection
-      id="cuadrillas"
-      dark
-      eyebrow="Operación · Trazabilidad"
-      title="Cuadrillas en tiempo real"
-      description="Cada cuadrilla visible en el mapa con su tarea, estado, ETA y evidencia. El supervisor sabe qué pasa en la calle sin llamar a nadie, y el cumplimiento se documenta solo."
-      highlights={[
-        "Ubicación GPS y estado de cada cuadrilla en vivo",
-        "Tareas priorizadas, ETA y SLA por orden de trabajo",
-        "Evidencia fotográfica antes/después al cerrar la tarea",
-        "Productividad, recorridos y tiempos por cuadrilla",
-      ]}
-      platformNote="Una alerta del Centro de Control se asigna a la cuadrilla más cercana, que confirma llegada, sube evidencia y cierra — todo queda en el historial del activo."
-      ctaLabel="Ver la ficha del activo"
-      ctaTarget="auditoria"
-      mock={<CrewMock />}
-    />
-  );
-}
-
-function CrewMock() {
-  const tasks = [
-    { id: "M-7", t: "OT-2207 · bache", z: "La Boca", st: "En sitio", status: "ok" as StatusKey, eta: "—" },
-    { id: "L-1", t: "Reemplazo driver", z: "Balvanera", st: "En camino", status: "warn" as StatusKey, eta: "14 min" },
-    { id: "T-3", t: "Regulación cruce", z: "Centro", st: "Activa", status: "info" as StatusKey, eta: "—" },
-    { id: "H-4", t: "Sumidero crítico", z: "Caballito", st: "Pendiente", status: "alert" as StatusKey, eta: "22 min" },
-  ];
-  return (
-    <MockFrame title="cuadrillas.ittel · despacho operativo" rightLabel="6 activas · en línea" dark>
-      <div className="grid gap-3 sm:grid-cols-[1.4fr_1fr]">
-        {/* map */}
-        <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[280px]">
-          <CityMap nodes={crewNodes} roads={crewRoads} variant="dark" className="absolute inset-0 size-full" />
-          <div className="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
-            Seguimiento GPS · tiempo real
-          </div>
-          <div className="absolute right-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] text-white backdrop-blur">
-            <Radio className="inline size-3 text-cyan-glow" /> 6 cuadrillas
-          </div>
-        </div>
-
-        {/* task list */}
-        <div className="flex flex-col gap-2">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-400">
-            Tareas en curso
-          </p>
-          {tasks.map((t) => {
-            const s = statusStyles[t.status];
-            return (
-              <div key={t.id} className="rounded-lg border border-white/10 bg-white/5 p-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-[12px] font-semibold text-white">
-                    <span className={cn("dot", s.dot)} /> {t.id}
-                  </span>
-                  <span className={cn("rounded-full px-1.5 py-0.5 text-[10px] font-semibold", s.chip)}>
-                    {t.st}
-                  </span>
-                </div>
-                <p className="mt-1 truncate text-[11px] text-ink-300">{t.t}</p>
-                <p className="mt-0.5 flex items-center gap-1 text-[10px] text-ink-400">
-                  <MapPin className="size-3" /> {t.z}
-                  {t.eta !== "—" && <><span>·</span><Clock className="size-3" /> ETA {t.eta}</>}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </MockFrame>
-  );
-}
-
-/* ============================================================
- * 6) PEAJES Y ACCESOS
+ * 5) PEAJES Y ACCESOS
  * ============================================================ */
 export function SmartTolls() {
   return (

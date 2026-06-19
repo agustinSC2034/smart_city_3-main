@@ -81,10 +81,6 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-ink-200 pt-6 text-xs text-ink-600 sm:flex-row sm:items-center">
-          <p>
-            Solución presentada por GRUPO ITTEL. Datos de demostración —
-            no representan mediciones contractuales.
-          </p>
           <p className="flex items-center gap-2">
             <span className="dot bg-ops" /> En línea
           </p>

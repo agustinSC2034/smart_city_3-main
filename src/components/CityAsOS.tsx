@@ -29,7 +29,7 @@ export function CityAsOS() {
           <SectionHeading
             eyebrow="La propuesta"
             title="La ciudad como un sistema operativo"
-            description="Una plataforma que conecta sensores, cámaras, reclamos y cuadrillas, y los convierte en una sola operación coordinada — de la calle al indicador de gestión."
+            description="Conectamos dispositivos, servicios y equipos de campo para convertir datos dispersos en una operación urbana coordinada."
           />
         </Reveal>
 

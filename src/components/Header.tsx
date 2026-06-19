@@ -82,7 +82,7 @@ export function Header() {
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        {/* Logo */}
+        {/* Logo + texto */}
         <a href="#top" className="flex items-center gap-2.5" onClick={() => go("top")}>
           <Logo />
           <span className="flex flex-col leading-none">
@@ -148,9 +148,9 @@ export function Header() {
           >
             Contacto
           </button>
-          <button onClick={() => go("contacto")} className="btn-primary">
+          <button onClick={() => go("contacto")} className="btn-primary whitespace-nowrap">
             Solicitar demo
-            <ArrowRight className="size-4" aria-hidden />
+            <ArrowRight className="size-4 shrink-0" aria-hidden />
           </button>
         </div>
 
@@ -209,8 +209,8 @@ export function Header() {
 function Logo() {
   return (
     <img
-      src="./Logo_Ittel_AI.png"
-      alt="Logo IT-TEL"
+      src="./favicon.png"
+      alt="IT-TEL Smart City"
       className="size-9 w-auto rounded-lg object-contain"
       width={36}
       height={36}

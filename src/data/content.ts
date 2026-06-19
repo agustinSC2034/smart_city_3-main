@@ -69,9 +69,9 @@ export const detectAct = [
 
 export const navItems = [
   { id: "plataforma", label: "Plataforma" },
-  { id: "dispositivos", label: "Dispositivos" },
-  { id: "cuadrillas", label: "Cuadrillas" },
-  { id: "control", label: "Centro de control" },
+  { id: "soluciones", label: "Soluciones" },
   { id: "incidentes", label: "Incidentes" },
+  { id: "auditoria", label: "Auditoría" },
+  { id: "tecnologia", label: "Tecnología" },
   { id: "contacto", label: "Contacto" },
 ];
