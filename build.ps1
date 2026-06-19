@@ -19,6 +19,10 @@ Copy-Item $js.FullName "app.js" -Force
 Write-Host "==> Copiando favicon y logo..." -ForegroundColor Cyan
 Copy-Item "public\favicon.png" "favicon.png" -Force
 Copy-Item "public\Logo_Ittel_AI.png" "Logo_Ittel_AI.png" -Force
+if (Test-Path "public\plataforma") {
+  if (-not (Test-Path "plataforma")) { New-Item -ItemType Directory -Path "plataforma" | Out-Null }
+  Copy-Item "public\plataforma\*" "plataforma" -Recurse -Force
+}
 
 Write-Host "==> Reescribiendo index.html de produccion..." -ForegroundColor Cyan
 $prodHtml = @"
@@ -82,5 +86,6 @@ if (Test-Path $distHtmlPath) {
 Write-Host "==> Listo! Archivos para produccion:" -ForegroundColor Green
 Write-Host "    index.html, styles.css, app.js, favicon.png, Logo_Ittel_AI.png" -ForegroundColor Gray
 Write-Host "    + presentacion/index.html" -ForegroundColor Gray
+Write-Host "    + plataforma/*.png" -ForegroundColor Gray
 Write-Host "    + smart-city-caba-hero.png, smart-city-operations-waste-its.png" -ForegroundColor Gray
 Write-Host "    + robots.txt, llms.txt" -ForegroundColor Gray

@@ -277,3 +277,54 @@ export function ImageMock({
     </div>
   );
 }
+
+export function ProductScreenshot({
+  src,
+  alt,
+  aspect = "aspect-[16/10]",
+  fit = "cover",
+  dark = false,
+  className,
+  imageClassName,
+}: {
+  src: string;
+  alt: string;
+  aspect?: string;
+  fit?: "cover" | "contain";
+  dark?: boolean;
+  className?: string;
+  imageClassName?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-2xl border shadow-lift ring-1",
+        dark
+          ? "border-white/10 bg-brand-dark ring-white/10"
+          : "border-ink-200 bg-white ring-ink-200/60",
+        className
+      )}
+    >
+      <div
+        className={cn(
+          "absolute -inset-8 -z-10 rounded-3xl blur-2xl",
+          dark ? "bg-cyan-tech/10" : "bg-cyan-tech/15"
+        )}
+        aria-hidden
+      />
+      <div className={cn("relative overflow-hidden rounded-[1rem]", aspect)}>
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className={cn(
+            "size-full",
+            fit === "contain" ? "object-contain" : "object-cover",
+            imageClassName
+          )}
+        />
+      </div>
+    </div>
+  );
+}
