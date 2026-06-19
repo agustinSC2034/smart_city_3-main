@@ -33,8 +33,8 @@ export function Footer() {
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">
               Tecnología, conectividad e infraestructura urbana. Diseñamos, integramos y
-              operamos plataformas Smart City para municipios, concesionarias y operadores
-              de servicios públicos.
+              operamos plataformas Smart City en alianza con SICE para municipios,
+              concesionarias y operadores de servicios públicos.
             </p>
             <p className="mt-4 text-xs text-ink-600">
               © {new Date().getFullYear()} GRUPO ITTEL. Todos los derechos reservados.
@@ -64,31 +64,32 @@ export function Footer() {
               Soluciones
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-ink-600">
-              <li>Centro de control</li>
-              <li>Tránsito y semáforos</li>
-              <li>Alumbrado y residuos</li>
-              <li>Reclamos ciudadanos</li>
-              <li>Auditoría urbana</li>
+              <li>Semáforos inteligentes</li>
+              <li>Alumbrado inteligente</li>
+              <li>Cámaras inteligentes</li>
+              <li>Residuos y sensores</li>
+              <li>Cuadrillas en tiempo real</li>
+              <li>Peajes y accesos</li>
             </ul>
 
             <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-ink-600">
               Contacto
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-ink-600">
-              <li>smartcity@grupoittel.com</li>
-              <li>+54 11 0000-0000</li>
-              <li>Buenos Aires, Argentina</li>
+              <li>0810-345-ITTEL (4883)</li>
+              <li>administracion@it-tel.com.ar</li>
+              <li>Av. Alicia Moreau de Justo 1930, CABA</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-ink-200 pt-6 text-xs text-ink-600 sm:flex-row sm:items-center">
           <p>
-            Solución presentada por GRUPO ITTEL. Datos de demostración — no representan
-            mediciones contractuales.
+            Solución presentada por GRUPO ITTEL en alianza con SICE. Datos de demostración —
+            no representan mediciones contractuales.
           </p>
           <p className="flex items-center gap-2">
-            <span className="dot bg-ops" /> Sistema operativo · demo en línea
+            <span className="dot bg-ops" /> En línea
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ import {
   Wrench,
   Wind,
   Droplets,
-  MapPin,
+  Signpost,
   type LucideIcon,
 } from "lucide-react";
 import type { StatusKey } from "@/components/ui/Card";
@@ -31,7 +31,7 @@ export const solutions: Solution[] = [
     icon: LayoutDashboard,
     title: "Centro de Control Smart City",
     description:
-      "Mapa vivo de la ciudad con alertas operativas, estado de servicios, gestión por comuna o zona, indicadores de cumplimiento y trazabilidad de cada evento.",
+      "Mapa vivo de la ciudad con alertas, estado de servicios y trazabilidad de cada evento.",
     metric: "24/7",
     metricLabel: "Monitoreo",
     status: "ok",
@@ -42,7 +42,7 @@ export const solutions: Solution[] = [
     icon: TrafficCone,
     title: "Semáforos inteligentes",
     description:
-      "Cruces conectados con regulación adaptativa, detección de congestión, prioridad para transporte público y emergencias, estado de controladores y alertas de fallas.",
+      "Regulación adaptativa, prioridad a transporte público y emergencias, alertas de fallas.",
     metric: "412",
     metricLabel: "Cruces activos",
     status: "ok",
@@ -53,7 +53,7 @@ export const solutions: Solution[] = [
     icon: CarFront,
     title: "Tránsito y movilidad",
     description:
-      "Cámaras de conteo vehicular, detección de congestión, tiempos de viaje, incidentes, cortes y estacionamiento inteligente, con zonas escolares, turísticas y de carga.",
+      "Conteo vehicular, tiempos de viaje, incidentes, cortes y estacionamiento inteligente.",
     metric: "-18%",
     metricLabel: "Demora media",
     status: "info",
@@ -62,9 +62,9 @@ export const solutions: Solution[] = [
   {
     id: "cameras",
     icon: Cctv,
-    title: "Cámaras y operación urbana",
+    title: "Cámaras inteligentes",
     description:
-      "Cámaras integradas al mapa con analítica de video para detectar incidentes, objetos, acumulación, humo u obstrucciones. Evidencia visual para la operación, no vigilancia invasiva.",
+      "Analítica de video para detectar incidentes, objetos, acumulación u obstrucciones.",
     metric: "1.286",
     metricLabel: "Cámaras",
     status: "ok",
@@ -75,7 +75,7 @@ export const solutions: Solution[] = [
     icon: Lightbulb,
     title: "Alumbrado inteligente",
     description:
-      "Luminarias conectadas con detección de fallas en tiempo real, dimerización por horario o evento, mantenimiento preventivo y postes como infraestructura IoT para sensores y cámaras.",
+      "Detección de fallas en tiempo real, dimerización y postes como infraestructura IoT.",
     metric: "38%",
     metricLabel: "Ahorro energía",
     status: "ok",
@@ -86,7 +86,7 @@ export const solutions: Solution[] = [
     icon: Trash2,
     title: "Residuos inteligentes",
     description:
-      "Contenedores con sensores de nivel de llenado, rutas de recolección optimizadas, detección de desbordes y control de cumplimiento por punto crítico.",
+      "Sensores de llenado, rutas optimizadas y detección de desbordes por punto crítico.",
     metric: "92%",
     metricLabel: "Contenedor pico",
     status: "alert",
@@ -95,9 +95,9 @@ export const solutions: Solution[] = [
   {
     id: "claims",
     icon: MessageSquareWarning,
-    title: "Reclamos ciudadanos conectados",
+    title: "Reclamos ciudadanos",
     description:
-      "Reclamos desde web, app o 147/BOTI con foto y ubicación, clasificación automática, derivación a área responsable, seguimiento de SLA y cierre con evidencia. El reclamo como sensor humano.",
+      "Reclamos con foto y ubicación, clasificación, derivación y cierre con evidencia.",
     metric: "147",
     metricLabel: "Canal integrado",
     status: "warn",
@@ -108,7 +108,7 @@ export const solutions: Solution[] = [
     icon: Wrench,
     title: "Mantenimiento urbano",
     description:
-      "Inventario de activos georreferenciados, órdenes de trabajo, cuadrillas en mapa, tareas por prioridad, fotos antes y después, historial de activos, SLA y productividad.",
+      "Activos georreferenciados, órdenes de trabajo, cuadrillas y evidencia fotográfica.",
     metric: "2.340",
     metricLabel: "Activos",
     status: "ok",
@@ -117,9 +117,9 @@ export const solutions: Solution[] = [
   {
     id: "environment",
     icon: Wind,
-    title: "Ambiente: aire y ruido",
+    title: "Ambiente: aire, ruido y olores",
     description:
-      "Sensores de PM2.5, PM10, CO, NOx, temperatura y humedad, más sensores de ruido por zona que miden decibeles y patrones, no conversaciones. Mapas de calor y alertas por umbral.",
+      "Sensores de PM2.5, gases, ruido y olores por zona con mapas de calor y alertas.",
     metric: "26",
     metricLabel: "Estaciones",
     status: "info",
@@ -128,30 +128,25 @@ export const solutions: Solution[] = [
   {
     id: "water",
     icon: Droplets,
-    title: "Agua, drenaje e inundaciones",
+    title: "Agua e inundaciones",
     description:
-      "Sensores de nivel, lluvia y sumideros críticos con alertas tempranas, mapa de riesgo y cuadrillas preventivas para reducir inundaciones y tiempos de respuesta.",
+      "Nivel, lluvia y sumideros críticos con alertas tempranas y cuadrillas preventivas.",
     metric: "180",
     metricLabel: "Sumideros",
     status: "warn",
     tag: "Hidrico",
   },
   {
-    id: "zones",
-    icon: MapPin,
-    title: "Zonas inteligentes",
+    id: "tolls",
+    icon: Signpost,
+    title: "Peajes y accesos",
     description:
-      "Zonas escolares, gastronómicas, turísticas, ambientales y de eventos con reglas específicas, sensores, cámaras, reclamos, permisos y fiscalización integrada.",
-    metric: "9",
-    metricLabel: "Zonas activas",
+      "Lectura de patentes, telepeaje, control de flotas y cumplimiento por corredor.",
+    metric: "4",
+    metricLabel: "Corredores",
     status: "ok",
-    tag: "Gestión",
+    tag: "Movilidad",
   },
 ];
 
-export const heroIndicators = [
-  { label: "Sensores urbanos", status: "ok" as StatusKey },
-  { label: "Alertas en tiempo real", status: "alert" as StatusKey },
-  { label: "Gestión de cuadrillas", status: "info" as StatusKey },
-  { label: "Datos en la nube", status: "ok" as StatusKey },
-];
+export const heroIndicators: { label: string; status: StatusKey }[] = [];

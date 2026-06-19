@@ -1,5 +1,4 @@
 import {
-  MessageSquareWarning,
   Camera,
   MapPin,
   Tag,
@@ -73,14 +72,6 @@ export function Citizens() {
           </div>
         </Reveal>
       </div>
-
-      <Reveal delay={0.15} className="mt-8">
-        <div className="flex items-center gap-3 rounded-xl border border-ink-200 bg-ink-50/60 p-4 text-sm text-ink-700">
-          <MessageSquareWarning className="size-5 shrink-0 text-cyan-tech" />
-          El reclamo ciudadano funciona como un <strong className="text-ink-900">sensor humano</strong>{" "}
-          de la ciudad: georreferenciado, clasificado y conectado a la operación.
-        </div>
-      </Reveal>
     </SectionShell>
   );
 }

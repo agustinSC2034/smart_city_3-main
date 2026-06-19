@@ -6,25 +6,25 @@
 
 const NAV_ITEMS = [
   { id: "plataforma", label: "Plataforma" },
-  { id: "soluciones", label: "Soluciones" },
+  { id: "dispositivos", label: "Dispositivos" },
+  { id: "cuadrillas", label: "Cuadrillas" },
   { id: "control", label: "Centro de control" },
   { id: "tecnologia", label: "Tecnología" },
-  { id: "casos", label: "Casos de uso" },
   { id: "contacto", label: "Contacto" },
 ];
 
 const SOLUTIONS = [
-  { icon: "layout-dashboard", title: "Centro de Control Smart City", desc: "Mapa vivo de la ciudad con alertas operativas, estado de servicios, gestión por comuna o zona, indicadores de cumplimiento y trazabilidad de cada evento.", metric: "24/7", metricLabel: "Monitoreo", status: "ok", tag: "Núcleo" },
-  { icon: "traffic-cone", title: "Semáforos inteligentes", desc: "Cruces conectados con regulación adaptativa, detección de congestión, prioridad para transporte público y emergencias, estado de controladores y alertas de fallas.", metric: "412", metricLabel: "Cruces activos", status: "ok", tag: "Movilidad" },
-  { icon: "car-front", title: "Tránsito y movilidad", desc: "Cámaras de conteo vehicular, detección de congestión, tiempos de viaje, incidentes, cortes y estacionamiento inteligente, con zonas escolares, turísticas y de carga.", metric: "-18%", metricLabel: "Demora media", status: "info", tag: "Movilidad" },
-  { icon: "cctv", title: "Cámaras y operación urbana", desc: "Cámaras integradas al mapa con analítica de video para detectar incidentes, objetos, acumulación, humo u obstrucciones. Evidencia visual para la operación, no vigilancia invasiva.", metric: "1.286", metricLabel: "Cámaras", status: "ok", tag: "Operación" },
-  { icon: "lightbulb", title: "Alumbrado inteligente", desc: "Luminarias conectadas con detección de fallas en tiempo real, dimerización por horario o evento, mantenimiento preventivo y postes como infraestructura IoT para sensores y cámaras.", metric: "38%", metricLabel: "Ahorro energía", status: "ok", tag: "Energía" },
-  { icon: "trash-2", title: "Residuos inteligentes", desc: "Contenedores con sensores de nivel de llenado, rutas de recolección optimizadas, detección de desbordes y control de cumplimiento por punto crítico.", metric: "92%", metricLabel: "Contenedor pico", status: "alert", tag: "Higiene" },
-  { icon: "message-square-warning", title: "Reclamos ciudadanos conectados", desc: "Reclamos desde web, app o 147/BOTI con foto y ubicación, clasificación automática, derivación a área responsable, seguimiento de SLA y cierre con evidencia. El reclamo como sensor humano.", metric: "147", metricLabel: "Canal integrado", status: "warn", tag: "Ciudadano" },
-  { icon: "wrench", title: "Mantenimiento urbano", desc: "Inventario de activos georreferenciados, órdenes de trabajo, cuadrillas en mapa, tareas por prioridad, fotos antes y después, historial de activos, SLA y productividad.", metric: "2.340", metricLabel: "Activos", status: "ok", tag: "Auditoría" },
-  { icon: "wind", title: "Ambiente: aire y ruido", desc: "Sensores de PM2.5, PM10, CO, NOx, temperatura y humedad, más sensores de ruido por zona que miden decibeles y patrones, no conversaciones. Mapas de calor y alertas por umbral.", metric: "26", metricLabel: "Estaciones", status: "info", tag: "Ambiente" },
-  { icon: "droplets", title: "Agua, drenaje e inundaciones", desc: "Sensores de nivel, lluvia y sumideros críticos con alertas tempranas, mapa de riesgo y cuadrillas preventivas para reducir inundaciones y tiempos de respuesta.", metric: "180", metricLabel: "Sumideros", status: "warn", tag: "Hídrico" },
-  { icon: "map-pin", title: "Zonas inteligentes", desc: "Zonas escolares, gastronómicas, turísticas, ambientales y de eventos con reglas específicas, sensores, cámaras, reclamos, permisos y fiscalización integrada.", metric: "9", metricLabel: "Zonas activas", status: "ok", tag: "Gestión" },
+  { icon: "layout-dashboard", title: "Centro de Control Smart City", desc: "Mapa vivo de la ciudad con alertas, estado de servicios y trazabilidad de cada evento.", metric: "24/7", metricLabel: "Monitoreo", status: "ok", tag: "Núcleo" },
+  { icon: "traffic-cone", title: "Semáforos inteligentes", desc: "Regulación adaptativa, prioridad a transporte público y emergencias, alertas de fallas.", metric: "412", metricLabel: "Cruces activos", status: "ok", tag: "Movilidad" },
+  { icon: "car-front", title: "Tránsito y movilidad", desc: "Conteo vehicular, tiempos de viaje, incidentes, cortes y estacionamiento inteligente.", metric: "-18%", metricLabel: "Demora media", status: "info", tag: "Movilidad" },
+  { icon: "cctv", title: "Cámaras inteligentes", desc: "Analítica de video para detectar incidentes, objetos, acumulación u obstrucciones.", metric: "1.286", metricLabel: "Cámaras", status: "ok", tag: "Operación" },
+  { icon: "lightbulb", title: "Alumbrado inteligente", desc: "Detección de fallas en tiempo real, dimerización y postes como infraestructura IoT.", metric: "38%", metricLabel: "Ahorro energía", status: "ok", tag: "Energía" },
+  { icon: "trash-2", title: "Residuos inteligentes", desc: "Sensores de llenado, rutas optimizadas y detección de desbordes por punto crítico.", metric: "92%", metricLabel: "Contenedor pico", status: "alert", tag: "Higiene" },
+  { icon: "message-square-warning", title: "Reclamos ciudadanos", desc: "Reclamos con foto y ubicación, clasificación, derivación y cierre con evidencia.", metric: "147", metricLabel: "Canal integrado", status: "warn", tag: "Ciudadano" },
+  { icon: "wrench", title: "Mantenimiento urbano", desc: "Activos georreferenciados, órdenes de trabajo, cuadrillas y evidencia fotográfica.", metric: "2.340", metricLabel: "Activos", status: "ok", tag: "Auditoría" },
+  { icon: "wind", title: "Ambiente: aire, ruido y olores", desc: "Sensores de PM2.5, gases, ruido y olores por zona con mapas de calor y alertas.", metric: "26", metricLabel: "Estaciones", status: "info", tag: "Ambiente" },
+  { icon: "droplets", title: "Agua e inundaciones", desc: "Nivel, lluvia y sumideros críticos con alertas tempranas y cuadrillas preventivas.", metric: "180", metricLabel: "Sumideros", status: "warn", tag: "Hídrico" },
+  { icon: "signpost", title: "Peajes y accesos", desc: "Lectura de patentes, telepeaje, control de flotas y cumplimiento por corredor.", metric: "4", metricLabel: "Corredores", status: "ok", tag: "Movilidad" },
 ];
 
 const STATUS_STYLES = {
@@ -96,6 +96,15 @@ const MAP_NODES = [
 ];
 
 const ROADS = [["n1","n2"],["n2","n3"],["n1","n4"],["n2","n5"],["n3","n5"],["n4","n5"],["n5","n6"],["n4","n7"],["n5","n7"],["n6","n8"],["n7","n8"]];
+
+const CREW_MAP_NODES = [
+  { id: "c1", x: 22, y: 30, status: "ok", pulse: true, label: "M-7" },
+  { id: "c2", x: 54, y: 26, status: "warn", pulse: true, label: "L-1" },
+  { id: "c3", x: 70, y: 52, status: "info", pulse: true, label: "T-3" },
+  { id: "c4", x: 36, y: 64, status: "ok", pulse: false, label: "R-2" },
+  { id: "c5", x: 78, y: 78, status: "alert", pulse: true, label: "H-4" },
+];
+const CREW_ROADS = [["c1","c2"],["c2","c3"],["c1","c4"],["c4","c5"],["c3","c5"],["c2","c4"]];
 
 const STATUS_FILL = { ok: "#10b981", warn: "#f59e0b", alert: "#ef4444", info: "#0ea5b7" };
 
@@ -230,8 +239,9 @@ function sparklineSVG(points, stroke, height, width) {
     "</svg>";
 }
 
-function cityMapSVG(nodes, variant) {
+function cityMapSVG(nodes, variant, roads) {
   variant = variant || "dark";
+  roads = roads || ROADS;
   var bg = variant === "dark" ? "#081a33" : "#f1f5f9";
   var roadStroke = variant === "dark" ? "#1e3a5f" : "#cbd5e1";
   var roadSoft = variant === "dark" ? "#142a4d" : "#e2e8f0";
@@ -239,13 +249,15 @@ function cityMapSVG(nodes, variant) {
   var nodeById = {};
   nodes.forEach(function(n) { nodeById[n.id] = n; });
 
-  var roadsHTML = ROADS.map(function(pair) {
+  var roadsHTML = roads.map(function(pair) {
     var A = nodeById[pair[0]], B = nodeById[pair[1]];
+    if (!A || !B) return "";
     return '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '"/>';
   }).join("");
 
-  var dashHTML = ROADS.map(function(pair) {
+  var dashHTML = roads.map(function(pair) {
     var A = nodeById[pair[0]], B = nodeById[pair[1]];
+    if (!A || !B) return "";
     return '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '"/>';
   }).join("");
 
@@ -685,6 +697,11 @@ function initReveal() {
   });
 }
 
+function renderCrewMap() {
+  var el = document.getElementById("crew-map");
+  if (el) el.innerHTML = cityMapSVG(CREW_MAP_NODES, "dark", CREW_ROADS);
+}
+
 /* ========================================================================
    INIT
    ======================================================================== */
@@ -693,11 +710,10 @@ document.addEventListener("DOMContentLoaded", function() {
   renderHero();
   renderSolutions();
   renderControlCenter();
+  renderCrewMap();
   renderCitizenFlow();
   renderMaintenance();
   renderHowItWorks();
-  renderArchitecture();
-  renderUseCases();
   renderImpact();
   renderIntegrations();
   initHeader();

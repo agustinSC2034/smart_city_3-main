@@ -8,8 +8,8 @@ export function Solutions() {
     <SectionShell id="soluciones" className="bg-ink-50/60">
       <SectionHeading
         eyebrow="Soluciones"
-        title="Una plataforma, once verticales urbanas"
-        description="Cada módulo se integra al mismo centro de control. Activá los que tu ciudad necesita hoy y sumá verticales a medida que la operación crece."
+        title="Una plataforma, todas las verticales urbanas"
+        description="Cada módulo comparte el mismo mapa y motor de alertas. Activá los que tu ciudad necesita hoy y sumá el resto a medida que la operación crece."
       />
 
       <RevealStagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -28,8 +28,7 @@ export function Solutions() {
       </RevealStagger>
 
       <p className="mt-8 text-sm text-ink-500">
-        Todos los módulos comparten el mismo mapa, motor de alertas, reglas de SLA y
-        auditoría. No son productos sueltos: son capas de una misma operación.
+        No son productos sueltos: son capas de una misma operación.
       </p>
     </SectionShell>
   );

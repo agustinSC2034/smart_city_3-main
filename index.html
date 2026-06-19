@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b2545" />
-  <meta name="description" content="IT-TEL Smart City by GRUPO ITTEL — plataforma urbana para monitorear, auditar y optimizar servicios públicos en tiempo real. Sensores, cámaras, reclamos, cuadrillas y datos integrados en un único centro de control." />
-  <title>IT-TEL Smart City — GRUPO ITTEL | Infraestructura urbana inteligente</title>
+  <meta name="description" content="IT-TEL Smart City by GRUPO ITTEL, en alianza con SICE — semáforos, luminarias, cámaras, sensores, cuadrillas y reclamos integrados en una plataforma para operar la ciudad en tiempo real." />
+  <title>IT-TEL Smart City — Ciudades inteligentes operadas en tiempo real | GRUPO ITTEL</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,10 +53,10 @@
 
       <nav class="hidden items-center gap-1 lg:flex" aria-label="Principal">
         <button data-scroll="plataforma" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Plataforma</button>
-        <button data-scroll="soluciones" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Soluciones</button>
+        <button data-scroll="dispositivos" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Dispositivos</button>
+        <button data-scroll="cuadrillas" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Cuadrillas</button>
         <button data-scroll="control" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Centro de control</button>
         <button data-scroll="tecnologia" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Tecnología</button>
-        <button data-scroll="casos" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Casos de uso</button>
         <button data-scroll="contacto" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Contacto</button>
       </nav>
 
@@ -73,10 +73,10 @@
     <div id="mobile-menu" class="hidden border-t border-ink-200 bg-white lg:hidden">
       <nav class="container-page flex flex-col py-3" aria-label="Móvil">
         <button data-scroll="plataforma" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Plataforma</button>
-        <button data-scroll="soluciones" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Soluciones</button>
+        <button data-scroll="dispositivos" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Dispositivos</button>
+        <button data-scroll="cuadrillas" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Cuadrillas</button>
         <button data-scroll="control" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Centro de control</button>
         <button data-scroll="tecnologia" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Tecnología</button>
-        <button data-scroll="casos" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Casos de uso</button>
         <button data-scroll="contacto" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Contacto</button>
         <button data-scroll="contacto" class="btn btn-primary mt-3 w-full"><i data-lucide="arrow-right" class="size-4"></i> Solicitar demo</button>
       </nav>
@@ -85,43 +85,33 @@
 
   <main>
     <!-- ======================== HERO ======================== -->
-    <section id="top" class="relative overflow-hidden bg-white pt-28 sm:pt-32">
-      <div class="pointer-events-none absolute inset-0 grid-dot-bg opacity-70" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute -left-40 top-40 size-[460px] rounded-full bg-brand/5 blur-3xl" aria-hidden="true"></div>
+    <section id="top" class="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-deep pt-24 sm:pt-28">
+      <!-- fondo: imagen CABA difuminada + overlays auditoría/control -->
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image:url('public/smart-city-caba-hero.png')"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(5,16,35,0.82), rgba(5,16,35,0.78) 40%, rgba(5,16,35,0.95))"></div>
+        <div class="absolute inset-0" style="background:radial-gradient(circle at 72% 28%, rgba(34,211,238,0.14), transparent 55%)"></div>
+        <div class="absolute inset-0 grid-line-bg opacity-20"></div>
+      </div>
 
-      <div class="container-page relative grid items-center gap-10 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28">
+      <div class="container-page relative grid items-center gap-10 pb-16 pt-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-24">
         <div>
-          <div class="eyebrow mb-5"><span class="size-1.5 rounded-full bg-ops animate-pulse-soft"></span> Smart City Platform · GRUPO ITTEL</div>
-          <h1 class="text-4xl font-extrabold leading-[1.07] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]">
-            Infraestructura urbana inteligente para ciudades que necesitan <span class="text-brand">operar en tiempo real</span>
+          <div class="eyebrow dark mb-5"><span class="size-1.5 rounded-full bg-ops animate-pulse-soft"></span> Smart City Platform · GRUPO ITTEL · alianza SICE</div>
+          <h1 class="text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.55rem]">
+            Ciudades inteligentes, <span class="text-cyan-glow">operadas en tiempo real</span>
           </h1>
-          <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
-            Integramos sensores, cámaras, reclamos, cuadrillas, activos urbanos y datos en una plataforma Smart City para monitorear, auditar y optimizar servicios públicos.
+          <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg">
+            Semáforos, luminarias, cámaras, sensores, cuadrillas y reclamos integrados en una sola plataforma para monitorear, auditar y optimizar los servicios públicos.
           </p>
           <div class="mt-7 flex flex-wrap items-center gap-3">
-            <button data-scroll="soluciones" class="btn btn-primary">Ver soluciones <i data-lucide="arrow-right" class="size-4"></i></button>
-            <button data-scroll="control" class="btn btn-secondary">Explorar centro de control</button>
-          </div>
-          <ul class="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-ops"></span> Sensores urbanos</li>
-            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-alert"></span> Alertas en tiempo real</li>
-            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-cyan-tech"></span> Gestión de cuadrillas</li>
-            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-ops"></span> Datos en la nube</li>
-          </ul>
-          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-600">
-            <span class="font-semibold uppercase tracking-wide text-ink-600">Pensada para</span>
-            <span>Municipios</span><span class="text-ink-300">·</span>
-            <span>Concesionarias</span><span class="text-ink-300">·</span>
-            <span>Parques industriales</span><span class="text-ink-300">·</span>
-            <span>Barrios cerrados</span><span class="text-ink-300">·</span>
-            <span>Servicios públicos</span>
+            <button data-scroll="dispositivos" class="btn btn-primary">Ver soluciones <i data-lucide="arrow-right" class="size-4"></i></button>
+            <button data-scroll="control" class="btn border border-white/20 bg-white/5 text-white hover:bg-white/10">Explorar centro de control</button>
           </div>
         </div>
 
         <div class="relative">
-          <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
-          <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+          <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/30 to-transparent blur-2xl" aria-hidden="true"></div>
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-lift ring-1 ring-ink-200/60">
             <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
               <div class="flex items-center gap-2">
                 <span class="size-2.5 rounded-full bg-alert/70"></span>
@@ -170,6 +160,7 @@
           </div>
         </div>
       </div>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24" style="background:linear-gradient(to top, rgba(5,16,35,1), transparent)" aria-hidden="true"></div>
     </section>
 
     <!-- ======================== CIUDAD COMO SO ======================== -->
@@ -179,40 +170,45 @@
         <div class="reveal max-w-2xl">
           <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> La propuesta</p>
           <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">La ciudad como un sistema operativo</h2>
-          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">No es una app aislada. Es una plataforma modular que conecta las verticales urbanas —sensores, cámaras, reclamos, activos, vehículos y cuadrillas— y las convierte en una sola operación coordinada.</p>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Una plataforma que conecta sensores, cámaras, reclamos y cuadrillas, y los convierte en una sola operación coordinada — de la calle al indicador de gestión.</p>
         </div>
 
-        <div class="mt-12 grid gap-4 lg:grid-cols-5" id="os-flow"></div>
-        <script>
-          (function(){
-            var flow = [
-              { label: "Fuentes", items: ["Sensor","Cámara","Reclamo","Activo urbano","Vehículo","Cuadrilla"] },
-              { label: "Plataforma de datos", items: ["Normalización","Eventos","Georreferencia","Contexto"] },
-              { label: "Alertas y decisiones", items: ["Reglas","Priorización","Asignación","SLA"] },
-              { label: "Operación y auditoría", items: ["Cuadrillas","Evidencia","Trazabilidad","Responsables"] },
-              { label: "Indicadores y reportes", items: ["KPIs","Cumplimiento","Productividad","Planificación"] },
-            ];
-            var html = flow.map(function(layer, i) {
-              var items = layer.items.map(function(it) { return '<li class="flex items-center gap-2 text-[13px] text-ink-600"><span class="size-1.5 rounded-full bg-cyan-tech"></span>' + it + "</li>"; }).join("");
-              return '<div class="relative reveal">' +
-                '<div class="card-surface h-full p-4">' +
-                '<div class="mb-3 flex items-center gap-2"><span class="inline-flex size-6 items-center justify-center rounded-md bg-brand/5 text-[11px] font-bold text-brand ring-1 ring-brand/10">' + (i+1) + '</span><h3 class="text-sm font-semibold text-ink-900">' + layer.label + "</h3></div>" +
-                "<ul class=\"space-y-1.5\">" + items + "</ul>" +
-                "</div></div>";
-            }).join("");
-            document.getElementById("os-flow").innerHTML = html;
-          })();
-        </script>
+        <div class="reveal mt-12">
+          <div class="relative">
+            <div class="pointer-events-none absolute left-0 right-0 top-7 hidden h-px lg:block" style="background:linear-gradient(to right, transparent, rgba(14,165,183,0.4), transparent)" aria-hidden="true"></div>
+            <ol id="os-flow" class="grid gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-2"></ol>
+            <script>
+              (function(){
+                var stages = [
+                  { icon: "radio", label: "Fuentes", hint: "sensores · cámaras · reclamos" },
+                  { icon: "layout-dashboard", label: "Plataforma", hint: "datos · georreferencia" },
+                  { icon: "bell", label: "Alertas", hint: "reglas · priorización" },
+                  { icon: "wrench", label: "Operación", hint: "cuadrillas · evidencia" },
+                  { icon: "bar-chart-3", label: "Indicadores", hint: "SLA · auditoría" },
+                ];
+                document.getElementById("os-flow").innerHTML = stages.map(function(s, i){
+                  return '<li class="relative flex flex-col items-center text-center reveal">' +
+                    '<span class="relative inline-flex size-14 items-center justify-center rounded-2xl bg-white shadow-soft ring-1 ring-ink-200">' +
+                    '<i data-lucide="'+s.icon+'" class="size-6 text-brand"></i>' +
+                    '<span class="absolute -right-1 -top-1 inline-flex size-5 items-center justify-center rounded-full bg-brand text-[10px] font-bold text-white">'+(i+1)+'</span>' +
+                    '</span>' +
+                    '<h3 class="mt-3 text-sm font-semibold text-ink-900">'+s.label+'</h3>' +
+                    '<p class="mt-0.5 text-[12px] leading-snug text-ink-600">'+s.hint+'</p>' +
+                    (i < stages.length-1 ? '<i data-lucide="arrow-right" class="absolute -right-2 top-7 hidden size-4 text-ink-300 lg:block"></i>' : '') +
+                  '</li>';
+                }).join("");
+              })();
+            </script>
+          </div>
+        </div>
 
-        <div class="reveal mt-14">
-          <div class="rounded-2xl border border-ink-200 bg-ink-50/60 p-5 sm:p-7">
-            <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Ciclo operativo continuo</p>
-            <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">1</span><div><h4 class="text-sm font-semibold text-ink-900">Detectar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Sensores, cámaras y ciudadanos reportan.</p></div></div></div>
-              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">2</span><div><h4 class="text-sm font-semibold text-ink-900">Analizar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">La plataforma clasifica y prioriza el evento.</p></div></div></div>
-              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">3</span><div><h4 class="text-sm font-semibold text-ink-900">Accionar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Se asigna la cuadrilla y se ejecuta la tarea.</p></div></div></div>
-              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">4</span><div><h4 class="text-sm font-semibold text-ink-900">Medir</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Se registra evidencia, SLA e indicadores.</p></div></div></div>
-            </div>
+        <div class="reveal mt-10">
+          <div class="flex flex-wrap items-center justify-center gap-2 text-sm">
+            <span class="text-xs font-semibold uppercase tracking-wide text-ink-500">Ciclo</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-3 py-1.5 text-[13px] font-medium text-ink-800 shadow-soft"><span class="size-1.5 rounded-full bg-cyan-tech"></span> Detectar</span><span class="text-ink-300">→</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-3 py-1.5 text-[13px] font-medium text-ink-800 shadow-soft"><span class="size-1.5 rounded-full bg-cyan-tech"></span> Analizar</span><span class="text-ink-300">→</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-3 py-1.5 text-[13px] font-medium text-ink-800 shadow-soft"><span class="size-1.5 rounded-full bg-cyan-tech"></span> Accionar</span><span class="text-ink-300">→</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-3 py-1.5 text-[13px] font-medium text-ink-800 shadow-soft"><span class="size-1.5 rounded-full bg-cyan-tech"></span> Medir</span>
           </div>
         </div>
       </div>
@@ -223,15 +219,388 @@
       <div class="container-page">
         <div class="reveal max-w-2xl">
           <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Soluciones</p>
-          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Una plataforma, once verticales urbanas</h2>
-          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Cada módulo se integra al mismo centro de control. Activá los que tu ciudad necesita hoy y sumá verticales a medida que la operación crece.</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Una plataforma, todas las verticales urbanas</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Cada módulo comparte el mismo mapa y motor de alertas. Activá los que tu ciudad necesita hoy y sumá el resto a medida que la operación crece.</p>
         </div>
         <div id="solutions-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
-        <p class="mt-8 text-sm text-ink-600">Todos los módulos comparten el mismo mapa, motor de alertas, reglas de SLA y auditoría. No son productos sueltos: son capas de una misma operación.</p>
+        <p class="mt-8 text-sm text-ink-600">No son productos sueltos: son capas de una misma operación.</p>
       </div>
     </section>
 
-    <!-- ======================== CENTRO DE CONTROL ======================== -->
+    <div id="dispositivos" class="scroll-mt-24" aria-hidden="true"></div>
+
+    <!-- ======================== SEMÁFOROS INTELIGENTES ======================== -->
+    <section id="semaforos" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal">
+            <p class="eyebrow mb-4"><span class="size-1.5 rounded-full bg-current"></span> Movilidad · ITS</p>
+            <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Semáforos inteligentes</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">Cruces conectados con regulación adaptativa: la fase cambia según la demanda real, no por un plan fijo. Prioridad a transporte público y emergencias, y alertas de fallas de inmediato.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Regulación adaptativa por conteo y detección de congestión</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Onda verde y prioridad para buses, ambulancias y patrulleros</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Estado de cada controlador en vivo, con alertas de falla</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Tiempos de viaje y demora media por corredor</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-ink-200 bg-ink-50/70 p-3.5 text-[13px] leading-relaxed text-ink-700">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-brand/10 text-[11px] font-bold text-brand">↗</span>
+              <span>Cada cruce aparece en el mapa del Centro de Control con estado, eventos y SLA — y una falla dispara una orden de trabajo para la cuadrilla más cercana.</span>
+            </div>
+            <button data-scroll="control" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-cyan-700">Verlo en el centro de control <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+                <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-600">semaforos.ittel · cruce Callao & Corrientes</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-600 sm:inline">adaptativo · en línea</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1.5fr_1fr] sm:p-4">
+                  <div class="relative aspect-square overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[260px]">
+                    <svg viewBox="0 0 200 200" class="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <rect width="200" height="200" fill="#081a33"/>
+                      <rect x="0" y="0" width="78" height="78" fill="#0c2447"/><rect x="122" y="0" width="78" height="78" fill="#0c2447"/><rect x="0" y="122" width="78" height="78" fill="#0c2447"/><rect x="122" y="122" width="78" height="78" fill="#0c2447"/>
+                      <rect x="78" y="0" width="44" height="200" fill="#16315a"/><rect x="0" y="78" width="200" height="44" fill="#16315a"/>
+                      <line x1="100" y1="0" x2="100" y2="78" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.5"/>
+                      <line x1="100" y1="122" x2="100" y2="200" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.5"/>
+                      <line x1="0" y1="100" x2="78" y2="100" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.5"/>
+                      <line x1="122" y1="100" x2="200" y2="100" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.5"/>
+                      <path d="M100 4 L100 78 L100 122 L100 196" fill="none" stroke="#10b981" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.7"/>
+                      <rect x="80" y="74" width="40" height="3" fill="#fff" opacity="0.7"/><rect x="80" y="123" width="40" height="3" fill="#fff" opacity="0.7"/><rect x="74" y="80" width="3" height="40" fill="#fff" opacity="0.7"/><rect x="123" y="80" width="3" height="40" fill="#fff" opacity="0.7"/>
+                      <rect x="92" y="20" width="16" height="28" rx="3" fill="#22d3ee" opacity="0.85"/>
+                      <rect x="20" y="92" width="28" height="16" rx="3" fill="#94a3b8" opacity="0.6"/>
+                      <rect x="156" y="92" width="30" height="16" rx="3" fill="#10b981"/>
+                    </svg>
+                    <span class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-black/55 px-2 py-0.5 text-[9px] font-semibold text-white backdrop-blur">N</span>
+                    <span class="absolute left-1/2 top-9 -translate-x-1/2 inline-flex size-4 items-center justify-center rounded-full ring-2 ring-white/80" style="background:#ef4444;box-shadow:0 0 10px #ef4444"></span>
+                    <span class="absolute left-1/2 bottom-9 -translate-x-1/2 inline-flex size-4 items-center justify-center rounded-full ring-2 ring-white/80" style="background:#10b981;box-shadow:0 0 10px #10b981"></span>
+                    <span class="absolute left-9 top-1/2 -translate-y-1/2 inline-flex size-4 items-center justify-center rounded-full ring-2 ring-white/80" style="background:#f59e0b;box-shadow:0 0 10px #f59e0b"></span>
+                    <span class="absolute right-9 top-1/2 -translate-y-1/2 inline-flex size-4 items-center justify-center rounded-full ring-2 ring-white/80" style="background:#ef4444;box-shadow:0 0 10px #ef4444"></span>
+                    <div class="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur"><i data-lucide="bus-front" class="size-3 text-ops"></i> Bus prioritario · onda verde</div>
+                  </div>
+                  <div class="flex flex-col gap-2.5">
+                    <div class="flex items-center justify-between rounded-lg border border-ink-200 bg-white px-3 py-2"><span class="flex items-center gap-2 text-[12px] font-semibold text-ink-800"><span class="size-2.5 rounded-full bg-alert"></span> Acceso N</span><span class="nums text-[11px] text-ink-600">Rojo · 22s</span></div>
+                    <div class="flex items-center justify-between rounded-lg border border-ink-200 bg-white px-3 py-2"><span class="flex items-center gap-2 text-[12px] font-semibold text-ink-800"><span class="size-2.5 rounded-full bg-ops"></span> Acceso S</span><span class="nums text-[11px] text-ink-600">Verde · 18s</span></div>
+                    <div class="flex items-center justify-between rounded-lg border border-ink-200 bg-white px-3 py-2"><span class="flex items-center gap-2 text-[12px] font-semibold text-ink-800"><span class="size-2.5 rounded-full bg-amber-500"></span> Acceso E</span><span class="nums text-[11px] text-ink-600">Amarillo · 3s</span></div>
+                    <div class="flex items-center justify-between rounded-lg border border-ink-200 bg-white px-3 py-2"><span class="flex items-center gap-2 text-[12px] font-semibold text-ink-800"><span class="size-2.5 rounded-full bg-alert"></span> Acceso O</span><span class="nums text-[11px] text-ink-600">Rojo · 22s</span></div>
+                    <div class="mt-1 rounded-lg bg-ops/10 p-3"><p class="flex items-center gap-1.5 text-[11px] font-semibold text-ops-dark"><i data-lucide="trending-down" class="size-3.5"></i> Demora media del corredor</p><p class="nums mt-1 text-2xl font-bold text-ink-900">-18%</p><p class="text-[10px] text-ink-600">vs. plan fijo · últimas 24h</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ALUMBRADO INTELIGENTE ======================== -->
+    <section id="alumbrado" class="h-section scroll-mt-24 bg-brand-deep text-ink-100">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal lg:order-2">
+            <p class="eyebrow dark mb-4"><span class="size-1.5 rounded-full bg-current"></span> Energía · IoT</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Alumbrado inteligente</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg">Luminarias conectadas que reportan su estado en tiempo real. Dimerización por horario, zona o evento, detección temprana de fallas y postes que sirven de infraestructura para sensores y cámaras.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Detección automática de fallas y consumo por punto de luz</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Dimerización por horario, zona o evento para ahorrar energía</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Mantenimiento preventivo con alertas antes del reclamo</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Postes como soporte IoT: cámaras, sensores y conectividad</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3.5 text-[13px] leading-relaxed text-ink-300">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-cyan-tech/20 text-[11px] font-bold text-cyan-glow">↗</span>
+              <span>Cada luminaria tiene ficha, estado y responsable en la plataforma. Una falla abre una orden de trabajo y la cuadrilla llega con la pieza correcta.</span>
+            </div>
+            <button data-scroll="auditoria" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-cyan-glow hover:text-white">Cómo se audita el mantenimiento <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal lg:order-1">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/30 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-white/10 bg-brand-dark shadow-lift ring-1 ring-white/5">
+                <div class="flex items-center justify-between border-b border-white/10 bg-black/20 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-300">alumbrado.ittel · corredor Av. Rivadavia</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-400 sm:inline">9.318 luminarias · 1 falla</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1.5fr_1fr] sm:p-4">
+                  <div class="relative aspect-[16/10] overflow-hidden rounded-xl sm:aspect-auto sm:min-h-[260px]" style="background:#050d1f">
+                    <svg viewBox="0 0 200 110" class="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <defs>
+                        <radialGradient id="lamp-on" cx="50%" cy="0%" r="60%"><stop offset="0%" stop-color="#fde68a" stop-opacity="0.9"/><stop offset="100%" stop-color="#fde68a" stop-opacity="0"/></radialGradient>
+                        <radialGradient id="lamp-dim" cx="50%" cy="0%" r="45%"><stop offset="0%" stop-color="#fcd34d" stop-opacity="0.5"/><stop offset="100%" stop-color="#fcd34d" stop-opacity="0"/></radialGradient>
+                      </defs>
+                      <rect width="200" height="110" fill="#050d1f"/>
+                      <rect x="0" y="78" width="200" height="32" fill="#0b1a36"/>
+                      <line x1="0" y1="94" x2="200" y2="94" stroke="#1e3a5f" stroke-width="0.8" stroke-dasharray="6 6"/>
+                      <g><line x1="14" y1="20" x2="14" y2="78" stroke="#334155" stroke-width="1"/><line x1="14" y1="20" x2="20" y2="18" stroke="#334155" stroke-width="1"/><ellipse cx="20" cy="22" rx="22" ry="26" fill="url(#lamp-on)"/><circle cx="20" cy="19" r="1.6" fill="#fde68a"/></g>
+                      <g><line x1="32" y1="20" x2="32" y2="78" stroke="#334155" stroke-width="1"/><line x1="32" y1="20" x2="38" y2="18" stroke="#334155" stroke-width="1"/><ellipse cx="38" cy="22" rx="16" ry="18" fill="url(#lamp-dim)"/><circle cx="38" cy="19" r="1.6" fill="#fcd34d"/></g>
+                      <g><line x1="50" y1="20" x2="50" y2="78" stroke="#334155" stroke-width="1"/><line x1="50" y1="20" x2="56" y2="18" stroke="#334155" stroke-width="1"/><circle cx="56" cy="19" r="3" fill="none" stroke="#ef4444" stroke-width="0.6"/><text x="56" y="14" font-size="3" fill="#ef4444" text-anchor="middle" font-family="Inter">!</text></g>
+                      <g><line x1="68" y1="20" x2="68" y2="78" stroke="#334155" stroke-width="1"/><line x1="68" y1="20" x2="74" y2="18" stroke="#334155" stroke-width="1"/><ellipse cx="74" cy="22" rx="22" ry="26" fill="url(#lamp-on)"/><circle cx="74" cy="19" r="1.6" fill="#fde68a"/></g>
+                      <g><line x1="86" y1="20" x2="86" y2="78" stroke="#334155" stroke-width="1"/><line x1="86" y1="20" x2="92" y2="18" stroke="#334155" stroke-width="1"/><ellipse cx="92" cy="22" rx="16" ry="18" fill="url(#lamp-dim)"/><circle cx="92" cy="19" r="1.6" fill="#fcd34d"/></g>
+                    </svg>
+                    <div class="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">Modo noche · dimerización activa</div>
+                  </div>
+                  <div class="flex flex-col gap-2.5">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-3"><p class="flex items-center gap-1.5 text-[11px] font-semibold text-cyan-glow"><i data-lucide="zap" class="size-3.5"></i> Ahorro energético</p><p class="nums mt-1 text-2xl font-bold text-white">-38%</p><p class="text-[10px] text-ink-400">con dimerización por evento</p></div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-3"><p class="flex items-center gap-1.5 text-[11px] font-semibold text-ink-300"><i data-lucide="lightbulb" class="size-3.5 text-ops"></i> Operativas</p><p class="nums mt-1 text-2xl font-bold text-white">99,2%</p><p class="text-[10px] text-ink-400">9.317 / 9.318 luminarias</p></div>
+                    <div class="flex items-center gap-2 rounded-lg border border-alert/30 bg-alert/10 p-3"><i data-lucide="triangle-alert" class="size-4 text-alert"></i><div class="leading-tight"><p class="text-[12px] font-semibold text-white">LUM-478 sin luz</p><p class="text-[10px] text-ink-300">OT-2207 · cuadrilla L-1 en camino</p></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CÁMARAS INTELIGENTES ======================== -->
+    <section id="camaras" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal">
+            <p class="eyebrow mb-4"><span class="size-1.5 rounded-full bg-current"></span> Operación · Analítica de video</p>
+            <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Cámaras inteligentes</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">Cámaras con analítica de video integradas al mapa: detectan incidentes, objetos abandonados, acumulación de personas, humo u obstrucciones. Evidencia visual para la operación, no vigilancia invasiva.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Detección de incidentes, objetos, acumulación y humo</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Conteo vehicular y peatonal por zona y horario</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Zonas escolares, gastronómicas, turísticas y de carga</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Cada evento genera evidencia visual y alerta en el mapa</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-ink-200 bg-ink-50/70 p-3.5 text-[13px] leading-relaxed text-ink-700">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-brand/10 text-[11px] font-bold text-brand">↗</span>
+              <span>La analítica dispara un evento que cae en el Centro de Control con vídeo de evidencia, posición y cuadrilla sugerida — igual que un sensor o un reclamo.</span>
+            </div>
+            <button data-scroll="control" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-cyan-700">Ver el centro de control <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+                <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-600">camaras.ittel · cámara 217 · Comuna 3</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-600 sm:inline">analítica · en vivo</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1.6fr_1fr] sm:p-4">
+                  <div class="relative aspect-[16/10] overflow-hidden rounded-xl sm:aspect-auto sm:min-h-[260px]" style="background:radial-gradient(circle at 50% 30%,#13294d,transparent 60%),linear-gradient(180deg,#0a1426 0%,#0a1426 55%,#0b1a36 55%,#0b1a36 100%)">
+                    <div class="absolute inset-x-0 top-[55%] h-px bg-white/10"></div>
+                    <div class="absolute left-[12%] top-[30%] h-[28%] w-[16%] rounded border-2" style="border-color:#22d3ee"><span class="absolute -top-4 left-0 whitespace-nowrap rounded-sm px-1 text-[9px] font-semibold text-white" style="background:#22d3ee">Vehículo · 1</span></div>
+                    <div class="absolute left-[44%] top-[34%] h-[24%] w-[14%] rounded border-2" style="border-color:#22d3ee"><span class="absolute -top-4 left-0 whitespace-nowrap rounded-sm px-1 text-[9px] font-semibold text-white" style="background:#22d3ee">Vehículo · 2</span></div>
+                    <div class="absolute left-[70%] top-[60%] h-[30%] w-[20%] rounded border-2" style="border-color:#f59e0b"><span class="absolute -top-4 left-0 whitespace-nowrap rounded-sm px-1 text-[9px] font-semibold text-white" style="background:#f59e0b">Acumulación</span></div>
+                    <div class="absolute left-[30%] top-[58%] h-[34%] w-[18%] rounded border-2" style="border-color:#ef4444"><span class="absolute -top-4 left-0 whitespace-nowrap rounded-sm px-1 text-[9px] font-semibold text-white" style="background:#ef4444">Objeto</span></div>
+                    <div class="absolute left-2.5 top-2.5 inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur"><span class="size-1.5 rounded-full bg-alert animate-pulse-soft"></span> REC · 09:47:12</div>
+                    <div class="absolute right-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">1080p · 30fps</div>
+                  </div>
+                  <div class="flex flex-col gap-2.5">
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-ink-500">Eventos detectados</p>
+                    <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white p-2.5"><span class="dot bg-alert"></span><div class="min-w-0 flex-1"><p class="truncate text-[12px] font-semibold text-ink-800">Objeto en vía pública</p><p class="text-[10px] text-ink-600">hace 09:42</p></div><span class="nums text-sm font-bold text-ink-900">1</span></div>
+                    <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white p-2.5"><span class="dot bg-amber-500"></span><div class="min-w-0 flex-1"><p class="truncate text-[12px] font-semibold text-ink-800">Acumulación de personas</p><p class="text-[10px] text-ink-600">hace 09:38</p></div><span class="nums text-sm font-bold text-ink-900">12</span></div>
+                    <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white p-2.5"><span class="dot bg-cyan-tech"></span><div class="min-w-0 flex-1"><p class="truncate text-[12px] font-semibold text-ink-800">Conteo vehicular</p><p class="text-[10px] text-ink-600">última 1h</p></div><span class="nums text-sm font-bold text-ink-900">284</span></div>
+                    <div class="mt-1 flex items-center gap-2 rounded-lg bg-cyan-tech/10 p-3"><i data-lucide="cctv" class="size-4 text-cyan-tech"></i><p class="text-[11px] leading-snug text-ink-700"><strong class="text-ink-900">1.286 cámaras</strong> integradas al mapa operativo.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== RESIDUOS INTELIGENTES ======================== -->
+    <section id="residuos" class="h-section scroll-mt-24 bg-ink-50/60">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal lg:order-2">
+            <p class="eyebrow mb-4"><span class="size-1.5 rounded-full bg-current"></span> Higiene urbana · Sensores</p>
+            <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Residuos inteligentes</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">Sensores ultrasónicos de llenado en cada contenedor —tipo Sensoneo— más sensores de olor y temperatura. La plataforma calcula rutas optimizadas para recolectar sólo donde hace falta.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Sensores de llenado, olor y temperatura por contenedor</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Rutas de recolección optimizadas según llenado real</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Detección de desbordes y puntos críticos en mapa</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Control de cumplimiento por punto y por cuadrilla</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-ink-200 bg-white p-3.5 text-[13px] leading-relaxed text-ink-700">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-brand/10 text-[11px] font-bold text-brand">↗</span>
+              <span>El sensor reporta llenado, la plataforma arma la ruta y la cuadrilla la ejecuta con evidencia GPS y foto — todo trazado en el mismo mapa.</span>
+            </div>
+            <button data-scroll="cuadrillas" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-cyan-700">Ver seguimiento de cuadrillas <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal lg:order-1">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+                <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-600">residuos.ittel · ruta optimizada · Comuna 1</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-600 sm:inline">1.204 contenedores</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1fr_1.3fr] sm:p-4">
+                  <div class="flex flex-col gap-2.5">
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-ink-500">Nivel de llenado</p>
+                    <div id="waste-bins"></div>
+                    <script>
+                      (function(){
+                        var bins = [
+                          { id: "C-091", pct: 92, color: "#ef4444" },
+                          { id: "C-088", pct: 64, color: "#f59e0b" },
+                          { id: "C-072", pct: 31, color: "#10b981" },
+                          { id: "C-069", pct: 48, color: "#f59e0b" },
+                          { id: "C-054", pct: 18, color: "#10b981" },
+                        ];
+                        document.getElementById("waste-bins").innerHTML = bins.map(function(b){
+                          return '<div class="rounded-lg border border-ink-200 bg-white p-2.5"><div class="flex items-center justify-between"><span class="flex items-center gap-1.5 text-[12px] font-semibold text-ink-800"><i data-lucide="trash-2" class="size-3.5 text-ink-600"></i> '+b.id+'</span><span class="nums text-[12px] font-bold text-ink-900">'+b.pct+'%</span></div><div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink-100"><div class="h-full rounded-full" style="width:'+b.pct+'%;background:'+b.color+'"></div></div></div>';
+                        }).join("");
+                      })();
+                    </script>
+                  </div>
+                  <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[260px]">
+                    <svg viewBox="0 0 200 150" class="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <rect width="200" height="150" fill="#081a33"/>
+                      <defs><pattern id="wgrid" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0H0V14" fill="none" stroke="#16356a" stroke-width="0.4"/></pattern></defs>
+                      <rect width="200" height="150" fill="url(#wgrid)" opacity="0.6"/>
+                      <path d="M20 30 L60 40 L70 80 L120 70 L130 110 L180 120" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4"/>
+                      <g><circle cx="20" cy="30" r="3.2" fill="#10b981"/><circle cx="20" cy="30" r="1.2" fill="#fff"/></g>
+                      <g><circle cx="60" cy="40" r="3.2" fill="#10b981"/><circle cx="60" cy="40" r="1.2" fill="#fff"/></g>
+                      <g><circle cx="70" cy="80" r="3.2" fill="#f59e0b"/><circle cx="70" cy="80" r="1.2" fill="#fff"/></g>
+                      <g><circle cx="120" cy="70" r="3.2" fill="#f59e0b"/><circle cx="120" cy="70" r="1.2" fill="#fff"/></g>
+                      <g><circle cx="130" cy="110" r="3.2" fill="#ef4444"/><circle cx="130" cy="110" r="1.2" fill="#fff"/></g>
+                      <g><circle cx="180" cy="120" r="3.2" fill="#10b981"/><circle cx="180" cy="120" r="1.2" fill="#fff"/></g>
+                    </svg>
+                    <div class="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">Ruta optimizada · 6 paradas</div>
+                    <div class="absolute bottom-2.5 left-2.5 flex flex-wrap items-center gap-3 rounded-md bg-black/55 px-2.5 py-1 text-[10px] text-white backdrop-blur"><span class="flex items-center gap-1"><span class="size-2 rounded-full bg-ops"></span> Ok</span><span class="flex items-center gap-1"><span class="size-2 rounded-full bg-amber-500"></span> Medio</span><span class="flex items-center gap-1"><span class="size-2 rounded-full bg-alert"></span> Crítico</span></div>
+                    <div class="absolute right-2.5 bottom-2.5 rounded-md bg-ops px-2 py-1 text-[10px] font-bold text-white" style="background:rgba(16,185,129,0.9)"><i data-lucide="navigation" class="inline size-3"></i> -30% km recorridos</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CUADRILLAS EN TIEMPO REAL ======================== -->
+    <section id="cuadrillas" class="h-section scroll-mt-24 bg-brand-deep text-ink-100">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal">
+            <p class="eyebrow dark mb-4"><span class="size-1.5 rounded-full bg-current"></span> Operación · Trazabilidad</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Cuadrillas en tiempo real</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg">Cada cuadrilla visible en el mapa con su tarea, estado, ETA y evidencia. El supervisor sabe qué pasa en la calle sin llamar a nadie, y el cumplimiento se documenta solo.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Ubicación GPS y estado de cada cuadrilla en vivo</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Tareas priorizadas, ETA y SLA por orden de trabajo</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Evidencia fotográfica antes/después al cerrar la tarea</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-200"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-glow"></span> Productividad, recorridos y tiempos por cuadrilla</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3.5 text-[13px] leading-relaxed text-ink-300">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-cyan-tech/20 text-[11px] font-bold text-cyan-glow">↗</span>
+              <span>Una alerta del Centro de Control se asigna a la cuadrilla más cercana, que confirma llegada, sube evidencia y cierra — todo queda en el historial del activo.</span>
+            </div>
+            <button data-scroll="auditoria" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-cyan-glow hover:text-white">Ver la ficha del activo <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/30 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-white/10 bg-brand-dark shadow-lift ring-1 ring-white/5">
+                <div class="flex items-center justify-between border-b border-white/10 bg-black/20 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-300">cuadrillas.ittel · despacho operativo</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-400 sm:inline">6 activas · en línea</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1.4fr_1fr] sm:p-4">
+                  <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-brand-deep sm:aspect-auto sm:min-h-[280px]">
+                    <div id="crew-map" class="absolute inset-0"></div>
+                    <div class="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">Seguimiento GPS · tiempo real</div>
+                    <div class="absolute right-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] text-white backdrop-blur"><i data-lucide="radio" class="inline size-3 text-cyan-glow"></i> 6 cuadrillas</div>
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-ink-400">Tareas en curso</p>
+                    <div id="crew-tasks"></div>
+                    <script>
+                      (function(){
+                        var tasks = [
+                          { id: "M-7", t: "OT-2207 · bache", z: "La Boca", st: "En sitio", status: "ok", eta: "" },
+                          { id: "L-1", t: "Reemplazo driver", z: "Balvanera", st: "En camino", status: "warn", eta: "14 min" },
+                          { id: "T-3", t: "Regulación cruce", z: "Centro", st: "Activa", status: "info", eta: "" },
+                          { id: "H-4", t: "Sumidero crítico", z: "Caballito", st: "Pendiente", status: "alert", eta: "22 min" },
+                        ];
+                        var chip = { ok: "border-ops/30 bg-ops/10 text-ops-dark", warn: "border-amber-500/40 bg-amber-500/10 text-amber-700", alert: "border-alert/30 bg-alert/10 text-alert", info: "border-cyan-tech/30 bg-cyan-tech/10 text-cyan-tech" };
+                        var dot = { ok: "bg-ops", warn: "bg-amber-500", alert: "bg-alert", info: "bg-cyan-tech" };
+                        document.getElementById("crew-tasks").innerHTML = tasks.map(function(t){
+                          var etaHtml = t.eta ? '<span>·</span><i data-lucide="clock" class="size-3"></i> ETA '+t.eta : '';
+                          return '<div class="rounded-lg border border-white/10 bg-white/5 p-2.5"><div class="flex items-center justify-between"><span class="flex items-center gap-1.5 text-[12px] font-semibold text-white"><span class="dot '+dot[t.status]+'"></span> '+t.id+'</span><span class="rounded-full border px-1.5 py-0.5 text-[10px] font-semibold '+chip[t.status]+'">'+t.st+'</span></div><p class="mt-1 truncate text-[11px] text-ink-300">'+t.t+'</p><p class="mt-0.5 flex items-center gap-1 text-[10px] text-ink-400"><i data-lucide="map-pin" class="size-3"></i> '+t.z+etaHtml+'</p></div>';
+                        }).join("");
+                      })();
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== PEAJES Y ACCESOS ======================== -->
+    <section id="peajes" class="h-section scroll-mt-24 bg-ink-50/60">
+      <div class="container-page">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal lg:order-2">
+            <p class="eyebrow mb-4"><span class="size-1.5 rounded-full bg-current"></span> Movilidad · Peajes (alianza SICE)</p>
+            <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Peajes y accesos inteligentes</h2>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">Gantries con lectura de patentes (ANPR) y telepeaje, control de flotas y cumplimiento por corredor. La misma plataforma que opera la ciudad también audita los accesos y el cobro.</p>
+            <ul class="mt-6 flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Lectura de patentes y telepeaje sin detener el tránsito</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Control de flotas, excesos y fraude por corredor</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Conteo y clasificación vehicular por horario</li>
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-tech"></span> Cumplimiento contractual y reportes de auditoría</li>
+            </ul>
+            <div class="mt-6 flex items-start gap-2.5 rounded-xl border border-ink-200 bg-white p-3.5 text-[13px] leading-relaxed text-ink-700">
+              <span class="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md bg-brand/10 text-[11px] font-bold text-brand">↗</span>
+              <span>Cada lectura y cada evento del corredor se suman al Centro de Control, con la misma trazabilidad que un semáforo o un reclamo ciudadano.</span>
+            </div>
+            <button data-scroll="control" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-cyan-700">Ver el centro de control <i data-lucide="arrow-right" class="size-4"></i></button>
+          </div>
+          <div class="reveal lg:order-1">
+            <div class="relative">
+              <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
+              <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+                <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+                  <div class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-alert/70"></span><span class="size-2.5 rounded-full bg-amber-500/70"></span><span class="size-2.5 rounded-full bg-ops/70"></span><span class="ml-2 text-xs font-semibold text-ink-600">peajes.ittel · corredor norte · gantry 04</span></div>
+                  <span class="hidden text-[11px] font-medium text-ink-600 sm:inline">ANPR + telepeaje</span>
+                </div>
+                <div class="grid gap-3 p-3 sm:grid-cols-[1.5fr_1fr] sm:p-4">
+                  <div class="relative aspect-[16/10] overflow-hidden rounded-xl sm:aspect-auto sm:min-h-[260px]" style="background:#0a1426">
+                    <svg viewBox="0 0 200 120" class="absolute inset-0 size-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <rect width="200" height="120" fill="#0a1426"/>
+                      <rect width="200" height="60" fill="#0e2547"/>
+                      <rect x="0" y="60" width="200" height="60" fill="#0b1a36"/>
+                      <line x1="0" y1="80" x2="200" y2="80" stroke="#1e3a5f" stroke-width="0.6" stroke-dasharray="5 5"/>
+                      <line x1="0" y1="100" x2="200" y2="100" stroke="#1e3a5f" stroke-width="0.6" stroke-dasharray="5 5"/>
+                      <rect x="80" y="20" width="40" height="6" rx="1" fill="#334155"/>
+                      <rect x="84" y="26" width="3" height="40" fill="#334155"/><rect x="113" y="26" width="3" height="40" fill="#334155"/>
+                      <rect x="88" y="26" width="6" height="4" rx="1" fill="#22d3ee"/><rect x="100" y="26" width="6" height="4" rx="1" fill="#22d3ee"/><rect x="110" y="26" width="6" height="4" rx="1" fill="#22d3ee"/>
+                      <circle cx="92" cy="40" r="1.6" fill="#10b981"/><circle cx="103" cy="40" r="1.6" fill="#10b981"/><circle cx="113" cy="40" r="1.6" fill="#f59e0b"/>
+                      <rect x="86" y="86" width="20" height="12" rx="2" fill="#22d3ee" opacity="0.9"/>
+                      <rect x="86" y="82" width="20" height="6" rx="2" fill="#22d3ee" opacity="0.7"/>
+                      <rect x="89" y="98" width="4" height="3" fill="#0a1426"/><rect x="99" y="98" width="4" height="3" fill="#0a1426"/>
+                      <line x1="100" y1="30" x2="96" y2="92" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.8"/>
+                    </svg>
+                    <div class="absolute left-2.5 top-2.5 rounded-md bg-black/55 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">Gantry 04 · 3 manos · telepeaje</div>
+                    <div class="absolute bottom-2.5 left-2.5 rounded-md px-2 py-1 text-[10px] font-bold text-white" style="background:rgba(16,185,129,0.9)"><i data-lucide="check-circle-2" class="inline size-3"></i> Patente leída · AB123CD</div>
+                  </div>
+                  <div class="flex flex-col gap-2.5">
+                    <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="flex items-center gap-1.5 text-[11px] font-semibold text-ink-600"><i data-lucide="gauge" class="size-3.5 text-cyan-tech"></i> Tránsito · hoy</p><p class="nums mt-1 text-2xl font-bold text-ink-900">28.461</p><p class="text-[10px] text-ink-600">vehículos · 4 corredores</p></div>
+                    <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="flex items-center gap-1.5 text-[11px] font-semibold text-ink-600"><i data-lucide="activity" class="size-3.5 text-ops"></i> Lecturas válidas</p><p class="nums mt-1 text-2xl font-bold text-ink-900">99,6%</p><p class="text-[10px] text-ink-600">ANPR + telepeaje</p></div>
+                    <div class="flex items-center gap-2 rounded-lg border border-cyan-tech/30 bg-cyan-tech/10 p-3"><i data-lucide="waypoints" class="size-4 text-cyan-tech"></i><p class="text-[11px] leading-snug text-ink-700"><strong class="text-ink-900">Alianza SICE</strong> · ITS, peaje y centros de control.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="control" class="h-section scroll-mt-24 relative overflow-hidden bg-brand-deep text-ink-100">
       <div class="pointer-events-none absolute inset-0 grid-line-bg opacity-40" aria-hidden="true"></div>
       <div class="pointer-events-none absolute -left-20 top-10 size-[400px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden="true"></div>
@@ -407,13 +776,6 @@
             </div>
           </div>
         </div>
-
-        <div class="reveal mt-8">
-          <div class="flex items-center gap-3 rounded-xl border border-ink-200 bg-ink-50/60 p-4 text-sm text-ink-700">
-            <i data-lucide="message-square-warning" class="size-5 shrink-0 text-cyan-tech"></i>
-            El reclamo ciudadano funciona como un <strong class="text-ink-900">sensor humano</strong> de la ciudad: georreferenciado, clasificado y conectado a la operación.
-          </div>
-        </div>
       </div>
     </section>
 
@@ -421,9 +783,9 @@
     <section id="auditoria" class="h-section scroll-mt-24 bg-ink-50/60">
       <div class="container-page">
         <div class="reveal max-w-2xl">
-          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Mantenimiento y auditoría urbana</p>
-          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Cada elemento de la ciudad puede tener ficha, estado, historial y responsable</h2>
-          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Activos georreferenciados, órdenes de trabajo, inspecciones, cuadrillas, evidencia fotográfica y trazabilidad completa para auditar el servicio y planificar la mejora continua.</p>
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Mantenimiento y auditoría</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Cada activo urbano con ficha, estado e historial</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Activos georreferenciados, órdenes de trabajo, evidencia fotográfica y trazabilidad completa para auditar el servicio y planificar la mejora continua.</p>
         </div>
 
         <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
@@ -501,40 +863,6 @@
             <span>Analizar</span><span class="text-ink-300">→</span>
             <span>Accionar</span><span class="text-ink-300">→</span>
             <span>Medir</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== ARQUITECTURA ======================== -->
-    <section id="arquitectura" class="h-section scroll-mt-24 relative overflow-hidden bg-brand-deep text-ink-100">
-      <div class="pointer-events-none absolute inset-0 grid-line-bg opacity-30" aria-hidden="true"></div>
-      <div class="container-page relative">
-        <div class="reveal max-w-2xl">
-          <p class="eyebrow dark mb-3"><span class="size-1.5 rounded-full bg-current"></span> Arquitectura tecnológica</p>
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Una arquitectura por capas, abierta e integrable</h2>
-          <p class="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">Desde el dispositivo en la calle hasta el reporte de gestión, cada capa está diseñada para sumarse a la infraestructura existente sin reemplazarla.</p>
-        </div>
-        <div id="arch-layers" class="mt-12 space-y-3"></div>
-        <div class="reveal mt-8">
-          <p class="text-center text-sm text-ink-300">Plataforma agnóstica de hardware y proveedores. Se conecta con lo que la ciudad ya tiene y suma nuevas capas a su ritmo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================== CASOS DE USO ======================== -->
-    <section id="casos" class="h-section scroll-mt-24 bg-white">
-      <div class="container-page">
-        <div class="reveal max-w-2xl">
-          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Casos de uso</p>
-          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Pensada para distintos tipos de operador urbano</h2>
-          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">La misma plataforma se adapta al alcance y la escala de cada cliente, desde un municipio hasta un parque industrial o una concesionaria.</p>
-        </div>
-        <div id="use-cases-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
-        <div class="reveal mt-8">
-          <div class="flex items-center gap-3 rounded-xl border border-ink-200 bg-ink-50/60 p-4 text-sm text-ink-700">
-            <i data-lucide="shield-check" class="size-5 shrink-0 text-ops-dark"></i>
-            Cada caso se entrega con roles, auditoría y SLA configurables según el contrato y la operación del cliente.
           </div>
         </div>
       </div>
@@ -622,24 +950,23 @@
       <div class="pointer-events-none absolute -right-20 bottom-0 size-[420px] rounded-full bg-ops/10 blur-3xl" aria-hidden="true"></div>
       <div class="container-page relative">
         <div class="reveal mx-auto max-w-3xl text-center">
-          <p class="eyebrow dark center"><span class="size-1.5 rounded-full bg-ops"></span> Cierre</p>
+          <p class="eyebrow dark center"><span class="size-1.5 rounded-full bg-ops"></span> Hablemos de tu ciudad</p>
           <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            Smart City no es sumar pantallas.<br class="hidden sm:block" />
-            <span class="text-cyan-glow"> Es conectar la operación urbana para tomar mejores decisiones.</span>
+            Diseñemos un piloto <span class="text-cyan-glow">Smart City a tu medida</span>
           </h2>
           <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300">
-            Te mostramos la plataforma en acción y diseñamos un piloto Smart City a medida de tu municipio, concesionaria, parque industrial o barrio.
+            Te mostramos la plataforma en acción y armamos un piloto con los dispositivos y verticales que tu operación necesita hoy.
           </p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="mailto:smartcity@grupoittel.com" class="btn btn-primary">Solicitar una presentación <i data-lucide="arrow-right" class="size-4"></i></a>
-            <a href="mailto:smartcity@grupoittel.com" class="btn border border-white/20 bg-white/5 text-white hover:bg-white/10">Diseñar un piloto Smart City</a>
+            <a href="mailto:administracion@it-tel.com.ar" class="btn btn-primary">Solicitar una presentación <i data-lucide="arrow-right" class="size-4"></i></a>
+            <a href="mailto:administracion@it-tel.com.ar" class="btn border border-white/20 bg-white/5 text-white hover:bg-white/10">Diseñar un piloto Smart City</a>
           </div>
           <div class="mt-10 grid gap-3 sm:grid-cols-3">
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="mail" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Email</span></div><p class="mt-1.5 text-sm font-semibold text-white">smartcity@grupoittel.com</p></div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="phone" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Teléfono</span></div><p class="mt-1.5 text-sm font-semibold text-white">+54 11 0000-0000</p></div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="map-pin" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Oficina</span></div><p class="mt-1.5 text-sm font-semibold text-white">Buenos Aires, Argentina</p></div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="mail" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Email</span></div><p class="mt-1.5 text-sm font-semibold text-white">administracion@it-tel.com.ar</p></div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="phone" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Teléfono</span></div><p class="mt-1.5 text-sm font-semibold text-white">0810-345-ITTEL (4883)</p></div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="map-pin" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Oficina</span></div><p class="mt-1.5 text-sm font-semibold text-white">Av. Alicia Moreau de Justo 1930, CABA</p></div>
           </div>
-          <p class="mt-6 inline-flex items-center gap-2 text-xs text-ink-400"><i data-lucide="calendar-days" class="size-3.5"></i> Respuesta en 24 hs hábiles</p>
+          <p class="mt-6 inline-flex items-center gap-2 text-xs text-ink-400"><i data-lucide="calendar-days" class="size-3.5"></i> Respuesta en 24 hs hábiles · soporte 7x24</p>
         </div>
       </div>
     </section>
@@ -659,34 +986,34 @@
               <p class="text-[11px] font-semibold uppercase tracking-wider text-cyan-700">IT-TEL Smart City</p>
             </div>
           </div>
-          <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">Tecnología, conectividad e infraestructura urbana. Diseñamos, integramos y operamos plataformas Smart City para municipios, concesionarias y operadores de servicios públicos.</p>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">Tecnología, conectividad e infraestructura urbana. Diseñamos, integramos y operamos plataformas Smart City en alianza con SICE para municipios, concesionarias y operadores de servicios públicos.</p>
           <p class="mt-4 text-xs text-ink-600">© 2026 GRUPO ITTEL. Todos los derechos reservados.</p>
         </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Plataforma</p>
           <ul class="mt-4 space-y-2.5">
             <li><button data-scroll="plataforma" class="text-sm text-ink-600 hover:text-ink-900">Plataforma</button></li>
-            <li><button data-scroll="soluciones" class="text-sm text-ink-600 hover:text-ink-900">Soluciones</button></li>
+            <li><button data-scroll="dispositivos" class="text-sm text-ink-600 hover:text-ink-900">Dispositivos</button></li>
+            <li><button data-scroll="cuadrillas" class="text-sm text-ink-600 hover:text-ink-900">Cuadrillas</button></li>
             <li><button data-scroll="control" class="text-sm text-ink-600 hover:text-ink-900">Centro de control</button></li>
             <li><button data-scroll="tecnologia" class="text-sm text-ink-600 hover:text-ink-900">Tecnología</button></li>
-            <li><button data-scroll="casos" class="text-sm text-ink-600 hover:text-ink-900">Casos de uso</button></li>
             <li><button data-scroll="contacto" class="text-sm text-ink-600 hover:text-ink-900">Contacto</button></li>
           </ul>
         </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Soluciones</p>
           <ul class="mt-4 space-y-2.5 text-sm text-ink-600">
-            <li>Centro de control</li><li>Tránsito y semáforos</li><li>Alumbrado y residuos</li><li>Reclamos ciudadanos</li><li>Auditoría urbana</li>
+            <li>Semáforos inteligentes</li><li>Alumbrado inteligente</li><li>Cámaras inteligentes</li><li>Residuos y sensores</li><li>Cuadrillas en tiempo real</li><li>Peajes y accesos</li>
           </ul>
           <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-ink-600">Contacto</p>
           <ul class="mt-4 space-y-2.5 text-sm text-ink-600">
-            <li>smartcity@grupoittel.com</li><li>+54 11 0000-0000</li><li>Buenos Aires, Argentina</li>
+            <li>0810-345-ITTEL (4883)</li><li>administracion@it-tel.com.ar</li><li>Av. Alicia Moreau de Justo 1930, CABA</li>
           </ul>
         </div>
       </div>
       <div class="mt-10 flex flex-col items-start justify-between gap-3 border-t border-ink-200 pt-6 text-xs text-ink-600 sm:flex-row sm:items-center">
-        <p>Solución presentada por GRUPO ITTEL. Datos de demostración — no representan mediciones contractuales.</p>
-        <p class="flex items-center gap-2"><span class="dot bg-ops"></span> Sistema operativo · demo en línea</p>
+        <p>Solución presentada por GRUPO ITTEL en alianza con SICE. Datos de demostración — no representan mediciones contractuales.</p>
+        <p class="flex items-center gap-2"><span class="dot bg-ops"></span> En línea</p>
       </div>
     </div>
   </footer>

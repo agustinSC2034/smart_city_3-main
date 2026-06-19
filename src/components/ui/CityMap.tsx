@@ -30,7 +30,7 @@ const defaultNodes: MapNode[] = [
 ];
 
 // Road segments connecting nodes (by id pairs)
-const roads: [string, string][] = [
+const defaultRoads: [string, string][] = [
   ["n1", "n2"],
   ["n2", "n3"],
   ["n1", "n4"],
@@ -46,17 +46,20 @@ const roads: [string, string][] = [
 
 export function CityMap({
   nodes = defaultNodes,
+  roads: customRoads,
   className,
   showLabels = false,
   variant = "dark",
 }: {
   nodes?: MapNode[];
+  roads?: [string, string][];
   className?: string;
   showLabels?: boolean;
   variant?: "dark" | "light";
 }) {
   const id = useId();
-  const nodeById = (nid: string) => nodes.find((n) => n.id === nid)!;
+  const roads = customRoads ?? defaultRoads;
+  const nodeById = (nid: string) => nodes.find((n) => n.id === nid);
   const bg = variant === "dark" ? "#081a33" : "#f1f5f9";
   const roadStroke = variant === "dark" ? "#1e3a5f" : "#cbd5e1";
   const roadSoft = variant === "dark" ? "#142a4d" : "#e2e8f0";
@@ -107,6 +110,7 @@ export function CityMap({
         {roads.map(([a, b], i) => {
           const A = nodeById(a);
           const B = nodeById(b);
+          if (!A || !B) return null;
           return <line key={i} x1={A.x} y1={A.y} x2={B.x} y2={B.y} />;
         })}
       </g>
@@ -121,6 +125,7 @@ export function CityMap({
         {roads.map(([a, b], i) => {
           const A = nodeById(a);
           const B = nodeById(b);
+          if (!A || !B) return null;
           return <line key={`d-${i}`} x1={A.x} y1={A.y} x2={B.x} y2={B.y} />;
         })}
       </g>

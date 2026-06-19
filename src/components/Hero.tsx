@@ -2,7 +2,6 @@ import { ArrowRight, Radio, Activity, Users, Cloud, ArrowUpRight } from "lucide-
 import { motion, useReducedMotion } from "motion/react";
 import { CityMap } from "@/components/ui/CityMap";
 import { Sparkline } from "@/components/ui/Charts";
-import { heroIndicators } from "@/data/solutions";
 import { alerts } from "@/data/operations";
 import { statusStyles } from "@/components/ui/Card";
 import { cn } from "@/lib/cn";
@@ -18,50 +17,54 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-white pt-28 sm:pt-32"
+      className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-deep pt-24 sm:pt-28"
     >
-      {/* subtle background */}
-      <div className="pointer-events-none absolute inset-0 grid-dot-bg opacity-70" aria-hidden />
-      <div
-        className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-cyan-tech/10 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-40 top-40 size-[460px] rounded-full bg-brand/5 blur-3xl"
-        aria-hidden
-      />
+      {/* ===== Background: CABA image (drop file in /public) + skyline fallback + overlays ===== */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        {/* Skyline fallback (visible if the photo is missing) */}
+        <SkylineMock className="absolute inset-0" />
+        {/* Real photo layer — sits on top of the mock when present */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80"
+          style={{ backgroundImage: "url('/smart-city-caba-hero.png')" }}
+        />
+        {/* Audit & control tint + readability gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-deep/80 via-brand-deep/78 to-brand-deep/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(34,211,238,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 grid-line-bg opacity-20" />
+      </div>
 
-      <div className="container-page relative grid items-center gap-10 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28">
+      <div className="container-page relative grid items-center gap-10 pb-16 pt-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-24">
         {/* LEFT */}
         <div>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="eyebrow mb-5"
+            className="eyebrow mb-5 text-cyan-glow"
           >
             <span className="size-1.5 rounded-full bg-ops animate-pulse-soft" />
-            Smart City Platform · GRUPO ITTEL
+            Smart City Platform · GRUPO ITTEL · alianza SICE
           </motion.div>
 
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl font-extrabold leading-[1.07] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]"
+            className="text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.55rem]"
           >
-            Infraestructura urbana inteligente para ciudades que necesitan{" "}
-            <span className="text-brand">operar en tiempo real</span>
+            Ciudades inteligentes,{" "}
+            <span className="text-cyan-glow">operadas en tiempo real</span>
           </motion.h1>
 
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg"
+            className="mt-5 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg"
           >
-            Integramos sensores, cámaras, reclamos, cuadrillas, activos urbanos y datos
-            en una plataforma Smart City para monitorear, auditar y optimizar servicios
+            Semáforos, luminarias, cámaras, sensores, cuadrillas y reclamos integrados
+            en una sola plataforma para monitorear, auditar y optimizar los servicios
             públicos.
           </motion.p>
 
@@ -71,59 +74,25 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="mt-7 flex flex-wrap items-center gap-3"
           >
-            <button onClick={() => go("soluciones")} className="btn-primary">
+            <button onClick={() => go("dispositivos")} className="btn-primary">
               Ver soluciones
               <ArrowRight className="size-4" aria-hidden />
             </button>
-            <button onClick={() => go("control")} className="btn-secondary">
+            <button
+              onClick={() => go("control")}
+              className="btn border border-white/20 bg-white/5 text-white hover:bg-white/10"
+            >
               Explorar centro de control
             </button>
-          </motion.div>
-
-          <motion.ul
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-4"
-          >
-            {heroIndicators.map((h) => {
-              const s = statusStyles[h.status];
-              return (
-                <li
-                  key={h.label}
-                  className="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"
-                >
-                  <span className={cn("dot", s.dot)} />
-                  {h.label}
-                </li>
-              );
-            })}
-          </motion.ul>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.32 }}
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-600"
-          >
-            <span className="font-semibold uppercase tracking-wide text-ink-600">
-              Pensada para
-            </span>
-            <span>Municipios</span>
-            <span className="text-ink-300">·</span>
-            <span>Concesionarias</span>
-            <span className="text-ink-300">·</span>
-            <span>Parques industriales</span>
-            <span className="text-ink-300">·</span>
-            <span>Barrios cerrados</span>
-            <span className="text-ink-300">·</span>
-            <span>Servicios públicos</span>
           </motion.div>
         </div>
 
         {/* RIGHT - dashboard mock */}
         <DashboardMock />
       </div>
+
+      {/* bottom fade into next section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-deep to-transparent" aria-hidden />
     </section>
   );
 }
@@ -139,8 +108,8 @@ function DashboardMock() {
       transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       className="relative"
     >
-      <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden />
-      <div className="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+      <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/30 to-transparent blur-2xl" aria-hidden />
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-lift ring-1 ring-ink-200/60">
         {/* window bar */}
         <div className="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
           <div className="flex items-center gap-2">
@@ -328,5 +297,88 @@ function FloatingCard({
         <p className="text-[10px] text-ink-600">{sub}</p>
       </div>
     </motion.div>
+  );
+}
+
+/** Stylized dark city skyline used as a fallback hero background. */
+function SkylineMock({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMid slice"
+      className={className}
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#071a36" />
+          <stop offset="55%" stopColor="#0a2347" />
+          <stop offset="100%" stopColor="#040c1c" />
+        </linearGradient>
+        <radialGradient id="glow" cx="72%" cy="26%" r="42%">
+          <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+        </radialGradient>
+        <filter id="blur"><feGaussianBlur stdDeviation="6" /></filter>
+      </defs>
+      <rect width="1440" height="900" fill="url(#sky)" />
+      <rect width="1440" height="900" fill="url(#glow)" />
+
+      {/* distant haze */}
+      <g opacity="0.5" filter="url(#blur)">
+        <rect x="0" y="620" width="1440" height="280" fill="#0b2a55" />
+      </g>
+
+      {/* far buildings */}
+      <g fill="#0a2347" opacity="0.85">
+        <rect x="40" y="540" width="60" height="360" />
+        <rect x="120" y="500" width="48" height="400" />
+        <rect x="190" y="560" width="70" height="340" />
+        <rect x="290" y="470" width="54" height="430" />
+        <rect x="360" y="520" width="64" height="380" />
+        <rect x="460" y="490" width="44" height="410" />
+        <rect x="540" y="540" width="80" height="360" />
+        <rect x="650" y="450" width="58" height="450" />
+        <rect x="740" y="500" width="70" height="400" />
+        <rect x="840" y="470" width="50" height="430" />
+        <rect x="920" y="520" width="76" height="380" />
+        <rect x="1030" y="490" width="56" height="410" />
+        <rect x="1110" y="540" width="68" height="360" />
+        <rect x="1210" y="500" width="52" height="400" />
+        <rect x="1290" y="530" width="80" height="370" />
+        <rect x="1380" y="500" width="60" height="400" />
+      </g>
+
+      {/* near buildings with lit windows */}
+      <g fill="#06122a">
+        <rect x="0" y="640" width="120" height="260" />
+        <rect x="180" y="600" width="140" height="300" />
+        <rect x="380" y="620" width="110" height="280" />
+        <rect x="560" y="580" width="160" height="320" />
+        <rect x="780" y="610" width="130" height="290" />
+        <rect x="970" y="600" width="150" height="300" />
+        <rect x="1180" y="630" width="140" height="270" />
+        <rect x="1360" y="610" width="80" height="290" />
+      </g>
+      {/* lit windows */}
+      <g fill="#22d3ee" opacity="0.55">
+        {Array.from({ length: 120 }).map((_, i) => {
+          const x = (i % 20) * 72 + ((i % 3) * 18);
+          const y = 660 + Math.floor(i / 20) * 46 + ((i % 5) * 12);
+          return <rect key={i} x={x % 1440} y={y} width="5" height="7" />;
+        })}
+      </g>
+      <g fill="#f59e0b" opacity="0.5">
+        {Array.from({ length: 40 }).map((_, i) => {
+          const x = (i * 137) % 1440;
+          const y = 700 + ((i * 53) % 160);
+          return <rect key={i} x={x} y={y} width="5" height="7" />;
+        })}
+      </g>
+
+      {/* control-room scan line */}
+      <rect x="0" y="430" width="1440" height="2" fill="#22d3ee" opacity="0.25" />
+      <rect x="0" y="432" width="1440" height="14" fill="#22d3ee" opacity="0.05" />
+    </svg>
   );
 }

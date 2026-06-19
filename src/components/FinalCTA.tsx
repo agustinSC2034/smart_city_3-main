@@ -19,38 +19,38 @@ export function FinalCTA() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow justify-center text-cyan-glow">
               <span className="size-1.5 rounded-full bg-ops" />
-              Cierre
+              Hablemos de tu ciudad
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Smart City no es sumar pantallas.
-              <br className="hidden sm:block" />
-              <span className="text-cyan-glow">
-                {" "}Es conectar la operación urbana para tomar mejores decisiones.
-              </span>
+              Diseñemos un piloto{" "}
+              <span className="text-cyan-glow">Smart City a tu medida</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300">
-              Te mostramos la plataforma en acción y diseñamos un piloto Smart City a
-              medida de tu municipio, concesionaria, parque industrial o barrio.
+              Te mostramos la plataforma en acción y armamos un piloto con los dispositivos
+              y verticales que tu operación necesita hoy.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="mailto:smartcity@grupoittel.com" className="btn-primary">
+              <a href="mailto:administracion@it-tel.com.ar" className="btn-primary">
                 Solicitar una presentación
                 <ArrowRight className="size-4" />
               </a>
-              <a href="mailto:smartcity@grupoittel.com" className="btn-secondary !border-white/20 !bg-white/5 !text-white hover:!bg-white/10">
+              <a
+                href="mailto:administracion@it-tel.com.ar"
+                className="btn border border-white/20 bg-white/5 text-white hover:bg-white/10"
+              >
                 Diseñar un piloto Smart City
               </a>
             </div>
 
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              <ContactCard icon={Mail} label="Email" value="smartcity@grupoittel.com" />
-              <ContactCard icon={Phone} label="Teléfono" value="+54 11 0000-0000" />
-              <ContactCard icon={MapPin} label="Oficina" value="Buenos Aires, Argentina" />
+              <ContactCard icon={Mail} label="Email" value="administracion@it-tel.com.ar" />
+              <ContactCard icon={Phone} label="Teléfono" value="0810-345-ITTEL (4883)" />
+              <ContactCard icon={MapPin} label="Oficina" value="Av. Alicia Moreau de Justo 1930, CABA" />
             </div>
 
             <p className="mt-6 inline-flex items-center gap-2 text-xs text-ink-400">
-              <CalendarDays className="size-3.5" /> Respuesta en 24 hs hábiles
+              <CalendarDays className="size-3.5" /> Respuesta en 24 hs hábiles · soporte 7x24
             </p>
           </div>
         </Reveal>

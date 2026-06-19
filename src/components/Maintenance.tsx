@@ -44,9 +44,9 @@ export function Maintenance() {
     <SectionShell id="auditoria" className="bg-ink-50/60">
       <Reveal>
         <SectionHeading
-          eyebrow="Mantenimiento y auditoría urbana"
-          title="Cada elemento de la ciudad puede tener ficha, estado, historial y responsable"
-          description="Activos georreferenciados, órdenes de trabajo, inspecciones, cuadrillas, evidencia fotográfica y trazabilidad completa para auditar el servicio y planificar la mejora continua."
+          eyebrow="Mantenimiento y auditoría"
+          title="Cada activo urbano con ficha, estado e historial"
+          description="Activos georreferenciados, órdenes de trabajo, evidencia fotográfica y trazabilidad completa para auditar el servicio y planificar la mejora continua."
         />
       </Reveal>
 
