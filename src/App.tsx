@@ -8,12 +8,10 @@ import { CrewOperations } from "@/components/CrewOperations";
 import { EnvironmentalMonitoring } from "@/components/EnvironmentalMonitoring";
 import { IncidentCoordination } from "@/components/IncidentCoordination";
 import { Citizens } from "@/components/Citizens";
-import { Maintenance } from "@/components/Maintenance";
 import { HowItWorks } from "@/components/HowItWorks";
 import { BeforeAfter } from "@/components/BeforeAfter";
-import { Impact } from "@/components/Impact";
 import { Integrations } from "@/components/Integrations";
-import { FinalCTA } from "@/components/FinalCTA";
+import { WhyItTel } from "@/components/WhyItTel";
 import { Footer } from "@/components/Footer";
 
 export default function App() {
@@ -45,14 +43,12 @@ export default function App() {
         {/* Operación transversal */}
         <IncidentCoordination />
         <Citizens />
-        <Maintenance />
 
         {/* Cierre */}
         <HowItWorks />
         <BeforeAfter />
-        <Impact />
         <Integrations />
-        <FinalCTA />
+        <WhyItTel />
       </main>
       <Footer />
     </div>

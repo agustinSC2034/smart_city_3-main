@@ -5,6 +5,7 @@ export function SmartMobility() {
   return (
     <FeatureSection
       id="movilidad"
+      dark
       eyebrow="Movilidad · ITS"
       title="Movilidad y semáforos inteligentes"
       description="Medimos el tránsito, adaptamos los cruces y coordinamos corredores para mejorar la circulación, priorizar el transporte público y responder ante incidentes."

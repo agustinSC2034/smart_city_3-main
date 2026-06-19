@@ -20,7 +20,6 @@ export function SmartLighting() {
   return (
     <FeatureSection
       id="alumbrado"
-      dark
       mockSide="left"
       eyebrow="Energía · IoT"
       title="Alumbrado inteligente"
@@ -48,7 +47,7 @@ function LightingMock() {
     { x: 86, on: true, dim: true, alert: false },
   ];
   return (
-    <MockFrame title="alumbrado.ittel · corredor Av. Rivadavia" rightLabel="9.318 luminarias · 1 falla" dark>
+    <MockFrame title="alumbrado.ittel · corredor Av. Rivadavia" rightLabel="9.318 luminarias · 1 falla">
       <div className="grid gap-3 sm:grid-cols-[1.5fr_1fr]">
         {/* night street */}
         <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#050d1f] sm:aspect-auto sm:min-h-[260px]">
@@ -126,6 +125,8 @@ export function SmartCameras() {
   return (
     <FeatureSection
       id="camaras"
+      dark
+      mockSide="left"
       eyebrow="Operación · Analítica de video"
       title="Cámaras inteligentes"
       description="Cámaras con analítica de video integradas al mapa: detectan incidentes, objetos abandonados, acumulación de personas, humo u obstrucciones. Evidencia visual para la operación, no vigilancia invasiva."
@@ -353,7 +354,6 @@ export function SmartTolls() {
   return (
     <FeatureSection
       id="peajes"
-      className="bg-ink-50/60"
       mockSide="left"
       eyebrow="Movilidad · Peajes"
       title="Peajes y accesos inteligentes"
