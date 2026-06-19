@@ -224,16 +224,18 @@ function CoverSlide({ slide }: { slide: DeckSlide }) {
    2) STATEMENT — big text, minimal, dark or with image
    ============================================================ */
 function StatementSlide({ slide }: { slide: DeckSlide }) {
+  const light = slide.light;
   return (
-    <div className="relative flex h-dvh w-full items-center overflow-hidden">
-      <SlideBackground slide={slide} />
+    <div className={cn("relative flex h-dvh w-full items-center overflow-hidden", light ? "bg-ink-50" : "bg-brand-deep")}>
+      {light && <div className="absolute inset-0 grid-dot-bg opacity-40" aria-hidden />}
+      {!light && <SlideBackground slide={slide} />}
       <div className="relative z-10 mx-auto max-w-4xl px-8">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-glow">{slide.kicker}</p>
-        <h2 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <p className={cn("text-xs font-bold uppercase tracking-[0.18em]", light ? "text-cyan-700" : "text-cyan-glow")}>{slide.kicker}</p>
+        <h2 className={cn("mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl", light ? "text-ink-900" : "text-white")}>
           {slide.title}
         </h2>
         {slide.subtitle && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-200 sm:text-xl">
+          <p className={cn("mt-5 max-w-2xl text-lg leading-relaxed sm:text-xl", light ? "text-ink-600" : "text-ink-200")}>
             {slide.subtitle}
           </p>
         )}
@@ -242,7 +244,10 @@ function StatementSlide({ slide }: { slide: DeckSlide }) {
             {slide.points.map((p) => (
               <span
                 key={p}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-ink-200"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium",
+                  light ? "border-ink-200 bg-white text-ink-700 shadow-soft" : "border-white/15 bg-white/5 text-ink-200"
+                )}
               >
                 <span className="size-1.5 rounded-full bg-alert" /> {p}
               </span>
@@ -258,18 +263,25 @@ function StatementSlide({ slide }: { slide: DeckSlide }) {
    3) DIAGRAM — central diagram with nodes
    ============================================================ */
 function DiagramSlide({ slide }: { slide: DeckSlide }) {
+  const light = slide.light;
   return (
-    <div className="relative flex h-dvh w-full items-center justify-center overflow-hidden bg-brand-deep">
-      <div className="absolute inset-0 grid-line-bg opacity-15" aria-hidden />
-      <div className="absolute -left-20 top-10 size-[400px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden />
+    <div className={cn("relative flex h-dvh w-full items-center justify-center overflow-hidden", light ? "bg-ink-50" : "bg-brand-deep")}>
+      {light ? (
+        <div className="absolute inset-0 grid-dot-bg opacity-40" aria-hidden />
+      ) : (
+        <>
+          <div className="absolute inset-0 grid-line-bg opacity-15" aria-hidden />
+          <div className="absolute -left-20 top-10 size-[400px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden />
+        </>
+      )}
       <div className="relative z-10 w-full max-w-5xl px-8">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-glow">{slide.kicker}</p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <p className={cn("text-xs font-bold uppercase tracking-[0.18em]", light ? "text-cyan-700" : "text-cyan-glow")}>{slide.kicker}</p>
+          <h2 className={cn("mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl", light ? "text-ink-900" : "text-white")}>
             {slide.title}
           </h2>
           {slide.subtitle && (
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">
+            <p className={cn("mx-auto mt-4 max-w-2xl text-base leading-relaxed sm:text-lg", light ? "text-ink-600" : "text-ink-300")}>
               {slide.subtitle}
             </p>
           )}
@@ -277,41 +289,38 @@ function DiagramSlide({ slide }: { slide: DeckSlide }) {
 
         {/* Diagram content per slide */}
         <div className="mt-10">
-          {slide.id === "vision" && <VisionDiagram />}
-          {slide.id === "soluciones" && <SolutionsDiagram />}
-          {slide.id === "integracion" && <IntegrationDiagram />}
+          {slide.id === "vision" && <VisionDiagram light={light} />}
+          {slide.id === "soluciones" && <SolutionsDiagram light={light} />}
+          {slide.id === "integracion" && <IntegrationDiagram light={light} />}
         </div>
       </div>
     </div>
   );
 }
 
-function VisionDiagram() {
+function VisionDiagram({ light }: { light?: boolean }) {
+  const cardCls = light
+    ? "border-ink-200 bg-white text-ink-800 shadow-soft"
+    : "border-white/15 bg-white/5 text-white";
   return (
     <div className="flex flex-col items-center gap-8">
       {/* Sources */}
       <div className="flex flex-wrap items-center justify-center gap-3">
         {visionFlow.map(({ label, icon: Icon }) => (
-          <span
-            key={label}
-            className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white"
-          >
-            <Icon className="size-5 text-cyan-glow" /> {label}
+          <span key={label} className={cn("inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold", cardCls)}>
+            <Icon className="size-5 text-cyan-tech" /> {label}
           </span>
         ))}
       </div>
       {/* Arrow down */}
       <div className="flex flex-col items-center gap-2">
-        <div className="h-12 w-px bg-gradient-to-b from-cyan-glow to-ops" />
+        <div className="h-12 w-px bg-gradient-to-b from-cyan-tech to-ops" />
         <span className="rounded-full bg-ops/20 px-4 py-2 text-sm font-bold text-ops">Operación coordinada</span>
       </div>
       {/* Results */}
       <div className="flex flex-wrap items-center justify-center gap-3">
         {visionResult.map(({ label, icon: Icon }) => (
-          <span
-            key={label}
-            className="inline-flex items-center gap-2 rounded-xl border border-ops/30 bg-ops/10 px-5 py-3 text-base font-bold text-white"
-          >
+          <span key={label} className={cn("inline-flex items-center gap-2 rounded-xl border border-ops/30 bg-ops/10 px-5 py-3 text-base font-bold", light ? "text-ink-900" : "text-white")}>
             <Icon className="size-5 text-ops" /> {label}
           </span>
         ))}
@@ -320,12 +329,14 @@ function VisionDiagram() {
   );
 }
 
-function SolutionsDiagram() {
+function SolutionsDiagram({ light }: { light?: boolean }) {
   const radius = 180;
+  const coreCls = light ? "bg-brand ring-cyan-tech/20" : "bg-brand ring-cyan-tech/30";
+  const nodeCls = light ? "border-ink-200 bg-white shadow-card" : "border-white/15 bg-white/5 shadow-lg";
   return (
     <div className="relative mx-auto flex size-[400px] items-center justify-center">
       {/* Central core */}
-      <div className="absolute z-10 flex size-28 items-center justify-center rounded-full bg-brand text-center ring-4 ring-cyan-tech/30">
+      <div className={cn("absolute z-10 flex size-28 items-center justify-center rounded-full text-center ring-4", coreCls)}>
         <span className="text-sm font-bold text-white">Plataforma<br />Smart City</span>
       </div>
       {/* Orbiting nodes */}
@@ -339,17 +350,10 @@ function SolutionsDiagram() {
             className="absolute flex flex-col items-center gap-2"
             style={{ transform: `translate(${x}px, ${y}px)` }}
           >
-            <span className="inline-flex size-14 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-cyan-glow shadow-lg">
+            <span className={cn("inline-flex size-14 items-center justify-center rounded-2xl border text-cyan-tech", nodeCls)}>
               <Icon className="size-6" />
             </span>
-            <span className="text-xs font-semibold text-white/80">{label}</span>
-            {/* Connector line */}
-            <svg
-              className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: "50%", top: "50%", width: radius, height: 2, transform: `translate(${x > 0 ? -radius : 0}px, 0) rotate(${angle}deg)`, transformOrigin: x > 0 ? "left center" : "right center" }}
-            >
-              <line x1="0" y1="1" x2={radius} y2="1" stroke="rgba(34,211,238,0.2)" strokeWidth="1" strokeDasharray="3 3" />
-            </svg>
+            <span className={cn("text-xs font-semibold", light ? "text-ink-700" : "text-white/80")}>{label}</span>
           </div>
         );
       })}
@@ -357,16 +361,19 @@ function SolutionsDiagram() {
   );
 }
 
-function IntegrationDiagram() {
+function IntegrationDiagram({ light }: { light?: boolean }) {
+  const cardCls = light
+    ? "border-ink-200 bg-white text-ink-800 shadow-soft"
+    : "border-white/15 bg-white/5 text-white";
   return (
     <div className="flex flex-col items-center gap-3">
       <div className="flex flex-wrap items-center justify-center gap-2">
         {integrationFlow.map(({ label, icon: Icon }, i) => (
           <div key={label} className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white">
-              <Icon className="size-5 text-cyan-glow" /> {label}
+            <span className={cn("inline-flex items-center gap-2.5 rounded-xl border px-5 py-3 text-sm font-semibold", cardCls)}>
+              <Icon className="size-5 text-cyan-tech" /> {label}
             </span>
-            {i < integrationFlow.length - 1 && <ArrowRight className="size-5 text-cyan-glow/60" />}
+            {i < integrationFlow.length - 1 && <ArrowRight className="size-5 text-cyan-tech/50" />}
           </div>
         ))}
       </div>
@@ -378,9 +385,10 @@ function IntegrationDiagram() {
    4) DASHBOARD — platform mockup as protagonist (only slide)
    ============================================================ */
 function DashboardSlide({ slide }: { slide: DeckSlide }) {
+  const light = slide.light;
   return (
-    <div className="relative flex h-dvh w-full items-center justify-center overflow-hidden bg-brand-deep">
-      <div className="absolute inset-0 grid-line-bg opacity-15" aria-hidden />
+    <div className={cn("relative flex h-dvh w-full items-center justify-center overflow-hidden", light ? "bg-ink-50" : "bg-brand-deep")}>
+      {light && <div className="absolute inset-0 grid-dot-bg opacity-40" aria-hidden />}
       <div className="relative z-10 w-full max-w-5xl px-8">
         {/* Minimal heading */}
         <div className="mb-6 text-center">
@@ -475,27 +483,35 @@ function DashboardSlide({ slide }: { slide: DeckSlide }) {
    5) SPLIT — visual + text lateral
    ============================================================ */
 function SplitSlide({ slide }: { slide: DeckSlide }) {
+  const light = slide.light;
   return (
-    <div className="relative flex h-dvh w-full items-center overflow-hidden">
-      <SlideBackground slide={slide} />
+    <div className={cn("relative flex h-dvh w-full items-center overflow-hidden", light ? "bg-ink-50" : "bg-brand-deep")}>
+      {light ? (
+        <div className="absolute inset-0 grid-dot-bg opacity-40" aria-hidden />
+      ) : (
+        <SlideBackground slide={slide} />
+      )}
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-8 px-8 lg:flex-row lg:items-center lg:gap-16">
         {/* Text */}
         <div className="flex-1">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-glow">{slide.kicker}</p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <p className={cn("text-xs font-bold uppercase tracking-[0.18em]", light ? "text-cyan-700" : "text-cyan-glow")}>{slide.kicker}</p>
+          <h2 className={cn("mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl", light ? "text-ink-900" : "text-white")}>
             {slide.title}
           </h2>
           {slide.subtitle && (
-            <p className="mt-4 text-lg leading-relaxed text-ink-200 sm:text-xl">{slide.subtitle}</p>
+            <p className={cn("mt-4 text-lg leading-relaxed sm:text-xl", light ? "text-ink-600" : "text-ink-200")}>{slide.subtitle}</p>
           )}
           {slide.id === "movilidad" && (
             <div className="mt-6 flex flex-wrap gap-3">
               {mobilityHighlights.map(({ label, icon: Icon }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-white"
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium",
+                    light ? "border-ink-200 bg-white text-ink-700 shadow-soft" : "border-white/15 bg-white/5 text-white"
+                  )}
                 >
-                  <Icon className="size-4 text-cyan-glow" /> {label}
+                  <Icon className="size-4 text-cyan-tech" /> {label}
                 </span>
               ))}
             </div>
@@ -508,9 +524,12 @@ function SplitSlide({ slide }: { slide: DeckSlide }) {
                 { l: "SLA", v: "42 min · 18 restantes" },
                 { l: "Evidencia", v: "Foto antes / después" },
               ].map((item) => (
-                <div key={item.l} className="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-ink-400">{item.l}</p>
-                  <p className="mt-1 text-sm font-bold text-white">{item.v}</p>
+                <div key={item.l} className={cn(
+                  "rounded-xl border p-3",
+                  light ? "border-ink-200 bg-white shadow-soft" : "border-white/10 bg-white/5"
+                )}>
+                  <p className={cn("text-[10px] font-semibold uppercase tracking-wide", light ? "text-ink-500" : "text-ink-400")}>{item.l}</p>
+                  <p className={cn("mt-1 text-sm font-bold", light ? "text-ink-900" : "text-white")}>{item.v}</p>
                 </div>
               ))}
             </div>
@@ -578,17 +597,22 @@ function AuditVisual() {
    ============================================================ */
 function FlowSlide({ slide }: { slide: DeckSlide }) {
   const flow = slide.id === "residuos" ? wasteFlow : incidentFlow;
+  const light = slide.light;
   return (
-    <div className="relative flex h-dvh w-full items-center overflow-hidden">
-      <SlideBackground slide={slide} />
+    <div className={cn("relative flex h-dvh w-full items-center overflow-hidden", light ? "bg-ink-50" : "bg-brand-deep")}>
+      {light ? (
+        <div className="absolute inset-0 grid-dot-bg opacity-40" aria-hidden />
+      ) : (
+        <SlideBackground slide={slide} />
+      )}
       <div className="relative z-10 mx-auto w-full max-w-5xl px-8">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-glow">{slide.kicker}</p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <p className={cn("text-xs font-bold uppercase tracking-[0.18em]", light ? "text-cyan-700" : "text-cyan-glow")}>{slide.kicker}</p>
+          <h2 className={cn("mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl", light ? "text-ink-900" : "text-white")}>
             {slide.title}
           </h2>
           {slide.subtitle && (
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-ink-300 sm:text-lg">
+            <p className={cn("mx-auto mt-4 max-w-3xl text-base leading-relaxed sm:text-lg", light ? "text-ink-600" : "text-ink-300")}>
               {slide.subtitle}
             </p>
           )}
@@ -599,12 +623,15 @@ function FlowSlide({ slide }: { slide: DeckSlide }) {
           {flow.map(({ label, icon: Icon }, i) => (
             <div key={label} className="flex items-center gap-3">
               <div className="flex flex-col items-center gap-2">
-                <span className="inline-flex size-14 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-cyan-glow shadow-lg">
+                <span className={cn(
+                  "inline-flex size-14 items-center justify-center rounded-2xl border text-cyan-tech",
+                  light ? "border-ink-200 bg-white shadow-card" : "border-white/15 bg-white/5 shadow-lg"
+                )}>
                   <Icon className="size-6" />
                 </span>
-                <span className="text-xs font-semibold text-white/80">{label}</span>
+                <span className={cn("text-xs font-semibold", light ? "text-ink-700" : "text-white/80")}>{label}</span>
               </div>
-              {i < flow.length - 1 && <ArrowRight className="size-5 text-cyan-glow/50" />}
+              {i < flow.length - 1 && <ArrowRight className={cn("size-5", light ? "text-cyan-tech/40" : "text-cyan-glow/50")} />}
             </div>
           ))}
         </div>

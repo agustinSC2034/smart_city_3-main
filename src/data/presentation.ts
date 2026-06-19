@@ -40,6 +40,7 @@ export type DeckSlide = {
   points?: string[];
   bgImage?: string;       // optional image path
   bgGradient?: boolean;   // use hero gradient fallback
+  light?: boolean;        // light background (white/gray) instead of dark
   demo?: boolean;         // show "Escenario demostrativo"
 };
 
@@ -60,6 +61,7 @@ export const deckSlides: DeckSlide[] = [
     title: "La ciudad funciona con información fragmentada",
     subtitle: "Tránsito, alumbrado, residuos y cuadrillas operan en sistemas aislados.",
     points: ["Planillas", "Llamadas", "Sistemas separados", "Poca trazabilidad"],
+    light: true,
   },
   {
     id: "vision",
@@ -67,6 +69,7 @@ export const deckSlides: DeckSlide[] = [
     kicker: "La visión",
     title: "Una ciudad conectada responde mejor",
     subtitle: "Sensores + cámaras + reclamos + GPS → operación coordinada → resultados medibles.",
+    light: true,
   },
   {
     id: "plataforma",
@@ -75,6 +78,7 @@ export const deckSlides: DeckSlide[] = [
     title: "Una sola pantalla para ver y operar la ciudad",
     subtitle: "Mapa, activos, alertas, cuadrillas e indicadores en tiempo real.",
     demo: true,
+    light: true,
   },
   {
     id: "soluciones",
@@ -82,6 +86,7 @@ export const deckSlides: DeckSlide[] = [
     kicker: "Soluciones",
     title: "Soluciones para cada servicio urbano",
     subtitle: "Cada solución puede comenzar de forma independiente.",
+    light: true,
   },
   {
     id: "movilidad",
@@ -98,6 +103,7 @@ export const deckSlides: DeckSlide[] = [
     kicker: "Residuos y cuadrillas",
     title: "Recolectar donde hace falta. Auditar lo que se hizo.",
     subtitle: "Sensor → Ruta → Tarea → Evidencia",
+    light: true,
   },
   {
     id: "auditoria",
@@ -105,6 +111,7 @@ export const deckSlides: DeckSlide[] = [
     kicker: "Gestión y auditoría",
     title: "Cada tarea con responsable, tiempo y evidencia",
     subtitle: "Ubicación · Cuadrilla · SLA · Foto antes/después · Validación",
+    light: true,
   },
   {
     id: "incidentes",
@@ -130,6 +137,7 @@ export const deckSlides: DeckSlide[] = [
     kicker: "Integración",
     title: "Soluciones independientes. Una operación conectada.",
     subtitle: "Dispositivos y sistemas → plataforma → alertas y tickets → cuadrillas → evidencia e indicadores.",
+    light: true,
   },
   {
     id: "cierre",
