@@ -198,15 +198,12 @@ export function Header() {
 
 function Logo() {
   return (
-    <span className="inline-flex size-9 items-center justify-center rounded-lg bg-brand text-white shadow-soft ring-1 ring-brand/20">
-      <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>
-        <rect x="3" y="3" width="5" height="5" rx="1" fill="#22d3ee" />
-        <rect x="10" y="3" width="5" height="9" rx="1" fill="#10b981" />
-        <rect x="17" y="3" width="4" height="6" rx="1" fill="#94a3b8" />
-        <rect x="3" y="10" width="9" height="4" rx="1" fill="#22d3ee" opacity="0.7" />
-        <rect x="14" y="14" width="7" height="7" rx="1" fill="#22d3ee" opacity="0.7" />
-        <rect x="3" y="16" width="18" height="5" rx="1" fill="#10b981" opacity="0.55" />
-      </svg>
-    </span>
+    <img
+      src="./Logo_Ittel_AI.png"
+      alt="Logo IT-TEL"
+      className="size-9 w-auto rounded-lg object-contain"
+      width={36}
+      height={36}
+    />
   );
 }

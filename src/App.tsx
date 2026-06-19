@@ -11,6 +11,7 @@ import {
   SmartTolls,
 } from "@/components/DeviceSolutions";
 import { ControlCenter } from "@/components/ControlCenter";
+import { IncidentCoordination } from "@/components/IncidentCoordination";
 import { Citizens } from "@/components/Citizens";
 import { Maintenance } from "@/components/Maintenance";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -45,6 +46,7 @@ export default function App() {
         <SmartTolls />
 
         <ControlCenter />
+        <IncidentCoordination />
         <Citizens />
         <Maintenance />
         <HowItWorks />
