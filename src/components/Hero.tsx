@@ -31,7 +31,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <img
-          src="/smart-city-caba-hero.png"
+          src="./smart-city-caba-hero.png"
           alt=""
           aria-hidden="true"
           className="size-full object-cover"
