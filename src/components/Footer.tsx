@@ -33,7 +33,7 @@ export function Footer() {
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">
               Tecnología, conectividad e infraestructura urbana. Diseñamos, integramos y
-              operamos plataformas Smart City en alianza con SICE para municipios,
+              operamos plataformas Smart City para municipios,
               concesionarias y operadores de servicios públicos.
             </p>
             <p className="mt-4 text-xs text-ink-600">
@@ -85,7 +85,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-ink-200 pt-6 text-xs text-ink-600 sm:flex-row sm:items-center">
           <p>
-            Solución presentada por GRUPO ITTEL en alianza con SICE. Datos de demostración —
+            Solución presentada por GRUPO ITTEL. Datos de demostración —
             no representan mediciones contractuales.
           </p>
           <p className="flex items-center gap-2">

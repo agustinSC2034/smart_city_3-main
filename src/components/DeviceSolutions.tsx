@@ -341,7 +341,7 @@ function DetBox({
 }
 
 /* ============================================================
- * 4) RESIDUOS INTELIGENTES (Sensoneo-style)
+ * 4) RESIDUOS INTELIGENTES
  * ============================================================ */
 export function SmartWaste() {
   return (
@@ -350,7 +350,7 @@ export function SmartWaste() {
       mockSide="left"
       eyebrow="Higiene urbana · Sensores"
       title="Residuos inteligentes"
-      description="Sensores ultrasónicos de llenado en cada contenedor —tipo Sensoneo— más sensores de olor y temperatura. La plataforma calcula rutas optimizadas para recolectar sólo donde hace falta."
+      description="Sensores ultrasónicos de llenado en cada contenedor, más sensores de olor y temperatura. La plataforma calcula rutas optimizadas para recolectar sólo donde hace falta."
       highlights={[
         "Sensores de llenado, olor y temperatura por contenedor",
         "Rutas de recolección optimizadas según llenado real",
@@ -537,7 +537,7 @@ function CrewMock() {
 }
 
 /* ============================================================
- * 6) PEAJES Y ACCESOS (SICE-style)
+ * 6) PEAJES Y ACCESOS
  * ============================================================ */
 export function SmartTolls() {
   return (
@@ -545,7 +545,7 @@ export function SmartTolls() {
       id="peajes"
       className="bg-ink-50/60"
       mockSide="left"
-      eyebrow="Movilidad · Peajes (alianza SICE)"
+      eyebrow="Movilidad · Peajes"
       title="Peajes y accesos inteligentes"
       description="Gantries con lectura de patentes (ANPR) y telepeaje, control de flotas y cumplimiento por corredor. La misma plataforma que opera la ciudad también audita los accesos y el cobro."
       highlights={[
@@ -624,7 +624,7 @@ function TollMock() {
           <div className="flex items-center gap-2 rounded-lg border border-cyan-tech/30 bg-cyan-tech/10 p-3">
             <Waypoints className="size-4 text-cyan-tech" />
             <p className="text-[11px] leading-snug text-ink-700">
-              <strong className="text-ink-900">Alianza SICE</strong> · ITS, peaje y centros de control.
+              <strong className="text-ink-900">Integración ITS</strong> · peaje y centros de control.
             </p>
           </div>
         </div>
