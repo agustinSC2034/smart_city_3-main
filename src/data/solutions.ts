@@ -149,4 +149,10 @@ export const solutions: Solution[] = [
   },
 ];
 
+solutions.sort((a, b) => {
+  if (a.id === "waste") return -1;
+  if (b.id === "waste") return 1;
+  return 0;
+});
+
 export const heroIndicators: { label: string; status: StatusKey }[] = [];
