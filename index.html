@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b2545" />
+  <meta name="description" content="IT-TEL Smart City by GRUPO ITTEL — plataforma urbana para monitorear, auditar y optimizar servicios públicos en tiempo real. Sensores, cámaras, reclamos, cuadrillas y datos integrados en un único centro de control." />
+  <title>IT-TEL Smart City — GRUPO ITTEL | Infraestructura urbana inteligente</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 50:"#f6f8fb",100:"#eef2f7",200:"#e2e8f0",300:"#cbd5e1",400:"#94a3b8",500:"#64748b",600:"#475569",700:"#334155",800:"#1e293b",900:"#0f172a",950:"#0a1120" },
+            brand: { DEFAULT:"#0b2545", dark:"#081a33", deep:"#051023" },
+            cyan: { tech:"#0ea5b7", glow:"#22d3ee", 700:"#0e7490" },
+            ops: { DEFAULT:"#10b981", dark:"#0f766e" },
+            warn: "#f59e0b",
+            alert: "#ef4444",
+          },
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","sans-serif"] },
+          boxShadow: { soft:"0 1px 2px rgba(15,23,42,0.04), 0 4px 16px rgba(15,23,42,0.06)", card:"0 1px 2px rgba(15,23,42,0.05), 0 8px 24px rgba(15,23,42,0.08)", lift:"0 2px 4px rgba(15,23,42,0.06), 0 18px 40px rgba(15,23,42,0.12)" },
+          maxWidth: { page:"1200px" },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-ink-800 font-sans antialiased">
+
+  <a href="#soluciones" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Saltar al contenido</a>
+
+  <!-- ======================== HEADER ======================== -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-200" style="padding-top:env(safe-area-inset-top)">
+    <div class="container-page flex h-16 items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="inline-flex size-9 items-center justify-center rounded-lg bg-brand text-white shadow-soft ring-1 ring-brand/20">
+          <svg viewBox="0 0 24 24" class="size-5" fill="none"><rect x="3" y="3" width="5" height="5" rx="1" fill="#22d3ee"/><rect x="10" y="3" width="5" height="9" rx="1" fill="#10b981"/><rect x="17" y="3" width="4" height="6" rx="1" fill="#94a3b8"/><rect x="3" y="10" width="9" height="4" rx="1" fill="#22d3ee" opacity="0.7"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#22d3ee" opacity="0.7"/><rect x="3" y="16" width="18" height="5" rx="1" fill="#10b981" opacity="0.55"/></svg>
+        </span>
+        <span class="flex flex-col leading-none">
+          <span class="text-[15px] font-extrabold tracking-tight text-ink-900">GRUPO ITTEL</span>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-cyan-700">IT-TEL Smart City</span>
+        </span>
+        <span class="sr-only">, inicio</span>
+      </a>
+
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Principal">
+        <button data-scroll="plataforma" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Plataforma</button>
+        <button data-scroll="soluciones" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Soluciones</button>
+        <button data-scroll="control" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Centro de control</button>
+        <button data-scroll="tecnologia" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Tecnología</button>
+        <button data-scroll="casos" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Casos de uso</button>
+        <button data-scroll="contacto" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">Contacto</button>
+      </nav>
+
+      <div class="hidden items-center gap-2 lg:flex">
+        <button data-scroll="contacto" class="btn btn-secondary">Contacto</button>
+        <button data-scroll="contacto" class="btn btn-primary"><i data-lucide="arrow-right" class="size-4"></i> Solicitar demo</button>
+      </div>
+
+      <button id="menu-toggle" class="inline-flex size-10 items-center justify-center rounded-lg text-ink-700 hover:bg-ink-100 lg:hidden" aria-label="Abrir menú" aria-expanded="false">
+        <i data-lucide="menu" class="size-5"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-ink-200 bg-white lg:hidden">
+      <nav class="container-page flex flex-col py-3" aria-label="Móvil">
+        <button data-scroll="plataforma" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Plataforma</button>
+        <button data-scroll="soluciones" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Soluciones</button>
+        <button data-scroll="control" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Centro de control</button>
+        <button data-scroll="tecnologia" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Tecnología</button>
+        <button data-scroll="casos" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Casos de uso</button>
+        <button data-scroll="contacto" class="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100">Contacto</button>
+        <button data-scroll="contacto" class="btn btn-primary mt-3 w-full"><i data-lucide="arrow-right" class="size-4"></i> Solicitar demo</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================== HERO ======================== -->
+    <section id="top" class="relative overflow-hidden bg-white pt-28 sm:pt-32">
+      <div class="pointer-events-none absolute inset-0 grid-dot-bg opacity-70" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -left-40 top-40 size-[460px] rounded-full bg-brand/5 blur-3xl" aria-hidden="true"></div>
+
+      <div class="container-page relative grid items-center gap-10 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-28">
+        <div>
+          <div class="eyebrow mb-5"><span class="size-1.5 rounded-full bg-ops animate-pulse-soft"></span> Smart City Platform · GRUPO ITTEL</div>
+          <h1 class="text-4xl font-extrabold leading-[1.07] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]">
+            Infraestructura urbana inteligente para ciudades que necesitan <span class="text-brand">operar en tiempo real</span>
+          </h1>
+          <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
+            Integramos sensores, cámaras, reclamos, cuadrillas, activos urbanos y datos en una plataforma Smart City para monitorear, auditar y optimizar servicios públicos.
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <button data-scroll="soluciones" class="btn btn-primary">Ver soluciones <i data-lucide="arrow-right" class="size-4"></i></button>
+            <button data-scroll="control" class="btn btn-secondary">Explorar centro de control</button>
+          </div>
+          <ul class="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-ops"></span> Sensores urbanos</li>
+            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-alert"></span> Alertas en tiempo real</li>
+            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-cyan-tech"></span> Gestión de cuadrillas</li>
+            <li class="flex items-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-3 py-2.5 text-xs font-medium text-ink-700 shadow-soft backdrop-blur"><span class="dot bg-ops"></span> Datos en la nube</li>
+          </ul>
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-600">
+            <span class="font-semibold uppercase tracking-wide text-ink-600">Pensada para</span>
+            <span>Municipios</span><span class="text-ink-300">·</span>
+            <span>Concesionarias</span><span class="text-ink-300">·</span>
+            <span>Parques industriales</span><span class="text-ink-300">·</span>
+            <span>Barrios cerrados</span><span class="text-ink-300">·</span>
+            <span>Servicios públicos</span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent blur-2xl" aria-hidden="true"></div>
+          <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift ring-1 ring-ink-200/60">
+            <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+              <div class="flex items-center gap-2">
+                <span class="size-2.5 rounded-full bg-alert/70"></span>
+                <span class="size-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="size-2.5 rounded-full bg-ops/70"></span>
+                <span class="ml-2 text-xs font-semibold text-ink-600">control.ittel.smartcity · panel operativo</span>
+              </div>
+              <span class="hidden text-[11px] font-medium text-ink-600 sm:inline">en línea · 09:47</span>
+            </div>
+            <div class="grid gap-3 p-3 sm:grid-cols-[1.4fr_1fr] sm:p-4">
+              <div class="relative overflow-hidden rounded-xl border border-ink-200 bg-brand-deep min-h-[280px]">
+                <div id="hero-map" class="absolute inset-0"></div>
+                <div class="absolute left-2.5 top-2.5 rounded-lg bg-black/40 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">Mapa vivo · CABA</div>
+                <div class="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 rounded-lg bg-black/40 px-2 py-1 text-[10px] text-white backdrop-blur"><i data-lucide="radio" class="size-3 text-cyan-glow"></i> 8.412 sensores activos</div>
+                <div class="absolute right-2.5 top-2.5 w-32 rounded-lg border border-white/10 bg-white/95 p-2 shadow-card">
+                  <p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Cruce crítico</p>
+                  <p class="nums mt-0.5 text-sm font-bold text-ink-900">11 min</p>
+                  <p class="text-[10px] text-ink-600">demora media</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="rounded-xl border border-ink-200 bg-white p-3"><div class="flex items-center justify-between"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Alertas hoy</p><i data-lucide="activity" class="size-3.5 text-alert"></i></div><p class="nums mt-1 text-xl font-bold text-ink-900">38</p></div>
+                  <div class="rounded-xl border border-ink-200 bg-white p-3"><div class="flex items-center justify-between"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Cuadrillas</p><i data-lucide="users" class="size-3.5 text-cyan-tech"></i></div><p class="nums mt-1 text-xl font-bold text-ink-900">12</p></div>
+                </div>
+                <div class="rounded-xl border border-ink-200 bg-white p-3">
+                  <div class="flex items-center justify-between"><p class="text-[11px] font-medium uppercase tracking-wide text-ink-600">Tránsito · 24h</p><span class="nums text-[11px] font-semibold text-ops-dark">+12%</span></div>
+                  <div id="hero-spark" class="mt-1"></div>
+                </div>
+                <div class="rounded-xl border border-ink-200 bg-white p-2.5">
+                  <p class="px-1 text-[11px] font-medium uppercase tracking-wide text-ink-600">Alertas activas</p>
+                  <ul class="mt-1.5 space-y-1.5">
+                    <li class="flex items-start gap-2 rounded-lg px-1.5 py-1.5 hover:bg-ink-50"><span class="mt-1 dot bg-alert"></span><div class="min-w-0 flex-1"><p class="truncate text-[11px] font-semibold text-ink-800">Congestión alta en cruce</p><p class="truncate text-[10px] text-ink-600">Centro / Av. Corrientes y Callao</p></div><span class="nums text-[10px] text-ink-600">09:42</span></li>
+                    <li class="flex items-start gap-2 rounded-lg px-1.5 py-1.5 hover:bg-ink-50"><span class="mt-1 dot bg-amber-500"></span><div class="min-w-0 flex-1"><p class="truncate text-[11px] font-semibold text-ink-800">Luminaria fuera de servicio</p><p class="truncate text-[10px] text-ink-600">Comuna 5 / Balvanera</p></div><span class="nums text-[10px] text-ink-600">09:28</span></li>
+                    <li class="flex items-start gap-2 rounded-lg px-1.5 py-1.5 hover:bg-ink-50"><span class="mt-1 dot bg-amber-500"></span><div class="min-w-0 flex-1"><p class="truncate text-[11px] font-semibold text-ink-800">Contenedor con llenado 92%</p><p class="truncate text-[10px] text-ink-600">Comuna 1 / Puerto Madero</p></div><span class="nums text-[10px] text-ink-600">09:15</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-px border-t border-ink-200 bg-ink-200 sm:grid-cols-4">
+              <div class="flex items-center justify-between bg-white px-3 py-2.5"><div><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Semáforos</p><p class="nums text-sm font-bold text-ink-900">412</p></div><span class="inline-flex items-center gap-1 text-[10px] font-semibold text-ops-dark"><i data-lucide="cloud" class="size-3"></i> OK</span></div>
+              <div class="flex items-center justify-between bg-white px-3 py-2.5"><div><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Alumbrado</p><p class="nums text-sm font-bold text-ink-900">9.318</p></div><span class="inline-flex items-center gap-1 text-[10px] font-semibold text-ops-dark"><i data-lucide="cloud" class="size-3"></i> OK</span></div>
+              <div class="flex items-center justify-between bg-white px-3 py-2.5"><div><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Residuos</p><p class="nums text-sm font-bold text-ink-900">1.204</p></div><span class="inline-flex items-center gap-1 text-[10px] font-semibold text-ops-dark"><i data-lucide="cloud" class="size-3"></i> OK</span></div>
+              <div class="flex items-center justify-between bg-white px-3 py-2.5"><div><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Ambiente</p><p class="nums text-sm font-bold text-ink-900">26</p></div><span class="inline-flex items-center gap-1 text-[10px] font-semibold text-ops-dark"><i data-lucide="cloud" class="size-3"></i> OK</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CIUDAD COMO SO ======================== -->
+    <section id="plataforma" class="h-section scroll-mt-24 relative overflow-hidden bg-white">
+      <div class="pointer-events-none absolute inset-0 grid-dot-bg opacity-40" aria-hidden="true"></div>
+      <div class="container-page relative">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> La propuesta</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">La ciudad como un sistema operativo</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">No es una app aislada. Es una plataforma modular que conecta las verticales urbanas —sensores, cámaras, reclamos, activos, vehículos y cuadrillas— y las convierte en una sola operación coordinada.</p>
+        </div>
+
+        <div class="mt-12 grid gap-4 lg:grid-cols-5" id="os-flow"></div>
+        <script>
+          (function(){
+            var flow = [
+              { label: "Fuentes", items: ["Sensor","Cámara","Reclamo","Activo urbano","Vehículo","Cuadrilla"] },
+              { label: "Plataforma de datos", items: ["Normalización","Eventos","Georreferencia","Contexto"] },
+              { label: "Alertas y decisiones", items: ["Reglas","Priorización","Asignación","SLA"] },
+              { label: "Operación y auditoría", items: ["Cuadrillas","Evidencia","Trazabilidad","Responsables"] },
+              { label: "Indicadores y reportes", items: ["KPIs","Cumplimiento","Productividad","Planificación"] },
+            ];
+            var html = flow.map(function(layer, i) {
+              var items = layer.items.map(function(it) { return '<li class="flex items-center gap-2 text-[13px] text-ink-600"><span class="size-1.5 rounded-full bg-cyan-tech"></span>' + it + "</li>"; }).join("");
+              return '<div class="relative reveal">' +
+                '<div class="card-surface h-full p-4">' +
+                '<div class="mb-3 flex items-center gap-2"><span class="inline-flex size-6 items-center justify-center rounded-md bg-brand/5 text-[11px] font-bold text-brand ring-1 ring-brand/10">' + (i+1) + '</span><h3 class="text-sm font-semibold text-ink-900">' + layer.label + "</h3></div>" +
+                "<ul class=\"space-y-1.5\">" + items + "</ul>" +
+                "</div></div>";
+            }).join("");
+            document.getElementById("os-flow").innerHTML = html;
+          })();
+        </script>
+
+        <div class="reveal mt-14">
+          <div class="rounded-2xl border border-ink-200 bg-ink-50/60 p-5 sm:p-7">
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Ciclo operativo continuo</p>
+            <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">1</span><div><h4 class="text-sm font-semibold text-ink-900">Detectar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Sensores, cámaras y ciudadanos reportan.</p></div></div></div>
+              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">2</span><div><h4 class="text-sm font-semibold text-ink-900">Analizar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">La plataforma clasifica y prioriza el evento.</p></div></div></div>
+              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">3</span><div><h4 class="text-sm font-semibold text-ink-900">Accionar</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Se asigna la cuadrilla y se ejecuta la tarea.</p></div></div></div>
+              <div><div class="flex items-start gap-3"><span class="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand text-white text-sm font-bold">4</span><div><h4 class="text-sm font-semibold text-ink-900">Medir</h4><p class="mt-1 text-[13px] leading-relaxed text-ink-600">Se registra evidencia, SLA e indicadores.</p></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== SOLUCIONES ======================== -->
+    <section id="soluciones" class="h-section scroll-mt-24 bg-ink-50/60">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Soluciones</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Una plataforma, once verticales urbanas</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Cada módulo se integra al mismo centro de control. Activá los que tu ciudad necesita hoy y sumá verticales a medida que la operación crece.</p>
+        </div>
+        <div id="solutions-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+        <p class="mt-8 text-sm text-ink-600">Todos los módulos comparten el mismo mapa, motor de alertas, reglas de SLA y auditoría. No son productos sueltos: son capas de una misma operación.</p>
+      </div>
+    </section>
+
+    <!-- ======================== CENTRO DE CONTROL ======================== -->
+    <section id="control" class="h-section scroll-mt-24 relative overflow-hidden bg-brand-deep text-ink-100">
+      <div class="pointer-events-none absolute inset-0 grid-line-bg opacity-40" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -left-20 top-10 size-[400px] rounded-full bg-cyan-tech/10 blur-3xl" aria-hidden="true"></div>
+      <div class="container-page relative">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow dark mb-3"><span class="size-1.5 rounded-full bg-current"></span> Centro de control</p>
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Una sola pantalla para ver y operar toda la ciudad</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">Mapa vivo, alertas operativas, KPIs, estado de sensores, cuadrillas activas y eventos en una consola diseñada para decisiones rápidas y trazables.</p>
+        </div>
+
+        <div class="reveal mt-10">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-brand-dark shadow-lift ring-1 ring-white/5">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-black/20 px-4 py-3">
+              <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 rounded-lg bg-white/5 px-2.5 py-1.5"><span class="size-2 rounded-full bg-ops animate-pulse-soft"></span><span class="text-xs font-semibold text-white">Centro de Control · IT-TEL</span></div>
+                <span class="hidden text-xs text-ink-400 sm:inline">·</span>
+                <span class="hidden text-xs text-ink-300 sm:inline">CABA · 16 comunas · en línea</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="hidden items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-ink-300 md:flex"><i data-lucide="search" class="size-3.5"></i> Buscar activo, zona o evento…</div>
+                <button class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-ink-200 hover:bg-white/10"><i data-lucide="maximize-2" class="size-3.5"></i> Expandir</button>
+              </div>
+            </div>
+
+            <div id="cc-kpis" class="grid grid-cols-2 gap-px border-b border-white/10 bg-white/5 sm:grid-cols-3 lg:grid-cols-6"></div>
+
+            <div class="grid gap-px bg-white/5 lg:grid-cols-[220px_1fr_300px]">
+              <aside class="bg-brand-dark p-3">
+                <div class="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-400"><i data-lucide="filter" class="size-3.5"></i> Verticales</div>
+                <ul id="cc-filters" class="space-y-1"></ul>
+                <div class="mt-4 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <p class="text-[10px] font-semibold uppercase tracking-wide text-ink-400">Salud de red</p>
+                  <div id="cc-sensor-bars" class="mt-2 space-y-2.5"></div>
+                </div>
+              </aside>
+
+              <div class="relative min-h-[360px] bg-brand-deep">
+                <div id="cc-map" class="absolute inset-0"></div>
+                <div class="pointer-events-none absolute left-3 top-3 rounded-lg bg-black/45 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">Mapa operativo · tiempo real</div>
+                <div class="pointer-events-none absolute bottom-3 left-3 flex flex-wrap items-center gap-3 rounded-lg bg-black/45 px-3 py-1.5 text-[10px] text-white backdrop-blur">
+                  <span class="flex items-center gap-1.5"><span class="size-2 rounded-full" style="background:#10b981"></span> Operativo</span>
+                  <span class="flex items-center gap-1.5"><span class="size-2 rounded-full" style="background:#f59e0b"></span> Atención</span>
+                  <span class="flex items-center gap-1.5"><span class="size-2 rounded-full" style="background:#ef4444"></span> Crítico</span>
+                  <span class="flex items-center gap-1.5"><span class="size-2 rounded-full" style="background:#0ea5b7"></span> Cuadrilla</span>
+                </div>
+                <div class="pointer-events-none absolute right-3 top-3 rounded-lg bg-black/45 px-2.5 py-1 text-[10px] text-white backdrop-blur"><span class="nums">8.412</span> activos · <span class="nums">38</span> alertas</div>
+              </div>
+
+              <aside class="bg-brand-dark p-3">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink-400"><i data-lucide="bell" class="size-3.5"></i> Alertas</p>
+                  <span id="cc-alert-count" class="nums rounded bg-alert/15 px-1.5 py-0.5 text-[10px] font-semibold text-alert"></span>
+                </div>
+                <ul id="cc-alerts" class="max-h-[210px] space-y-1 overflow-y-auto pr-0.5"></ul>
+                <div id="cc-event" class="mt-3 rounded-xl border border-white/10 bg-white/5 p-3"></div>
+              </aside>
+            </div>
+
+            <div class="grid gap-px border-t border-white/5 bg-white/5 lg:grid-cols-3">
+              <div class="bg-brand-dark p-4">
+                <p class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-400"><i data-lucide="activity" class="size-3.5"></i> Evolución · 14 días</p>
+                <div class="mt-3 grid grid-cols-2 gap-3">
+                  <div id="cc-chart-traffic"></div>
+                  <div id="cc-chart-air"></div>
+                </div>
+              </div>
+              <div class="bg-brand-dark p-4">
+                <p class="flex items-center justify-between text-[11px] font-semibold uppercase tracking-wide text-ink-400"><span class="flex items-center gap-2"><i data-lucide="users" class="size-3.5"></i> Cuadrillas activas</span><span class="nums text-ink-300" id="cc-crew-count"></span></p>
+                <ul id="cc-crews" class="mt-3 space-y-1.5"></ul>
+              </div>
+              <div class="bg-brand-dark p-4">
+                <p class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-ink-400"><i data-lucide="cpu" class="size-3.5"></i> Últimos eventos</p>
+                <ul id="cc-events" class="mt-3 space-y-1"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal mt-6">
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-400">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"><i data-lucide="map" class="size-3.5 text-cyan-glow"></i> Mapa vivo por zona y comuna</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"><i data-lucide="bell" class="size-3.5 text-cyan-glow"></i> Alertas priorizadas</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"><i data-lucide="users" class="size-3.5 text-cyan-glow"></i> Cuadrillas en mapa</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"><i data-lucide="radio" class="size-3.5 text-cyan-glow"></i> Trazabilidad de eventos</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5"><i data-lucide="activity" class="size-3.5 text-cyan-glow"></i> Indicadores de cumplimiento</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== RECLAMOS CIUDADANOS ======================== -->
+    <section id="reclamos" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Reclamos ciudadanos</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">El reclamo deja de ser un ticket aislado y se convierte en una señal operativa</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Cada reclamo ciudadano entra al mismo mapa que los sensores y las cámaras, se cruza con activos cercanos y dispara una operación trazable de principio a fin.</p>
+        </div>
+
+        <div class="reveal mt-10">
+          <ol id="citizen-flow" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-6"></ol>
+        </div>
+
+        <div class="mt-12 grid items-start gap-6 lg:grid-cols-2">
+          <div class="reveal">
+            <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-cyan-tech"></span> App ciudadana</p>
+            <div class="mx-auto w-full max-w-[300px]">
+              <div class="relative rounded-[2rem] border border-ink-200 bg-ink-900 p-2 shadow-lift">
+                <div class="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-ink-700"></div>
+                <div class="overflow-hidden rounded-[1.5rem] bg-white">
+                  <div class="flex items-center justify-between bg-brand px-4 pb-2 pt-5 text-[10px] text-white/80"><span class="nums">09:47</span><span class="font-semibold">147 · Smart City</span><span>●●●</span></div>
+                  <div class="p-4">
+                    <p class="text-base font-bold text-ink-900">Reportar problema</p>
+                    <p class="mt-0.5 text-[11px] text-ink-600">Una foto, una ubicación y listo.</p>
+                    <div class="mt-3 aspect-[4/3] rounded-xl border border-dashed border-ink-300 bg-ink-50 p-3" style="background:radial-gradient(circle at 30% 30%,#e2e8f0,transparent 40%),radial-gradient(circle at 70% 70%,#cbd5e1,transparent 40%)">
+                      <div class="flex h-full items-end"><span class="inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 text-[10px] font-semibold text-white"><i data-lucide="camera" class="size-3"></i> Foto agregada</span></div>
+                    </div>
+                    <div class="mt-3 space-y-2.5">
+                      <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white px-3 py-2"><i data-lucide="map-pin" class="size-4 text-cyan-tech"></i><div class="min-w-0 flex-1"><p class="text-[10px] uppercase tracking-wide text-ink-600">Ubicación</p><p class="truncate text-[12px] font-semibold text-ink-800">Av. Corrientes 1200</p></div></div>
+                      <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white px-3 py-2"><i data-lucide="tag" class="size-4 text-ink-600"></i><div class="min-w-0 flex-1"><p class="text-[10px] uppercase tracking-wide text-ink-600">Categoría</p><p class="truncate text-[12px] font-semibold text-ink-800">Bache / pavimento</p></div></div>
+                      <div class="flex items-center gap-2.5 rounded-lg border border-ink-200 bg-white px-3 py-2"><i data-lucide="clock" class="size-4 text-cyan-tech"></i><div class="min-w-0 flex-1"><p class="text-[10px] uppercase tracking-wide text-ink-600">Estado</p><p class="truncate text-[12px] font-semibold text-ink-800">En validación</p></div></div>
+                    </div>
+                    <button class="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-2.5 text-sm font-semibold text-white"><i data-lucide="send" class="size-4"></i> Enviar reclamo</button>
+                    <div class="mt-3 flex items-center justify-between rounded-lg bg-ops/10 px-3 py-2 text-[11px]">
+                      <span class="flex items-center gap-1.5 font-semibold text-ops-dark"><i data-lucide="check-circle-2" class="size-3.5"></i> Reclamo #44-1182</span>
+                      <span class="text-ink-600">SLA 48h</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-ops"></span> Panel municipal</p>
+            <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-lift">
+              <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-2.5">
+                <span class="text-xs font-semibold text-ink-700">reclamos.ittel · panel municipal</span>
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-amber-700"><span class="dot bg-amber-500"></span> Pendiente validación</span>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <div><p class="text-sm font-bold text-ink-900">Reclamo #44-1182</p><p class="text-[11px] text-ink-600">Bache en Av. Corrientes 1200 · Comuna 1</p></div>
+                  <span class="rounded-full border border-cyan-700/30 bg-cyan-700/10 px-2 py-0.5 text-[10px] font-semibold text-cyan-700">Prioridad media</span>
+                </div>
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Activo relacionado</p><p class="mt-0.5 text-[13px] font-semibold text-ink-900">Vialidad · tramo 0042</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Área responsable</p><p class="mt-0.5 text-[13px] font-semibold text-ink-900">Mantenimiento vial</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Cuadrilla asignada</p><p class="mt-0.5 text-[13px] font-semibold text-ops-dark">M-7 · ETA 14 min</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-3"><p class="text-[10px] font-medium uppercase tracking-wide text-ink-600">Vencimiento SLA</p><p class="mt-0.5 text-[13px] font-semibold text-amber-700">48h · faltan 46h</p></div>
+                </div>
+                <div class="mt-4">
+                  <p class="text-[11px] font-semibold uppercase tracking-wide text-ink-600">Evidencia</p>
+                  <div class="mt-2 grid grid-cols-2 gap-2">
+                    <div class="relative aspect-[4/3] overflow-hidden rounded-lg border border-ink-200" style="background:radial-gradient(circle at 30% 30%,#cbd5e1,transparent 45%),radial-gradient(circle at 70% 70%,#94a3b8,transparent 45%)">
+                      <span class="absolute left-2 top-2 rounded bg-white/90 px-1.5 py-0.5 text-[9px] font-semibold text-ink-700">Antes</span>
+                      <span class="absolute bottom-2 right-2 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-semibold text-white">09:12</span>
+                    </div>
+                    <div class="relative aspect-[4/3] overflow-hidden rounded-lg border border-ink-200 bg-ink-50" style="background:radial-gradient(circle at 50% 50%,#e2e8f0,transparent 60%)">
+                      <span class="absolute left-2 top-2 rounded bg-white/90 px-1.5 py-0.5 text-[9px] font-semibold text-ink-700">Después</span>
+                      <span class="absolute bottom-2 right-2 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-semibold text-white">pendiente</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-ink-100 pt-3">
+                  <div class="flex items-center gap-2 text-[11px] text-ink-600"><i data-lucide="image" class="size-3.5"></i> 1 foto · 1 nota</div>
+                  <div class="flex gap-2">
+                    <button class="rounded-lg border border-ink-300 px-3 py-1.5 text-[12px] font-semibold text-ink-700 hover:bg-ink-50">Validar</button>
+                    <button class="rounded-lg bg-brand px-3 py-1.5 text-[12px] font-semibold text-white hover:bg-brand-dark">Derivar a cuadrilla <i data-lucide="arrow-right" class="ml-1 inline size-3.5"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal mt-8">
+          <div class="flex items-center gap-3 rounded-xl border border-ink-200 bg-ink-50/60 p-4 text-sm text-ink-700">
+            <i data-lucide="message-square-warning" class="size-5 shrink-0 text-cyan-tech"></i>
+            El reclamo ciudadano funciona como un <strong class="text-ink-900">sensor humano</strong> de la ciudad: georreferenciado, clasificado y conectado a la operación.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== MANTENIMIENTO Y AUDITORÍA ======================== -->
+    <section id="auditoria" class="h-section scroll-mt-24 bg-ink-50/60">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Mantenimiento y auditoría urbana</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Cada elemento de la ciudad puede tener ficha, estado, historial y responsable</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Activos georreferenciados, órdenes de trabajo, inspecciones, cuadrillas, evidencia fotográfica y trazabilidad completa para auditar el servicio y planificar la mejora continua.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+          <div class="reveal">
+            <div class="overflow-hidden rounded-2xl border border-ink-200 bg-white shadow-card">
+              <div class="flex items-center justify-between border-b border-ink-200 bg-ink-50/60 px-4 py-3">
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex size-9 items-center justify-center rounded-lg bg-brand text-white"><i data-lucide="wrench" class="size-4"></i></span>
+                  <div><p class="text-sm font-bold text-ink-900">LUM-478</p><p class="text-[11px] text-ink-600">Luminaria · Av. Rivadavia 2140</p></div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[11px] font-semibold text-amber-700"><span class="size-1.5 rounded-full bg-amber-500"></span> Requiere atención</span>
+              </div>
+              <div class="p-4">
+                <div class="relative aspect-[16/7] overflow-hidden rounded-xl" style="background:radial-gradient(circle at 20% 30%,#1e293b,transparent 45%),radial-gradient(circle at 80% 60%,#0b2545,transparent 50%)">
+                  <div class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-md bg-white/90 px-2 py-1 text-[10px] font-semibold text-ink-700"><i data-lucide="map-pin" class="size-3 text-cyan-tech"></i> Comuna 5 · Balvanera</div>
+                  <div class="absolute bottom-3 left-3 flex items-center gap-2"><span class="inline-flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 text-[10px] font-semibold text-amber-400"><i data-lucide="triangle-alert" class="size-3"></i> Falla de driver</span></div>
+                  <div class="absolute right-8 top-1/2 h-16 w-1 -translate-y-1/2 bg-ink-400/40"></div>
+                  <div class="absolute right-4 top-1/2 h-3 w-6 -translate-y-[200%] rounded-full bg-amber-500/70 blur-[1px]"></div>
+                </div>
+                <div class="mt-4 grid grid-cols-2 gap-3" role="group" aria-label="Datos del activo">
+                  <div class="rounded-lg border border-ink-200 bg-white p-2.5"><p class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-ink-600"><i data-lucide="clipboard-list" class="size-3"></i> Orden de trabajo</p><p class="mt-0.5 text-[13px] font-semibold text-ink-900">OT-2207</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-2.5"><p class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-ink-600"><i data-lucide="clock" class="size-3"></i> SLA</p><p class="mt-0.5 text-[13px] font-semibold text-amber-700">2h · 38 min restantes</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-2.5"><p class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-ink-600"><i data-lucide="user" class="size-3"></i> Responsable</p><p class="mt-0.5 text-[13px] font-semibold text-ink-900">Cuadrilla L-1</p></div>
+                  <div class="rounded-lg border border-ink-200 bg-white p-2.5"><p class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-ink-600"><i data-lucide="camera" class="size-3"></i> Evidencia</p><p class="mt-0.5 text-[13px] font-semibold text-ink-900">2 fotos</p></div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <button class="rounded-lg bg-brand px-3 py-1.5 text-[12px] font-semibold text-white hover:bg-brand-dark">Ver ficha completa</button>
+                  <button class="rounded-lg border border-ink-300 px-3 py-1.5 text-[12px] font-semibold text-ink-700 hover:bg-ink-50">Crear inspección</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="rounded-2xl border border-ink-200 bg-white p-5 shadow-card">
+              <div class="flex items-center justify-between">
+                <h3 class="flex items-center gap-2 text-sm font-bold text-ink-900"><i data-lucide="history" class="size-4 text-cyan-tech"></i> Historial del activo</h3>
+                <span class="text-[11px] text-ink-600">Últimos 30 días</span>
+              </div>
+              <ol id="maint-history" class="mt-5 space-y-0"></ol>
+              <div class="mt-4 grid grid-cols-3 gap-2 border-t border-ink-100 pt-4">
+                <div class="rounded-lg bg-ink-50 px-3 py-2 text-center"><p class="nums text-base font-bold text-ink-900">94,2%</p><p class="text-[10px] uppercase tracking-wide text-ink-600">SLA cumplido</p></div>
+                <div class="rounded-lg bg-ink-50 px-3 py-2 text-center"><p class="nums text-base font-bold text-ink-900">+18%</p><p class="text-[10px] uppercase tracking-wide text-ink-600">Productividad</p></div>
+                <div class="rounded-lg bg-ink-50 px-3 py-2 text-center"><p class="nums text-base font-bold text-ink-900">-35%</p><p class="text-[10px] uppercase tracking-wide text-ink-600">Recurrencia</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal mt-6">
+          <div class="rounded-2xl border border-ink-200 bg-white p-5 shadow-soft">
+            <div class="flex items-center justify-between">
+              <h3 class="flex items-center gap-2 text-sm font-bold text-ink-900"><i data-lucide="file-text" class="size-4 text-cyan-tech"></i> Activos relacionados en la zona</h3>
+              <span class="text-[11px] text-ink-600">Comuna 5 · 1 km</span>
+            </div>
+            <ul id="maint-assets" class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CÓMO FUNCIONA ======================== -->
+    <section id="tecnologia" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Cómo funciona</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Del dato en la calle al indicador de gestión</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Un mismo flujo recorre toda la operación: capturar, conectar, procesar, decidir, ejecutar y medir. Cada etapa deja rastro y alimenta la siguiente.</p>
+        </div>
+        <div id="flow-steps" class="mt-12 relative grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6" role="list"></div>
+        <div class="reveal mt-8">
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-600">
+            <span class="font-semibold uppercase tracking-wide text-ink-600">Ciclo</span>
+            <span>Detectar</span><span class="text-ink-300">→</span>
+            <span>Analizar</span><span class="text-ink-300">→</span>
+            <span>Accionar</span><span class="text-ink-300">→</span>
+            <span>Medir</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ARQUITECTURA ======================== -->
+    <section id="arquitectura" class="h-section scroll-mt-24 relative overflow-hidden bg-brand-deep text-ink-100">
+      <div class="pointer-events-none absolute inset-0 grid-line-bg opacity-30" aria-hidden="true"></div>
+      <div class="container-page relative">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow dark mb-3"><span class="size-1.5 rounded-full bg-current"></span> Arquitectura tecnológica</p>
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Una arquitectura por capas, abierta e integrable</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">Desde el dispositivo en la calle hasta el reporte de gestión, cada capa está diseñada para sumarse a la infraestructura existente sin reemplazarla.</p>
+        </div>
+        <div id="arch-layers" class="mt-12 space-y-3"></div>
+        <div class="reveal mt-8">
+          <p class="text-center text-sm text-ink-300">Plataforma agnóstica de hardware y proveedores. Se conecta con lo que la ciudad ya tiene y suma nuevas capas a su ritmo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CASOS DE USO ======================== -->
+    <section id="casos" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Casos de uso</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Pensada para distintos tipos de operador urbano</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">La misma plataforma se adapta al alcance y la escala de cada cliente, desde un municipio hasta un parque industrial o una concesionaria.</p>
+        </div>
+        <div id="use-cases-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+        <div class="reveal mt-8">
+          <div class="flex items-center gap-3 rounded-xl border border-ink-200 bg-ink-50/60 p-4 text-sm text-ink-700">
+            <i data-lucide="shield-check" class="size-5 shrink-0 text-ops-dark"></i>
+            Cada caso se entrega con roles, auditoría y SLA configurables según el contrato y la operación del cliente.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ANTES Y DESPUÉS ======================== -->
+    <section id="antes-despues" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Antes y después</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">De operación reactiva a operación en tiempo real</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">El mismo municipio, los mismos recursos y una forma distinta de trabajar: conectada, priorizada y auditable.</p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2">
+          <div class="reveal">
+            <div class="rounded-2xl border border-ink-200 bg-ink-50/60 p-6">
+              <div class="mb-4 flex items-center gap-2">
+                <span class="inline-flex size-8 items-center justify-center rounded-lg bg-ink-200 text-ink-600"><i data-lucide="x" class="size-4"></i></span>
+                <h3 class="text-base font-semibold text-ink-800">Antes</h3>
+              </div>
+              <ul class="space-y-2.5">
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Datos dispersos en áreas y planillas</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Reclamos aislados sin trazabilidad</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Poca visibilidad del cumplimiento</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Recorridos manuales y reactivos</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Reportes tardíos y estáticos</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Mantenimiento solo cuando falla</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-600"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ink-300 text-white"><i data-lucide="x" class="size-3"></i></span> Auditoría basada en muestras</li>
+              </ul>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="relative rounded-2xl border border-ops/30 bg-white p-6 shadow-card">
+              <div class="pointer-events-none absolute -right-10 -top-10 size-32 rounded-full bg-ops/10 blur-2xl" aria-hidden="true"></div>
+              <div class="mb-4 flex items-center gap-2">
+                <span class="inline-flex size-8 items-center justify-center rounded-lg bg-ops text-white"><i data-lucide="check" class="size-4"></i></span>
+                <h3 class="text-base font-semibold text-ink-900">Después</h3>
+              </div>
+              <ul class="space-y-2.5">
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Mapa único de operación urbana</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Alertas en tiempo real por zona</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Tareas priorizadas por impacto</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Cuadrillas coordinadas en mapa</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Evidencia antes y después</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Indicadores claros y vivos</li>
+                <li class="flex items-start gap-2.5 text-sm text-ink-800"><span class="mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-ops text-white"><i data-lucide="check" class="size-3"></i></span> Auditoría y mejora continua</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== IMPACTO ======================== -->
+    <section id="impacto" class="h-section scroll-mt-24 bg-ink-50/60">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Impacto</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Resultados que se ven en la operación</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">Métricas de ejemplo según el alcance del proyecto. No son promesas contractuales, son indicadores de lo que una ciudad conectada puede alcanzar.</p>
+        </div>
+        <div id="impact-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+        <div class="reveal mt-8">
+          <p class="text-xs text-ink-600">Las cifras varían según la cantidad de sensores, zonas integradas y procesos digitalizados. Presentamos un piloto medible para validar el impacto en tu contexto.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== INTEGRACIONES ======================== -->
+    <section id="integraciones" class="h-section scroll-mt-24 bg-white">
+      <div class="container-page">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow mb-3"><span class="size-1.5 rounded-full bg-current"></span> Diseñada para integrarse</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">Se conecta con lo que tu ciudad ya tiene</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">No reemplazamos tus sistemas: los unimos. La plataforma se integra con infraestructura municipal, canales de reclamos, cámaras, sensores, GPS y proveedores.</p>
+        </div>
+        <div id="integrations-grid" class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- ======================== CTA FINAL ======================== -->
+    <section id="contacto" class="relative scroll-mt-24 overflow-hidden bg-brand-deep py-20 sm:py-28">
+      <div class="pointer-events-none absolute inset-0 grid-line-bg opacity-25" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -left-20 top-0 size-[420px] rounded-full bg-cyan-tech/15 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-20 bottom-0 size-[420px] rounded-full bg-ops/10 blur-3xl" aria-hidden="true"></div>
+      <div class="container-page relative">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="eyebrow dark center"><span class="size-1.5 rounded-full bg-ops"></span> Cierre</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            Smart City no es sumar pantallas.<br class="hidden sm:block" />
+            <span class="text-cyan-glow"> Es conectar la operación urbana para tomar mejores decisiones.</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300">
+            Te mostramos la plataforma en acción y diseñamos un piloto Smart City a medida de tu municipio, concesionaria, parque industrial o barrio.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a href="mailto:smartcity@grupoittel.com" class="btn btn-primary">Solicitar una presentación <i data-lucide="arrow-right" class="size-4"></i></a>
+            <a href="mailto:smartcity@grupoittel.com" class="btn border border-white/20 bg-white/5 text-white hover:bg-white/10">Diseñar un piloto Smart City</a>
+          </div>
+          <div class="mt-10 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="mail" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Email</span></div><p class="mt-1.5 text-sm font-semibold text-white">smartcity@grupoittel.com</p></div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="phone" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Teléfono</span></div><p class="mt-1.5 text-sm font-semibold text-white">+54 11 0000-0000</p></div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-left"><div class="flex items-center gap-2 text-cyan-glow"><i data-lucide="map-pin" class="size-4"></i><span class="text-[11px] font-semibold uppercase tracking-wide">Oficina</span></div><p class="mt-1.5 text-sm font-semibold text-white">Buenos Aires, Argentina</p></div>
+          </div>
+          <p class="mt-6 inline-flex items-center gap-2 text-xs text-ink-400"><i data-lucide="calendar-days" class="size-3.5"></i> Respuesta en 24 hs hábiles</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="border-t border-ink-200 bg-ink-50">
+    <div class="container-page py-12">
+      <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex size-9 items-center justify-center rounded-lg bg-brand text-white shadow-soft">
+              <svg viewBox="0 0 24 24" class="size-5" fill="none"><rect x="3" y="3" width="5" height="5" rx="1" fill="#22d3ee"/><rect x="10" y="3" width="5" height="9" rx="1" fill="#10b981"/><rect x="17" y="3" width="4" height="6" rx="1" fill="#94a3b8"/><rect x="3" y="10" width="9" height="4" rx="1" fill="#22d3ee" opacity="0.7"/><rect x="14" y="14" width="7" height="7" rx="1" fill="#22d3ee" opacity="0.7"/><rect x="3" y="16" width="18" height="5" rx="1" fill="#10b981" opacity="0.55"/></svg>
+            </span>
+            <div class="leading-none">
+              <p class="text-[15px] font-extrabold tracking-tight text-ink-900">GRUPO ITTEL</p>
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-cyan-700">IT-TEL Smart City</p>
+            </div>
+          </div>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-600">Tecnología, conectividad e infraestructura urbana. Diseñamos, integramos y operamos plataformas Smart City para municipios, concesionarias y operadores de servicios públicos.</p>
+          <p class="mt-4 text-xs text-ink-600">© 2026 GRUPO ITTEL. Todos los derechos reservados.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Plataforma</p>
+          <ul class="mt-4 space-y-2.5">
+            <li><button data-scroll="plataforma" class="text-sm text-ink-600 hover:text-ink-900">Plataforma</button></li>
+            <li><button data-scroll="soluciones" class="text-sm text-ink-600 hover:text-ink-900">Soluciones</button></li>
+            <li><button data-scroll="control" class="text-sm text-ink-600 hover:text-ink-900">Centro de control</button></li>
+            <li><button data-scroll="tecnologia" class="text-sm text-ink-600 hover:text-ink-900">Tecnología</button></li>
+            <li><button data-scroll="casos" class="text-sm text-ink-600 hover:text-ink-900">Casos de uso</button></li>
+            <li><button data-scroll="contacto" class="text-sm text-ink-600 hover:text-ink-900">Contacto</button></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-ink-600">Soluciones</p>
+          <ul class="mt-4 space-y-2.5 text-sm text-ink-600">
+            <li>Centro de control</li><li>Tránsito y semáforos</li><li>Alumbrado y residuos</li><li>Reclamos ciudadanos</li><li>Auditoría urbana</li>
+          </ul>
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-ink-600">Contacto</p>
+          <ul class="mt-4 space-y-2.5 text-sm text-ink-600">
+            <li>smartcity@grupoittel.com</li><li>+54 11 0000-0000</li><li>Buenos Aires, Argentina</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col items-start justify-between gap-3 border-t border-ink-200 pt-6 text-xs text-ink-600 sm:flex-row sm:items-center">
+        <p>Solución presentada por GRUPO ITTEL. Datos de demostración — no representan mediciones contractuales.</p>
+        <p class="flex items-center gap-2"><span class="dot bg-ops"></span> Sistema operativo · demo en línea</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --section-y: 6rem;
+  }
+
+  * {
+    @apply border-ink-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-white text-ink-800 antialiased font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-cyan-tech/25 text-brand-deep;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-balance;
+    text-wrap: balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+
+  /* Visible focus for accessibility */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid #0ea5b7;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-cyan-700;
+  }
+
+  .h-section {
+    @apply scroll-mt-24 py-[var(--section-y)];
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-ink-200 bg-white shadow-soft;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-colors duration-150 disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-secondary {
+    @apply btn border border-ink-300 bg-white text-ink-800 hover:border-ink-400 hover:bg-ink-50;
+  }
+  .btn-ghost {
+    @apply btn text-ink-700 hover:bg-ink-100;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 text-[11px] font-medium text-ink-600;
+  }
+
+  .dot {
+    @apply inline-block size-2 rounded-full;
+  }
+
+  .grid-dot-bg {
+    background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .grid-line-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+
+  /* tabular numbers for data */
+  .nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
