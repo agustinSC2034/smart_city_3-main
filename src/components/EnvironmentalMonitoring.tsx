@@ -72,7 +72,6 @@ export function EnvironmentalMonitoring() {
   return (
     <FeatureSection
       id="ambiente"
-      dark
       eyebrow="Ambiente · Prevención"
       title="Monitoreo ambiental y prevención"
       description="Una red de sensores para medir las condiciones urbanas, detectar riesgos y priorizar acciones antes de que el problema escale."

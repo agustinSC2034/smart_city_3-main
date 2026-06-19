@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import { CityAsOS } from "@/components/CityAsOS";
 import { PlatformOverview } from "@/components/PlatformOverview";
 import { SmartMobility } from "@/components/SmartMobility";
-import { SmartLighting, SmartCameras, SmartWaste, SmartTolls } from "@/components/DeviceSolutions";
+import { SmartLighting, SmartCameras, SmartWaste } from "@/components/DeviceSolutions";
 import { CrewOperations } from "@/components/CrewOperations";
 import { EnvironmentalMonitoring } from "@/components/EnvironmentalMonitoring";
 import { IncidentCoordination } from "@/components/IncidentCoordination";
@@ -37,7 +37,6 @@ export default function App() {
         <SmartCameras />
         <SmartWaste />
         <CrewOperations />
-        <SmartTolls />
         <EnvironmentalMonitoring />
 
         {/* Operación transversal */}

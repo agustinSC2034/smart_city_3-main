@@ -1,4 +1,4 @@
-import { Check, X, TrendingUp } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { SectionShell, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { beforeAfter, impact } from "@/data/content";
@@ -60,25 +60,21 @@ export function BeforeAfter() {
         </Reveal>
       </div>
 
-      {/* Métricas — datos secundarios, sin cards pesadas */}
-      <Reveal delay={0.15} className="mt-10">
+      {/* Métricas — fila limpia de indicadores */}
+      <Reveal delay={0.15} className="mt-12">
         <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">
           Indicadores de impacto
         </p>
       </Reveal>
-      <RevealStagger className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.07}>
+      <RevealStagger className="mt-5 grid gap-3 sm:grid-cols-3" stagger={0.08}>
         {impact.map((m) => (
           <RevealItem key={m.label}>
-            <div className="flex items-baseline gap-3 border-l-2 border-cyan-tech/30 pl-4">
+            <div className="rounded-xl border border-ink-200 bg-white p-5 shadow-soft">
               <p className="nums text-3xl font-extrabold tracking-tight text-ink-900">
                 {m.metric}
               </p>
-              <div>
-                <p className="text-sm font-medium leading-snug text-ink-700">{m.label}</p>
-                <p className="mt-0.5 flex items-center gap-1 text-[11px] text-ink-500">
-                  <TrendingUp className="size-3 text-ops" /> {m.note}
-                </p>
-              </div>
+              <p className="mt-1.5 text-sm leading-snug text-ink-700">{m.label}</p>
+              <p className="mt-1 text-[11px] text-ink-500">{m.note}</p>
             </div>
           </RevealItem>
         ))}
