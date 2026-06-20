@@ -29,7 +29,7 @@ function LightingMock() {
       alt="Vista de alumbrado inteligente con calle iluminada, mapa de luminarias, estado del controlador y cuadrilla asignada."
       aspect="aspect-[1672/941]"
       fit="contain"
-      className="bg-[linear-gradient(135deg,#f8fafc,#eef2f7)] p-2 sm:p-3"
+      framed={false}
     />
   );
 }
@@ -65,7 +65,7 @@ function CameraMock() {
       aspect="aspect-[1672/941]"
       fit="contain"
       dark
-      className="bg-white p-2"
+      framed={false}
     />
   );
 }
@@ -99,7 +99,7 @@ function WasteMock() {
       alt="Vista de residuos inteligentes con contenedor sensorizado, nivel de llenado critico, ruta recomendada y acciones operativas."
       aspect="aspect-[1672/941]"
       fit="contain"
-      className="bg-[linear-gradient(135deg,#f8fafc,#eef2f7)] p-2 sm:p-3"
+      framed={false}
     />
   );
 }

@@ -1,0 +1,24 @@
+# IT-TEL Smart City
+
+> Plataforma Smart City de GRUPO ITTEL para monitorear, auditar y optimizar servicios públicos en tiempo real.
+
+IT-TEL Smart City integra sensores, cámaras, reclamos ciudadanos, cuadrillas, activos urbanos y datos en un único centro de control. Pensada para municipios, concesionarias, parques industriales, barrios cerrados y operadores de servicios públicos.
+
+## Secciones
+
+- [Plataforma](/#plataforma) - La ciudad como sistema operativo
+- [Soluciones](/#soluciones) - Centro de control, semáforos, tránsito, cámaras, alumbrado, residuos, reclamos, mantenimiento, ambiente, agua, zonas
+- [Centro de control](/#control) - Mapa vivo, alertas, KPIs, cuadrillas
+- [Reclamos ciudadanos](/#reclamos) - App ciudadana y panel municipal
+- [Mantenimiento y auditoría](/#auditoria) - Activos, historial, evidencia, SLA
+- [Tecnología](/#tecnologia) - Cómo funciona
+- [Arquitectura](/#arquitectura) - Capas tecnológicas
+- [Casos de uso](/#casos) - Municipal, concesionaria, industrial, barrios
+- [Impacto](/#impacto) - Métricas
+- [Integraciones](/#integraciones) - Sistemas existentes
+- [Contacto](/#contacto) - Solicitar demo
+
+## Contacto
+
+- Email: smartcity@grupoittel.com
+- Web: https://grupoittel.com

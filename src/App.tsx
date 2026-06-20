@@ -13,27 +13,8 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { Integrations } from "@/components/Integrations";
 import { WhyItTel } from "@/components/WhyItTel";
 import { Footer } from "@/components/Footer";
-import { PresentationDeck } from "@/components/PresentationDeck";
-
-// Prevent tree-shaking — assign to a global so Rollup can't eliminate it
-const _deck = PresentationDeck;
-void _deck;
-
-function isPresentationRoute(): boolean {
-  try {
-    const p = window.location.pathname.replace(/\/$/, "");
-    return p === "/presentacion" || p.endsWith("/presentacion");
-  } catch {
-    return false;
-  }
-}
 
 export default function App() {
-  const showPresentation = isPresentationRoute();
-  if (showPresentation) {
-    return <PresentationDeck />;
-  }
-
   return (
     <div className="min-h-dvh bg-white">
       <a

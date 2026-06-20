@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:presentation": "vite --config vite.presentation.config.ts",
     "build": "tsc --noEmit && vite build",
+    "build:presentation": "tsc --noEmit && vite build --config vite.presentation.config.ts",
+    "build:all": "npm run build && npm run build:presentation",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

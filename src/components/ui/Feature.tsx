@@ -286,6 +286,7 @@ export function ProductScreenshot({
   dark = false,
   className,
   imageClassName,
+  framed = true,
 }: {
   src: string;
   alt: string;
@@ -294,7 +295,25 @@ export function ProductScreenshot({
   dark?: boolean;
   className?: string;
   imageClassName?: string;
+  framed?: boolean;
 }) {
+  if (!framed) {
+    return (
+      <div className={cn("relative overflow-hidden rounded-2xl", aspect, className)}>
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className={cn(
+            "size-full",
+            fit === "contain" ? "object-contain" : "object-cover",
+            imageClassName
+          )}
+        />
+      </div>
+    );
+  }
   return (
     <div
       className={cn(

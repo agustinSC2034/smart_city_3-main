@@ -2,19 +2,31 @@ $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot
 Set-Location $root
 
-Write-Host "==> Limpiando build anterior..." -ForegroundColor Cyan
+Write-Host "==> Limpiando builds anteriores..." -ForegroundColor Cyan
 if (Test-Path dist) { Remove-Item dist -Recurse -Force }
+if (Test-Path dist-presentation) { Remove-Item dist-presentation -Recurse -Force }
 
-Write-Host "==> Compilando React app (index.build.html -> /src/main.tsx)..." -ForegroundColor Cyan
+Write-Host "==> Compilando landing (index.build.html -> /src/main.tsx)..." -ForegroundColor Cyan
 Copy-Item index.build.html index.html -Force
 npm.cmd run build 2>&1 | Out-Host
-if ($LASTEXITCODE -ne 0) { throw "Build fallido" }
+if ($LASTEXITCODE -ne 0) { throw "Build de landing fallido" }
 
-Write-Host "==> Copiando assets con nombres limpios..." -ForegroundColor Cyan
+Write-Host "==> Compilando presentacion (/src/presentacion-main.tsx)..." -ForegroundColor Cyan
+npm.cmd run build:presentation 2>&1 | Out-Host
+if ($LASTEXITCODE -ne 0) { throw "Build de presentacion fallido" }
+
+Write-Host "==> Copiando assets de la landing con nombres limpios..." -ForegroundColor Cyan
 $css = Get-ChildItem dist\assets\*.css | Select-Object -First 1
 $js = Get-ChildItem dist\assets\*.js | Select-Object -First 1
 Copy-Item $css.FullName "styles.css" -Force
 Copy-Item $js.FullName "app.js" -Force
+
+Write-Host "==> Copiando bundle de la presentacion..." -ForegroundColor Cyan
+$presJs = Join-Path $root "dist-presentation\presentacion.js"
+$presCss = Join-Path $root "dist-presentation\presentacion.css"
+if (-not (Test-Path $presJs)) { throw "No se genero dist-presentation\presentacion.js" }
+Copy-Item $presJs "presentacion.js" -Force
+if (Test-Path $presCss) { Copy-Item $presCss "presentacion.css" -Force }
 
 Write-Host "==> Copiando favicon y logo..." -ForegroundColor Cyan
 Copy-Item "public\favicon.png" "favicon.png" -Force
@@ -24,7 +36,7 @@ if (Test-Path "public\plataforma") {
   Copy-Item "public\plataforma\*" "plataforma" -Recurse -Force
 }
 
-Write-Host "==> Reescribiendo index.html de produccion..." -ForegroundColor Cyan
+Write-Host "==> Reescribiendo index.html de produccion (landing)..." -ForegroundColor Cyan
 $prodHtml = @"
 <!DOCTYPE html>
 <html lang="es">
@@ -65,27 +77,19 @@ $presentationHtml = @"
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../presentacion.css" />
 </head>
 <body>
   <div id="root"></div>
-  <script type="module" src="../app.js"></script>
+  <script type="module" src="../presentacion.js"></script>
 </body>
 </html>
 "@
 [System.IO.File]::WriteAllText((Join-Path $presentationRoot "index.html"), $presentationHtml, $utf8NoBom)
 
-$distPresentation = Join-Path $root "dist\presentacion"
-if (-not (Test-Path $distPresentation)) { New-Item -ItemType Directory -Path $distPresentation | Out-Null }
-$distHtmlPath = Join-Path $root "dist\index.html"
-if (Test-Path $distHtmlPath) {
-  $distPresentationHtml = [System.IO.File]::ReadAllText($distHtmlPath).Replace("./assets/", "../assets/")
-  [System.IO.File]::WriteAllText((Join-Path $distPresentation "index.html"), $distPresentationHtml, $utf8NoBom)
-}
-
 Write-Host "==> Listo! Archivos para produccion:" -ForegroundColor Green
 Write-Host "    index.html, styles.css, app.js, favicon.png, Logo_Ittel_AI.png" -ForegroundColor Gray
-Write-Host "    + presentacion/index.html" -ForegroundColor Gray
+Write-Host "    presentacion/index.html, ../presentacion.js, ../presentacion.css" -ForegroundColor Gray
 Write-Host "    + plataforma/*.png" -ForegroundColor Gray
 Write-Host "    + smart-city-caba-hero.png, smart-city-operations-waste-its.png" -ForegroundColor Gray
 Write-Host "    + robots.txt, llms.txt" -ForegroundColor Gray
