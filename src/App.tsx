@@ -1,11 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { PlatformOverview } from "@/components/PlatformOverview";
-import { SolutionsSnap } from "@/components/SolutionsSnap";
-import { SmartMobility } from "@/components/SmartMobility";
-import { SmartLighting, SmartCameras, SmartWaste } from "@/components/DeviceSolutions";
-import { CrewOperations } from "@/components/CrewOperations";
-import { EnvironmentalMonitoring } from "@/components/EnvironmentalMonitoring";
+import { SolutionsShowcase } from "@/components/SolutionsShowcase";
 import { IncidentCoordination } from "@/components/IncidentCoordination";
 import { Citizens } from "@/components/Citizens";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -29,16 +25,8 @@ export default function App() {
         <Hero />
         <PlatformOverview />
 
-        {/* Soluciones — scroll-snap solo en este bloque */}
-        <div id="soluciones" className="scroll-mt-24" aria-hidden />
-        <SolutionsSnap>
-          <SmartMobility />
-          <SmartLighting />
-          <SmartCameras />
-          <SmartWaste />
-          <CrewOperations />
-          <EnvironmentalMonitoring />
-        </SolutionsSnap>
+        {/* Soluciones — scrollytelling editorial */}
+        <SolutionsShowcase />
 
         {/* Operación transversal */}
         <IncidentCoordination />

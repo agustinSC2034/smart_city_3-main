@@ -4,23 +4,7 @@ import { flowSteps } from "@/data/architecture";
 
 export function HowItWorks() {
   return (
-    <SectionShell id="tecnologia">
-      {/* Imagen de fondo — reemplazar por foto real de infraestructura / servidores / torres */}
-      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(246,248,251,0.95) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 flex items-end justify-end p-4 text-right" aria-hidden>
-          <span className="rounded bg-ink-200/60 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-500">
-            Acá iría una imagen de fondo (infraestructura / servidores / torres)
-          </span>
-        </div>
-      </div>
-
+    <SectionShell id="tecnologia" className="bg-ink-50/50">
       <Reveal>
         <SectionHeading
           eyebrow="Cómo funciona"

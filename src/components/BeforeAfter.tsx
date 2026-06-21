@@ -17,26 +17,17 @@ export function BeforeAfter() {
 
       {/* Antes / Después — dos paneles con imagen de fondo y overlay */}
       <div className="mt-12 grid gap-4 md:grid-cols-2 md:gap-0 md:overflow-hidden md:rounded-xl md:border md:border-ink-200">
-        {/* ANTES — fondo oscuro/apagado */}
+        {/* ANTES — fondo oscuro/apagado (sumar <img> real cuando exista) */}
         <Reveal direction="left">
           <div className="relative flex min-h-[340px] flex-col justify-end bg-ink-900 p-7 sm:p-9">
-            {/* Fondo: reemplazar por imagen real de caos / suciedad urbana */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.78) 100%)",
+                  "linear-gradient(135deg, rgba(15,23,42,0.94) 0%, rgba(15,23,42,0.82) 100%)",
               }}
               aria-hidden
             />
-            <div
-              className="pointer-events-none absolute inset-0 flex items-start justify-end p-4 text-right"
-              aria-hidden
-            >
-              <span className="rounded bg-white/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-300">
-                Acá iría una imagen que represente caos / suciedad urbana
-              </span>
-            </div>
 
             <div className="relative">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-400">
@@ -57,26 +48,17 @@ export function BeforeAfter() {
           </div>
         </Reveal>
 
-        {/* DESPUÉS — fondo claro/limpio */}
+        {/* DESPUÉS — fondo claro/limpio (sumar <img> real cuando exista) */}
         <Reveal delay={0.1} direction="right">
           <div className="relative flex min-h-[340px] flex-col justify-end bg-white p-7 sm:p-9 md:border-l md:border-ink-200">
-            {/* Fondo: reemplazar por imagen real de orden / ciudad limpia */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(246,248,251,0.85) 100%)",
+                  "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(246,248,251,0.88) 100%)",
               }}
               aria-hidden
             />
-            <div
-              className="pointer-events-none absolute inset-0 flex items-start justify-end p-4 text-right"
-              aria-hidden
-            >
-              <span className="rounded bg-brand/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand">
-                Acá iría una imagen que represente orden / ciudad limpia
-              </span>
-            </div>
 
             <div className="relative">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-brand">

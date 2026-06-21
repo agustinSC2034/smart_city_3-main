@@ -28,27 +28,23 @@ const reasons = [
   },
 ];
 
-const clients = [
-  "Telecom", "Movistar", "Claro", "ARSAT", "Trenes Argentinos", "Provincia de Buenos Aires", "Cirion", "SICE",
-];
+// Logos de clientes/partners — reactivar cuando se sumen los archivos reales
+// const clients = [
+//   "Telecom", "Movistar", "Claro", "ARSAT", "Trenes Argentinos", "Provincia de Buenos Aires", "Cirion", "SICE",
+// ];
 
 export function WhyItTel() {
   return (
     <section id="contacto" className="relative scroll-mt-24 overflow-hidden bg-brand-deep py-20 text-ink-100 sm:py-28">
-      {/* Imagen de fondo — reemplazar por foto real de infraestructura / ciudad / NOC */}
+      {/* Imagen de fondo — overlay institucional (sumar <img> real cuando exista el archivo) */}
       <div className="absolute inset-0" aria-hidden>
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(5,16,35,0.92) 0%, rgba(5,16,35,0.86) 100%)",
+              "linear-gradient(180deg, rgba(5,16,35,0.96) 0%, rgba(5,16,35,0.92) 100%)",
           }}
         />
-        <div className="pointer-events-none absolute inset-0 flex items-end justify-end p-4 text-right" aria-hidden>
-          <span className="rounded bg-white/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-400">
-            Acá iría una imagen de fondo (infraestructura / ciudad / NOC)
-          </span>
-        </div>
       </div>
 
       <div className="container-page relative">
@@ -79,7 +75,7 @@ export function WhyItTel() {
           </div>
         </Reveal>
 
-        {/* Clients strip — logos (placeholders) */}
+        {/* Clients strip — oculto hasta contar con los logos reales
         <Reveal delay={0.15} className="mt-14">
           <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
             Clientes y partners
@@ -94,10 +90,8 @@ export function WhyItTel() {
               </span>
             ))}
           </div>
-          <p className="mt-3 text-[11px] text-ink-500">
-            Acá irían los logos reales de cada cliente y partner.
-          </p>
         </Reveal>
+        */}
 
         {/* CTA + contacto */}
         <Reveal delay={0.2} className="mt-16">
