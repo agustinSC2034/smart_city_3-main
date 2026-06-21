@@ -35,16 +35,27 @@ const clients = [
 export function WhyItTel() {
   return (
     <section id="contacto" className="relative scroll-mt-24 overflow-hidden bg-brand-deep py-20 text-ink-100 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 grid-line-bg opacity-20" aria-hidden />
-      <div className="pointer-events-none absolute -left-20 top-10 size-[420px] rounded-full bg-cyan-tech/12 blur-3xl" aria-hidden />
-      <div className="pointer-events-none absolute -right-20 bottom-0 size-[420px] rounded-full bg-ops/8 blur-3xl" aria-hidden />
+      {/* Imagen de fondo — reemplazar por foto real de infraestructura / ciudad / NOC */}
+      <div className="absolute inset-0" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(5,16,35,0.92) 0%, rgba(5,16,35,0.86) 100%)",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 flex items-end justify-end p-4 text-right" aria-hidden>
+          <span className="rounded bg-white/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-400">
+            Acá iría una imagen de fondo (infraestructura / ciudad / NOC)
+          </span>
+        </div>
+      </div>
 
       <div className="container-page relative">
         {/* Header */}
         <Reveal>
           <div className="max-w-2xl">
             <p className="eyebrow text-cyan-glow">
-              <span className="size-1.5 rounded-full bg-current" aria-hidden />
               ¿Por qué Grupo iTTel?
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
@@ -68,40 +79,40 @@ export function WhyItTel() {
           </div>
         </Reveal>
 
-        {/* Clients strip */}
+        {/* Clients strip — logos (placeholders) */}
         <Reveal delay={0.15} className="mt-14">
           <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
             Clientes y partners
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-ink-300">
-            {clients.map((c, i) => (
-              <span key={c} className="flex items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            {clients.map((c) => (
+              <span
+                key={c}
+                className="inline-flex h-12 min-w-[120px] items-center justify-center rounded-md border border-white/10 bg-white/5 px-5 text-sm font-semibold text-ink-400 grayscale transition-opacity hover:text-ink-200"
+              >
                 {c}
-                {i < clients.length - 1 && <span className="text-ink-600">·</span>}
               </span>
             ))}
           </div>
+          <p className="mt-3 text-[11px] text-ink-500">
+            Acá irían los logos reales de cada cliente y partner.
+          </p>
         </Reveal>
 
-        {/* CTA + contacto — tranquilo, al final */}
+        {/* CTA + contacto */}
         <Reveal delay={0.2} className="mt-16">
           <div className="border-t border-white/10 pt-10">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
-                <h3 className="text-xl font-bold text-white sm:text-2xl">Hablemos de tu ciudad</h3>
+                <h3 className="text-xl font-bold text-white sm:text-2xl">Contáctanos</h3>
                 <p className="mt-2 max-w-md text-sm leading-relaxed text-ink-300">
-                  Te mostramos la plataforma en acción y armamos un piloto con los dispositivos y verticales que tu operación necesita.
+                  Estamos para responder cualquier consulta sobre la plataforma y los
+                  servicios de Grupo ITTEL.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a href="mailto:administracion@it-tel.com.ar" className="btn-primary">
-                    Solicitar una presentación
+                    Escribinos
                     <ArrowRight className="size-4" />
-                  </a>
-                  <a
-                    href="mailto:administracion@it-tel.com.ar"
-                    className="btn border border-white/20 bg-white/5 text-white hover:bg-white/10"
-                  >
-                    Diseñar un piloto Smart City
                   </a>
                 </div>
               </div>

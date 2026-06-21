@@ -43,7 +43,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(5,16,35,0.96) 0%, rgba(5,16,35,0.86) 38%, rgba(5,16,35,0.42) 72%, rgba(5,16,35,0.12) 100%)",
+            "linear-gradient(to right, rgba(5,16,35,0.94) 0%, rgba(5,16,35,0.82) 40%, rgba(5,16,35,0.4) 72%, rgba(5,16,35,0.1) 100%)",
         }}
         aria-hidden="true"
       />
@@ -52,7 +52,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(5,16,35,0.45) 0%, transparent 22%, transparent 70%, rgba(5,16,35,0.72) 100%)",
+            "linear-gradient(to bottom, rgba(5,16,35,0.35) 0%, transparent 22%, transparent 72%, rgba(5,16,35,0.7) 100%)",
         }}
         aria-hidden="true"
       />
@@ -65,7 +65,7 @@ export function Hero() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
-            Ciudades inteligentes en operación
+            Operación urbana en tiempo real
           </motion.h1>
 
           <motion.p
@@ -74,8 +74,9 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg"
           >
-            Una plataforma para integrar semáforos, luminarias, sensores, cámaras,
-            reclamos y cuadrillas sobre un mapa operativo de la ciudad.
+            Semáforos, luminarias, sensores, cámaras, reclamos y cuadrillas sobre
+            un mismo mapa operativo, con alertas, órdenes de trabajo y trazabilidad
+            de cada intervención.
           </motion.p>
 
           <motion.div
@@ -85,17 +86,17 @@ export function Hero() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <button
-              onClick={() => go("dispositivos")}
+              onClick={() => go("contacto")}
               className="btn-primary"
             >
-              Ver infraestructura inteligente
+              Solicitar demo
               <ArrowRight className="size-4" aria-hidden />
             </button>
             <button
-              onClick={() => go("control")}
+              onClick={() => go("plataforma")}
               className="btn border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/15"
             >
-              Explorar centro de control
+              Ver la plataforma
             </button>
           </motion.div>
         </div>

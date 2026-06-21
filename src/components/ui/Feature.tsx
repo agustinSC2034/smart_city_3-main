@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 type FeatureSectionProps = {
   id: string;
   dark?: boolean;
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   description: ReactNode;
   /** "left" = mock a la izquierda, "right" = mock a la derecha (default right) */
@@ -52,15 +52,16 @@ export function FeatureSection({
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           {/* TEXT */}
           <Reveal className={cn(mockSide === "left" && "lg:order-2")}>
-            <p
-              className={cn(
-                "eyebrow mb-4",
-                dark && "text-cyan-glow"
-              )}
-            >
-              <span className="size-1.5 rounded-full bg-current" aria-hidden />
-              {eyebrow}
-            </p>
+            {eyebrow && (
+              <p
+                className={cn(
+                  "eyebrow mb-4",
+                  dark && "text-cyan-glow"
+                )}
+              >
+                {eyebrow}
+              </p>
+            )}
             <h2
               className={cn(
                 "text-3xl font-bold tracking-tight sm:text-4xl lg:leading-[1.12]",
@@ -79,7 +80,7 @@ export function FeatureSection({
             </p>
 
             {highlights.length > 0 && (
-              <ul className="mt-6 flex flex-col gap-2.5">
+              <ul className="mt-6 flex flex-col gap-2">
                 {highlights.map((h) => (
                   <li
                     key={h}
@@ -90,8 +91,8 @@ export function FeatureSection({
                   >
                     <span
                       className={cn(
-                        "mt-1.5 size-1.5 shrink-0 rounded-full",
-                        dark ? "bg-cyan-glow" : "bg-cyan-tech"
+                        "mt-2 h-px w-4 shrink-0",
+                        dark ? "bg-cyan-glow/60" : "bg-ink-300"
                       )}
                       aria-hidden
                     />
@@ -102,25 +103,14 @@ export function FeatureSection({
             )}
 
             {platformNote && (
-              <div
+              <p
                 className={cn(
-                  "mt-6 flex items-start gap-2.5 rounded-xl border p-3.5 text-[13px] leading-relaxed",
-                  dark
-                    ? "border-white/10 bg-white/5 text-ink-300"
-                    : "border-ink-200 bg-ink-50/70 text-ink-700"
+                  "mt-6 max-w-xl text-[13px] leading-relaxed",
+                  dark ? "text-ink-400" : "text-ink-500"
                 )}
               >
-                <span
-                  className={cn(
-                    "mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-md text-[11px] font-bold",
-                    dark ? "bg-cyan-tech/20 text-cyan-glow" : "bg-brand/10 text-brand"
-                  )}
-                  aria-hidden
-                >
-                  ↗
-                </span>
-                <span>{platformNote}</span>
-              </div>
+                {platformNote}
+              </p>
             )}
 
             {ctaLabel && (
@@ -167,19 +157,10 @@ export function MockFrame({
     <div className="relative">
       <div
         className={cn(
-          "absolute -inset-3 -z-10 rounded-3xl blur-2xl",
+          "overflow-hidden rounded-xl border shadow-soft",
           dark
-            ? "bg-gradient-to-br from-cyan-tech/15 via-brand/30 to-transparent"
-            : "bg-gradient-to-br from-cyan-tech/15 via-brand/5 to-transparent"
-        )}
-        aria-hidden
-      />
-      <div
-        className={cn(
-          "overflow-hidden rounded-2xl border shadow-lift ring-1",
-          dark
-            ? "border-white/10 bg-brand-dark ring-white/5"
-            : "border-ink-200 bg-white ring-ink-200/60",
+            ? "border-white/10 bg-brand-dark"
+            : "border-ink-200 bg-white",
           className
         )}
       >
@@ -190,12 +171,9 @@ export function MockFrame({
           )}
         >
           <div className="flex items-center gap-2">
-            <span className="size-2.5 rounded-full bg-alert/70" />
-            <span className="size-2.5 rounded-full bg-warn/70" />
-            <span className="size-2.5 rounded-full bg-ops/70" />
             <span
               className={cn(
-                "ml-2 text-xs font-semibold",
+                "text-xs font-semibold",
                 dark ? "text-ink-300" : "text-ink-600"
               )}
             >
@@ -236,44 +214,30 @@ export function ImageMock({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border",
-        dark ? "border-white/10" : "border-ink-200",
+        "relative flex flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border text-center",
+        dark ? "border-white/10 bg-white/5" : "border-ink-200 bg-ink-50",
         aspect,
         className
       )}
     >
-      <div
+      <span
         className={cn(
-          "absolute inset-0",
-          dark
-            ? "bg-[radial-gradient(circle_at_30%_30%,#1e3a5f,transparent_45%),radial-gradient(circle_at_70%_70%,#081a33,transparent_50%)]"
-            : "bg-[radial-gradient(circle_at_30%_30%,#cbd5e1,transparent_45%),radial-gradient(circle_at_70%_70%,#e2e8f0,transparent_50%)]"
+          "text-[12px] font-semibold uppercase tracking-wide",
+          dark ? "text-ink-300" : "text-ink-500"
         )}
-        aria-hidden
-      />
-      <div className="pointer-events-none absolute inset-0 grid-line-bg opacity-20" aria-hidden />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-center">
+      >
+        {label}
+      </span>
+      {caption && (
         <span
           className={cn(
-            "rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wide",
-            dark
-              ? "border-white/15 bg-white/5 text-ink-300"
-              : "border-ink-200 bg-white/80 text-ink-600"
+            "max-w-xs px-4 text-[12px]",
+            dark ? "text-ink-400" : "text-ink-500"
           )}
         >
-          {label}
+          {caption}
         </span>
-        {caption && (
-          <span
-            className={cn(
-              "max-w-xs text-[11px]",
-              dark ? "text-ink-400" : "text-ink-500"
-            )}
-          >
-            {caption}
-          </span>
-        )}
-      </div>
+      )}
     </div>
   );
 }
@@ -317,21 +281,14 @@ export function ProductScreenshot({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border shadow-lift ring-1",
+        "relative overflow-hidden rounded-xl border shadow-soft",
         dark
-          ? "border-white/10 bg-brand-dark ring-white/10"
-          : "border-ink-200 bg-white ring-ink-200/60",
+          ? "border-white/10 bg-brand-dark"
+          : "border-ink-200 bg-white",
         className
       )}
     >
-      <div
-        className={cn(
-          "absolute -inset-8 -z-10 rounded-3xl blur-2xl",
-          dark ? "bg-cyan-tech/10" : "bg-cyan-tech/15"
-        )}
-        aria-hidden
-      />
-      <div className={cn("relative overflow-hidden rounded-[1rem]", aspect)}>
+      <div className={cn("relative overflow-hidden", aspect)}>
         <img
           src={src}
           alt={alt}

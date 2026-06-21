@@ -6,18 +6,17 @@ export function SmartMobility() {
       id="movilidad"
       dark
       eyebrow="Movilidad · ITS"
-      title="Movilidad y semaforos inteligentes"
-      description="Medimos el transito, adaptamos los cruces y coordinamos corredores para mejorar la circulacion, priorizar el transporte publico y responder ante incidentes."
+      title="Movilidad y semáforos inteligentes"
+      description="Conteo de tráfico, regulación adaptativa de cruces y coordinación de corredores para priorizar transporte público y responder ante incidentes."
       highlights={[
-        "Conteo vehicular, congestion, velocidades y tiempos de viaje",
-        "Regulacion semaforica adaptativa y onda verde por corredor",
-        "Prioridad para ambulancias y transporte publico",
-        "Monitoreo de controladores, fallas y rutas alternativas",
-        "Estacionamiento y zonas de carga como capacidad complementaria",
+        "Conteo vehicular, congestión, velocidades y tiempos de viaje por corredor",
+        "Onda verde y prioridad para ambulancias y transporte público",
+        "Falla de controlador → alerta + orden de trabajo + ruta alternativa",
       ]}
-      platformNote="El cruce reporta su estado y comparte datos con transito, transporte publico e incidentes."
-      ctaLabel="Ver gestion de incidentes"
+      platformNote="Cada cruce reporta su estado y comparte datos con tránsito, transporte público e incidentes."
+      ctaLabel="Ver gestión de incidentes"
       ctaTarget="incidentes"
+      className="snap-start"
       mock={<MobilityMock />}
     />
   );
@@ -27,7 +26,7 @@ function MobilityMock() {
   return (
     <ProductScreenshot
       src="./plataforma/semaforos.png"
-      alt="Panel de movilidad con corredor semaforico, cruces coordinados, congestion y prioridad de transporte publico."
+      alt="Panel de movilidad con corredor semafórico, cruces coordinados, congestión y prioridad de transporte público."
       aspect="aspect-[1448/1086]"
       fit="contain"
       dark

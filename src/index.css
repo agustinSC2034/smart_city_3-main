@@ -70,12 +70,13 @@
     @apply scroll-mt-24 py-[var(--section-y)];
   }
 
+  /* Tarjeta plana, sin sombra. Solo borde fino y radio sobrio. */
   .card-surface {
-    @apply rounded-2xl border border-ink-200 bg-white shadow-soft;
+    @apply rounded-xl border border-ink-200 bg-white;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-colors duration-150 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors duration-150 disabled:opacity-50;
   }
   .btn-primary {
     @apply btn bg-brand text-white hover:bg-brand-dark;
@@ -88,15 +89,16 @@
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 text-[11px] font-medium text-ink-600;
+    @apply inline-flex items-center gap-1.5 rounded-md border border-ink-200 bg-white px-2 py-0.5 text-[11px] font-medium text-ink-600;
   }
 
   .dot {
-    @apply inline-block size-2 rounded-full;
+    @apply inline-block size-1.5 rounded-full;
   }
 
+  /* Solo para usos puntuales: fondo de puntos sutiles. */
   .grid-dot-bg {
-    background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
     background-size: 22px 22px;
   }
 

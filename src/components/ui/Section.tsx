@@ -32,7 +32,6 @@ export function SectionHeading({
             align === "center" && "justify-center"
           )}
         >
-          <span className="size-1.5 rounded-full bg-current" aria-hidden />
           {eyebrow}
         </p>
       )}
@@ -73,7 +72,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "h-section scroll-mt-24",
+        "relative h-section scroll-mt-24",
         dark ? "bg-brand-deep text-ink-100" : "bg-white",
         className
       )}

@@ -76,7 +76,7 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300",
         scrolled
-          ? "border-b border-ink-200 bg-white/95 shadow-[0_4px_24px_rgba(15,23,42,0.10),0_1px_3px_rgba(15,23,42,0.08)] backdrop-blur-lg"
+          ? "border-b border-ink-200 bg-white/95 backdrop-blur-lg"
           : "border-b border-transparent bg-brand-deep/30 backdrop-blur-[2px]"
       )}
       style={{ paddingTop: "env(safe-area-inset-top)" }}
@@ -193,15 +193,6 @@ export function Header() {
         </div>
       )}
 
-      {/* Accent line — visible only when scrolled */}
-      <div
-        className={cn(
-          "absolute inset-x-0 bottom-0 h-0.5 origin-left transition-transform duration-300",
-          scrolled ? "scale-x-100" : "scale-x-0"
-        )}
-        style={{ background: "linear-gradient(to right, #22d3ee, #0ea5b7 40%, transparent)" }}
-        aria-hidden="true"
-      />
     </header>
   );
 }
