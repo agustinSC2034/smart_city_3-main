@@ -299,19 +299,19 @@ export function ProductScreenshot({
 }) {
   if (!framed) {
     return (
-      <div className={cn("relative overflow-hidden rounded-2xl", aspect, className)}>
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className={cn(
-            "size-full",
-            fit === "contain" ? "object-contain" : "object-cover",
-            imageClassName
-          )}
-        />
-      </div>
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className={cn(
+          "block w-full max-w-full",
+          aspect,
+          fit === "contain" ? "object-contain" : "object-cover",
+          className,
+          imageClassName
+        )}
+      />
     );
   }
   return (
