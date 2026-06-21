@@ -1,14 +1,16 @@
 import { SectionShell, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { ImageMock } from "@/components/ui/Feature";
+
+// Activar cuando exista una imagen definitiva de la app ciudadana y el panel municipal.
+const SHOW_CITIZENS_IMAGE = false;
 
 const flow = [
-  { t: "Ciudadano reporta", d: "Desde web, app o 147/BOTI con foto y ubicación." },
-  { t: "Geolocalización", d: "El reclamo cae en el mapa con coordenadas exactas." },
-  { t: "Clasificación", d: "Categoría automática y área responsable asignada." },
-  { t: "Cruce con activos", d: "Se vincula a luminaria, semáforo o contenedor cercano." },
-  { t: "Cuadrilla asignada", d: "Orden de trabajo con prioridad y SLA definido." },
-  { t: "Cierre con evidencia", d: "Foto antes/después y validación de cumplimiento." },
+  { t: "Ciudadano reporta", d: "Desde web, app o 147/BOTI con foto, categoría y ubicación." },
+  { t: "Geolocalización", d: "El reporte cae en el mapa con coordenadas y comuna." },
+  { t: "Clasificación", d: "Categoría automática y derivación al área responsable." },
+  { t: "Cruce con activos", d: "Se vincula a la luminaria, semáforo o contenedor más cercano." },
+  { t: "Intervención asignada", d: "Orden de trabajo con responsable, prioridad y SLA." },
+  { t: "Cierre con evidencia", d: "Foto antes/después y validación del área supervisora." },
 ];
 
 export function Citizens() {
@@ -17,12 +19,12 @@ export function Citizens() {
       <Reveal>
         <SectionHeading
           eyebrow="Reclamos ciudadanos"
-          title="El reclamo deja de ser un ticket aislado y se convierte en una señal operativa"
-          description="Cada reclamo ciudadano entra al mismo mapa que los sensores y las cámaras, se cruza con activos cercanos y dispara una operación trazable de principio a fin."
+          title="Reclamos conectados con la operación de campo"
+          description="Cada reporte se geolocaliza, se clasifica y se vincula con el activo o servicio correspondiente. Desde el mismo registro se asigna la intervención y se controla su cierre."
         />
       </Reveal>
 
-      {/* Flujo: fila editorial con divisores, sin tarjetas */}
+      {/* Flujo: fila editorial con divisores y numeración conservada */}
       <Reveal delay={0.05} className="mt-10">
         <ol className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-6">
           {flow.map((s, i) => (
@@ -37,14 +39,18 @@ export function Citizens() {
         </ol>
       </Reveal>
 
-      {/* Espacio para imagen real de la app ciudadana + panel municipal */}
-      <Reveal delay={0.1} className="mt-12">
-        <ImageMock
-          label="Acá iría una imagen de la app ciudadana y el panel municipal"
-          caption="Captura de la app 147/BOTI + panel del operador con reclamo, activo relacionado, cuadrilla y SLA."
-          aspect="aspect-[16/9]"
-        />
-      </Reveal>
+      {/* Espacio reservado para imagen de app ciudadana + panel municipal.
+          Activar SHOW_CITIZENS_IMAGE cuando el archivo esté disponible. */}
+      {SHOW_CITIZENS_IMAGE && (
+        <Reveal delay={0.1} className="mt-12">
+          <img
+            src="./plataforma/reclamos-app-panel.png"
+            alt="App ciudadana y panel municipal con reclamo geolocalizado."
+            className="mx-auto block w-full max-w-5xl"
+            loading="lazy"
+          />
+        </Reveal>
+      )}
     </SectionShell>
   );
 }

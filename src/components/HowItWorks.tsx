@@ -1,36 +1,53 @@
 import { SectionShell, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
-import { flowSteps } from "@/data/architecture";
+
+const groups = [
+  {
+    title: "Dispositivos y sensores",
+    desc: "Controladores, sensores ambientales, luminarias y equipos IoT distribuidos en el territorio.",
+  },
+  {
+    title: "Video y analítica",
+    desc: "Cámaras con detección de incidentes, conteo y patrones de ocupación por zona.",
+  },
+  {
+    title: "APIs y sistemas externos",
+    desc: "Integración con sistemas municipales, canales de reclamos, GPS y proveedores.",
+  },
+  {
+    title: "Cartografía y georreferencia",
+    desc: "Capa GIS para ubicar cada activo, evento y recurso sobre el mapa de la ciudad.",
+  },
+  {
+    title: "Motor de eventos",
+    desc: "Reglas, clasificación, priorización y asignación automática de incidentes.",
+  },
+  {
+    title: "Datos e indicadores",
+    desc: "Histórico, cumplimiento, SLA y reportería para auditar y planificar la operación.",
+  },
+];
 
 export function HowItWorks() {
   return (
     <SectionShell id="tecnologia" className="bg-ink-50/50">
       <Reveal>
         <SectionHeading
-          eyebrow="Cómo funciona"
-          title="Arquitectura de la plataforma"
-          description="Un mismo flujo recorre toda la operación: capturar, conectar, procesar, decidir, ejecutar y medir. Cada etapa deja rastro y alimenta la siguiente."
+          title="Integración y arquitectura"
+          description="La plataforma reúne dispositivos, sistemas municipales y fuentes externas mediante APIs, protocolos IoT y servicios geográficos. Cada integración conserva el origen del dato, el historial del evento y su relación con la operación de campo."
         />
       </Reveal>
 
       <RevealStagger className="mt-12">
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-10">
-          {flowSteps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.id} role="listitem" className="border-t border-ink-200 pt-4">
-                <RevealItem>
-                  <div className="flex items-center gap-3">
-                    <Icon className="size-5 shrink-0 text-brand" aria-hidden />
-                    <h3 className="text-base font-semibold text-ink-900">{s.title}</h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-600">
-                    {s.description}
-                  </p>
-                </RevealItem>
-              </div>
-            );
-          })}
+          {groups.map((g) => (
+            <div key={g.title} role="listitem" className="border-t border-ink-200 pt-4">
+              <RevealItem>
+                <h3 className="text-base font-semibold text-ink-900">{g.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-600">{g.desc}</p>
+              </RevealItem>
+            </div>
+          ))}
         </div>
       </RevealStagger>
     </SectionShell>

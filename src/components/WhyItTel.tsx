@@ -3,73 +3,54 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const reasons = [
   {
-    title: "Infraestructura propia",
-    desc: "Más de 300 km de fibra óptica y 73 torres de telecomunicaciones en CABA. No dependemos de terceros para el backbone de conectividad.",
+    title: "Infraestructura y conectividad",
+    desc: "Red propia de fibra óptica, torres y capacidad de despliegue para conectar equipamiento distribuido en el territorio.",
   },
   {
-    title: "Alianza con SICE",
-    desc: "Partners de SICE, líderes mundiales en ITS (Intelligent Transportation Systems). Tecnología probada en más de 30 países.",
+    title: "Integración de punta a punta",
+    desc: "Instalación, comunicaciones, plataforma, soporte y mantenimiento bajo una misma coordinación técnica.",
   },
   {
-    title: "Operación 24/7",
-    desc: "NOC propio con monitoreo permanente y cuadrillas de campo. Respuesta ante cualquier fallo operativo en tiempo real.",
+    title: "Operación y soporte de campo",
+    desc: "Monitoreo, atención de incidentes y equipos técnicos para sostener la continuidad operativa.",
   },
   {
-    title: "Presencia nacional",
-    desc: "Despliegues en CABA, Provincia de Buenos Aires, Tandil y La Matanza. Conocemos la infraestructura urbana argentina.",
-  },
-  {
-    title: "Integración total",
-    desc: "Desde la instalación del sensor hasta la plataforma de gestión, somos responsables de toda la cadena tecnológica.",
-  },
-  {
-    title: "Track record verificable",
-    desc: "Clientes: Telecom, Movistar, Claro, ARSAT, Trenes Argentinos, Provincia de Buenos Aires y Presidencia de la Nación.",
+    title: "Experiencia en proyectos críticos",
+    desc: "Trabajo con operadores de telecomunicaciones, organismos públicos, transporte e infraestructura. Partners de SICE en ITS.",
   },
 ];
 
-// Logos de clientes/partners — reactivar cuando se sumen los archivos reales
+// Logos de clientes/partners — reactivar cuando se sumen los archivos reales y autorización
 // const clients = [
 //   "Telecom", "Movistar", "Claro", "ARSAT", "Trenes Argentinos", "Provincia de Buenos Aires", "Cirion", "SICE",
 // ];
 
 export function WhyItTel() {
   return (
-    <section id="contacto" className="relative scroll-mt-24 overflow-hidden bg-brand-deep py-20 text-ink-100 sm:py-28">
-      {/* Imagen de fondo — overlay institucional (sumar <img> real cuando exista el archivo) */}
-      <div className="absolute inset-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(5,16,35,0.96) 0%, rgba(5,16,35,0.92) 100%)",
-          }}
-        />
-      </div>
+    <section id="contacto" className="scroll-mt-24 bg-brand-deep py-20 text-ink-100 sm:py-28">
+      {/* Fondo: azul institucional plano (sumar <img> real cuando exista el archivo definitivo) */}
 
-      <div className="container-page relative">
+      <div className="container-page">
         {/* Header */}
         <Reveal>
           <div className="max-w-2xl">
-            <p className="eyebrow text-cyan-glow">
-              ¿Por qué Grupo iTTel?
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Más de una década de experiencia en infraestructura crítica, IoT y telecomunicaciones en Argentina.
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              Infraestructura y operación para proyectos urbanos
             </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg">
+              Grupo ITTEL integra conectividad, equipamiento, software y soporte de
+              campo para implementar y sostener soluciones críticas en territorio.
+            </p>
           </div>
         </Reveal>
 
-        {/* Reasons — sin cards, formato editorial con divisor sutil */}
+        {/* Razones — sin numeración, layout editorial con divisor */}
         <Reveal delay={0.1} className="mt-12">
-          <div className="grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {reasons.map((r, i) => (
-              <div key={r.title} className="flex flex-col">
-                <div className="flex items-baseline gap-3">
-                  <span className="nums text-sm font-bold text-cyan-glow">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="text-base font-semibold text-white">{r.title}</h3>
-                </div>
-                <p className="mt-2 pl-8 text-sm leading-relaxed text-ink-300">{r.desc}</p>
+          <div className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
+            {reasons.map((r) => (
+              <div key={r.title} className="flex flex-col border-t border-white/10 pt-4">
+                <h3 className="text-base font-semibold text-white">{r.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-300">{r.desc}</p>
               </div>
             ))}
           </div>
@@ -77,19 +58,7 @@ export function WhyItTel() {
 
         {/* Clients strip — oculto hasta contar con los logos reales
         <Reveal delay={0.15} className="mt-14">
-          <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-            Clientes y partners
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            {clients.map((c) => (
-              <span
-                key={c}
-                className="inline-flex h-12 min-w-[120px] items-center justify-center rounded-md border border-white/10 bg-white/5 px-5 text-sm font-semibold text-ink-400 grayscale transition-opacity hover:text-ink-200"
-              >
-                {c}
-              </span>
-            ))}
-          </div>
+          ...
         </Reveal>
         */}
 
@@ -100,8 +69,8 @@ export function WhyItTel() {
               <div>
                 <h3 className="text-xl font-bold text-white sm:text-2xl">Contáctanos</h3>
                 <p className="mt-2 max-w-md text-sm leading-relaxed text-ink-300">
-                  Estamos para responder cualquier consulta sobre la plataforma y los
-                  servicios de Grupo ITTEL.
+                  Consultas sobre implementación, integración y características de la
+                  plataforma.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a href="mailto:administracion@it-tel.com.ar" className="btn-primary">

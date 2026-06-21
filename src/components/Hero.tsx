@@ -59,11 +59,20 @@ export function Hero() {
 
       <div className="container-page relative flex min-h-[100svh] items-center pb-24 pt-28">
         <div className="max-w-2xl">
-          <motion.h1
+          <motion.p
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="text-sm text-cyan-glow"
+          >
+            Plataforma para municipios, concesionarios y operadores urbanos
+          </motion.p>
+
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             Operación urbana en tiempo real
           </motion.h1>
@@ -74,9 +83,9 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg"
           >
-            Semáforos, luminarias, sensores, cámaras, reclamos y cuadrillas sobre
-            un mismo mapa operativo, con alertas, órdenes de trabajo y trazabilidad
-            de cada intervención.
+            Centralizamos semáforos, luminarias, sensores, cámaras, reclamos y
+            cuadrillas sobre un mismo mapa operativo. Cada evento puede generar una
+            alerta, una orden de trabajo y un registro auditable.
           </motion.p>
 
           <motion.div

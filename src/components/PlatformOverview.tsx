@@ -1,12 +1,12 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductScreenshot } from "@/components/ui/Feature";
 
-const stages = [
-  { label: "Fuentes", hint: "Sensores, cámaras, reclamos, GPS y activos." },
-  { label: "Plataforma", hint: "Datos, georreferencia y motor de eventos." },
-  { label: "Alertas", hint: "Reglas, priorización y asignación." },
-  { label: "Operación", hint: "Cuadrillas, evidencia y SLA." },
-  { label: "Indicadores", hint: "Cumplimiento, productividad y auditoría." },
+const capabilities = [
+  { label: "Fuentes de información", hint: "Sensores, cámaras, reclamos, GPS y activos." },
+  { label: "Plataforma geográfica", hint: "Datos, georreferencia y motor de eventos." },
+  { label: "Alertas y reglas", hint: "Priorización, asignación y vencimientos." },
+  { label: "Operación de campo", hint: "Cuadrillas, evidencia, SLA y cierre." },
+  { label: "Indicadores y auditoría", hint: "Cumplimiento, productividad y reportería." },
 ];
 
 export function PlatformOverview() {
@@ -16,13 +16,12 @@ export function PlatformOverview() {
         <Reveal direction="up">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
-              Una plataforma, todas las verticales urbanas
+              Una plataforma para centralizar la operación urbana
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-              Una sola pantalla para visualizar activos, monitorear servicios,
-              coordinar equipos y medir resultados. Sensores, cámaras, reclamos y
-              cuadrillas comparten un mismo mapa, motor de alertas y orden de trabajo.
-              Cada vertical funciona de forma independiente y comparte la operación.
+              Activos, alertas, cámaras, reclamos y equipos de campo comparten una
+              misma base geográfica. La plataforma permite supervisar servicios,
+              asignar intervenciones y medir el cumplimiento desde una única operación.
             </p>
           </div>
         </Reveal>
@@ -34,27 +33,24 @@ export function PlatformOverview() {
               alt="Panel operativo Smart City con mapa, eventos recientes, incidentes activos e indicadores de SLA."
               aspect="aspect-[1672/941]"
               fit="contain"
-              className="p-2 sm:p-3"
+              framed={false}
             />
           </div>
         </Reveal>
 
-        {/* Flujo operativo — de CityAsOS, fusionado acá */}
+        {/* Capacidades — sin numeración, divisores verticales solo en desktop */}
         <Reveal delay={0.15} className="mt-12">
-          <ol className="grid gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
-            {stages.map((s, i) => (
-              <li
-                key={s.label}
+          <div className="grid gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
+            {capabilities.map((c) => (
+              <div
+                key={c.label}
                 className="flex flex-col border-l border-ink-200 pl-4 lg:pl-5"
               >
-                <span className="nums text-[12px] font-semibold text-cyan-700">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-1 text-sm font-semibold text-ink-900">{s.label}</h3>
-                <p className="mt-1 text-[13px] leading-relaxed text-ink-600">{s.hint}</p>
-              </li>
+                <h3 className="text-sm font-semibold text-ink-900">{c.label}</h3>
+                <p className="mt-1 text-[13px] leading-relaxed text-ink-600">{c.hint}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </Reveal>
       </div>
     </section>
