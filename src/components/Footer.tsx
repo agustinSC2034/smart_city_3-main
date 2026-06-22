@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container-page py-12">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <img
                 src="./Logo_Ittel_AI.png"
                 alt="Logo IT-TEL"
@@ -19,12 +19,12 @@ export function Footer() {
                 width={36}
                 height={36}
               />
-              <div className="leading-none">
-                <p className="text-[15px] font-extrabold tracking-tight text-ink-900">
-                  GRUPO ITTEL
+              <div className="leading-tight">
+                <p className="text-[18px] font-extrabold tracking-tight text-ink-900">
+                  IT-TEL
                 </p>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-700">
-                  IT-TEL Smart City
+                <p className="text-[12px] font-semibold tracking-wide text-cyan-700">
+                  Smart City
                 </p>
               </div>
             </div>
@@ -34,7 +34,7 @@ export function Footer() {
               concesionarias y operadores de servicios públicos.
             </p>
             <p className="mt-4 text-xs text-ink-600">
-              © {new Date().getFullYear()} GRUPO ITTEL. Todos los derechos reservados.
+              © {new Date().getFullYear()} IT-TEL. Todos los derechos reservados.
             </p>
           </div>
 

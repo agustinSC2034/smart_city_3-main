@@ -13,6 +13,21 @@ export type Solution = {
 
 export const solutions: Solution[] = [
   {
+    id: "residuos",
+    title: "Residuos inteligentes",
+    description:
+      "Sensores en contenedores seleccionados y puntos críticos para medir llenado, temperatura y otras variables. La plataforma selecciona qué puntos atender y calcula la ruta.",
+    capabilities: [
+      "Sensores de llenado, temperatura y variables según equipamiento",
+      "El sistema selecciona puntos y calcula la ruta del recorrido",
+      "Cumplimiento por punto, GPS y evidencia fotográfica",
+    ],
+    screenshot: "./plataforma/residuos.png",
+    alt: "Vista de residuos inteligentes con contenedor sensorizado, nivel de llenado crítico y ruta recomendada.",
+    aspect: "aspect-[1672/941]",
+    fit: "contain",
+  },
+  {
     id: "movilidad",
     title: "Movilidad y semáforos inteligentes",
     description:
@@ -58,21 +73,8 @@ export const solutions: Solution[] = [
     alt: "Panel de cámaras inteligentes con video analítico, detecciones y eventos recientes.",
     aspect: "aspect-[1672/941]",
     fit: "contain",
-  },
-  {
-    id: "residuos",
-    title: "Residuos inteligentes",
-    description:
-      "Sensores en contenedores seleccionados y puntos críticos para medir llenado, temperatura y otras variables. La plataforma selecciona qué puntos atender y calcula la ruta.",
-    capabilities: [
-      "Sensores de llenado, temperatura y variables según equipamiento",
-      "El sistema selecciona puntos y calcula la ruta del recorrido",
-      "Cumplimiento por punto, GPS y evidencia fotográfica",
-    ],
-    screenshot: "./plataforma/residuos.png",
-    alt: "Vista de residuos inteligentes con contenedor sensorizado, nivel de llenado crítico y ruta recomendada.",
-    aspect: "aspect-[1672/941]",
-    fit: "contain",
+    ctaLabel: "Ver el centro de control",
+    ctaTarget: "incidentes",
   },
   {
     id: "cuadrillas",

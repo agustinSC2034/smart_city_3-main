@@ -1,7 +1,6 @@
-import { SectionShell, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 
-// Activar cuando exista una imagen definitiva de la app ciudadana y el panel municipal.
+// Activar cuando exista una imagen definitiva de la app ciudadana + panel municipal.
 const SHOW_CITIZENS_IMAGE = false;
 
 const flow = [
@@ -15,42 +14,68 @@ const flow = [
 
 export function Citizens() {
   return (
-    <SectionShell id="reclamos">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Reclamos ciudadanos"
-          title="Reclamos conectados con la operación de campo"
-          description="Cada reporte se geolocaliza, se clasifica y se vincula con el activo o servicio correspondiente. Desde el mismo registro se asigna la intervención y se controla su cierre."
+    <section
+      id="reclamos"
+      className="relative scroll-mt-24 overflow-hidden bg-brand-deep py-20 text-ink-100 sm:py-28"
+    >
+      {/* Imagen de fondo — reclamo.png */}
+      <div className="absolute inset-0" aria-hidden>
+        <img
+          src="./plataforma/reclamo.png"
+          alt=""
+          className="size-full object-cover"
         />
-      </Reveal>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.74) 45%, rgba(5,16,35,0.9) 100%)",
+          }}
+        />
+      </div>
 
-      {/* Flujo: fila editorial con divisores y numeración conservada */}
-      <Reveal delay={0.05} className="mt-10">
-        <ol className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-6">
-          {flow.map((s, i) => (
-            <li key={s.t} className="flex flex-col border-l border-ink-200 pl-4">
-              <span className="nums text-[12px] font-semibold text-cyan-700">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-1 text-[13px] font-semibold text-ink-900">{s.t}</h3>
-              <p className="mt-1 text-[12px] leading-relaxed text-ink-600">{s.d}</p>
-            </li>
-          ))}
-        </ol>
-      </Reveal>
-
-      {/* Espacio reservado para imagen de app ciudadana + panel municipal.
-          Activar SHOW_CITIZENS_IMAGE cuando el archivo esté disponible. */}
-      {SHOW_CITIZENS_IMAGE && (
-        <Reveal delay={0.1} className="mt-12">
-          <img
-            src="./plataforma/reclamos-app-panel.png"
-            alt="App ciudadana y panel municipal con reclamo geolocalizado."
-            className="mx-auto block w-full max-w-5xl"
-            loading="lazy"
-          />
+      <div className="container-page relative">
+        {/* Header */}
+        <Reveal direction="up">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
+              Reclamos conectados con la operación de campo
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200 sm:text-lg">
+              Cada reporte se geolocaliza, se clasifica y se vincula con el activo o
+              servicio correspondiente. Desde el mismo registro se asigna la
+              intervención y se controla su cierre.
+            </p>
+          </div>
         </Reveal>
-      )}
-    </SectionShell>
+
+        {/* Flujo: fila editorial con numeración */}
+        <Reveal delay={0.05} className="mt-12">
+          <ol className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-6">
+            {flow.map((s, i) => (
+              <li key={s.t} className="flex flex-col border-l border-white/15 pl-4">
+                <span className="nums text-[12px] font-semibold text-cyan-glow">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-1 text-[13px] font-semibold text-white">{s.t}</h3>
+                <p className="mt-1 text-[12px] leading-relaxed text-ink-200">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+
+        {/* Espacio reservado para imagen de app ciudadana + panel municipal. */}
+        {SHOW_CITIZENS_IMAGE && (
+          <Reveal delay={0.1} className="mt-12">
+            <img
+              src="./plataforma/reclamos-app-panel.png"
+              alt="App ciudadana y panel municipal con reclamo geolocalizado."
+              className="mx-auto block w-full max-w-5xl"
+              loading="lazy"
+            />
+          </Reveal>
+        )}
+      </div>
+    </section>
   );
 }

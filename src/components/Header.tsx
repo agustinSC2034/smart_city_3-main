@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/content";
 import { cn } from "@/lib/cn";
 
@@ -76,31 +76,31 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300",
         scrolled
-          ? "border-b border-ink-200 bg-white/95 backdrop-blur-lg"
+          ? "border-b border-ink-200 bg-white backdrop-blur-lg"
           : "border-b border-transparent bg-brand-deep/30 backdrop-blur-[2px]"
       )}
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
         {/* Logo + texto */}
-        <a href="#top" className="flex items-center gap-2.5" onClick={() => go("top")}>
+        <a href="#top" className="flex items-center gap-3" onClick={() => go("top")}>
           <Logo />
-          <span className="flex flex-col leading-none">
+          <span className="flex flex-col leading-tight">
             <span
               className={cn(
-                "text-[15px] font-extrabold tracking-tight transition-colors duration-300",
+                "text-[18px] font-extrabold tracking-tight transition-colors duration-300",
                 dark ? "text-white" : "text-ink-900"
               )}
             >
-              GRUPO ITTEL
+              IT-TEL
             </span>
             <span
               className={cn(
-                "text-[11px] font-semibold uppercase tracking-wider transition-colors duration-300",
+                "text-[12px] font-semibold tracking-wide transition-colors duration-300",
                 dark ? "text-cyan-glow" : "text-cyan-700"
               )}
             >
-              IT-TEL Smart City
+              Smart City
             </span>
           </span>
           <span className="sr-only">, inicio</span>
@@ -115,7 +115,7 @@ export function Header() {
                 key={n.id}
                 onClick={() => go(n.id)}
                 className={cn(
-                  "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200",
+                  "relative rounded-lg px-3 py-2 text-[0.9rem] font-medium transition-colors duration-200",
                   dark
                     ? "text-white/85 hover:bg-white/10 hover:text-white"
                     : "text-ink-700 hover:bg-ink-100 hover:text-ink-900",
@@ -138,6 +138,19 @@ export function Header() {
 
         {/* Botones desktop */}
         <div className="hidden items-center gap-2 lg:flex">
+          <a
+            href="https://auditoria-urbana.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "rounded-lg px-4 py-2 text-[0.9rem] font-medium transition-colors duration-200",
+              dark
+                ? "text-white/85 hover:bg-white/10 hover:text-white"
+                : "text-ink-700 hover:bg-ink-100 hover:text-ink-900"
+            )}
+          >
+            Iniciar sesión
+          </a>
           <button
             onClick={() => go("contacto")}
             className={cn(
@@ -147,10 +160,6 @@ export function Header() {
             )}
           >
             Contacto
-          </button>
-          <button onClick={() => go("contacto")} className="btn-primary whitespace-nowrap">
-            Solicitar demo
-            <ArrowRight className="size-4 shrink-0" aria-hidden />
           </button>
         </div>
 
@@ -185,9 +194,16 @@ export function Header() {
                 {n.label}
               </button>
             ))}
-            <button onClick={() => go("contacto")} className="btn-primary mt-3 w-full">
-              Solicitar demo
-              <ArrowRight className="size-4" aria-hidden />
+            <a
+              href="https://auditoria-urbana.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block rounded-lg px-3 py-3 text-center text-sm font-medium text-ink-700 hover:bg-ink-100"
+            >
+              Iniciar sesión
+            </a>
+            <button onClick={() => go("contacto")} className="btn-secondary mt-3 w-full">
+              Contacto
             </button>
           </nav>
         </div>
