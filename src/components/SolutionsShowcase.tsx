@@ -109,7 +109,7 @@ function VariantA({
   const flip = solution.id === "residuos";
   const ease = [0.22, 1, 0.36, 1] as const;
   return (
-    <div className={cn("grid items-center gap-10 lg:gap-16", solution.id === "cuadrillas" ? "lg:grid-cols-[1fr_1.35fr]" : flip ? "lg:grid-cols-[1.7fr_1fr]" : "lg:grid-cols-[1fr_1.7fr]")}>
+    <div className={cn("grid items-center gap-10 lg:gap-16", solution.id === "cuadrillas" ? "lg:grid-cols-[1fr_1.35fr]" : solution.id === "alumbrado" ? "lg:grid-cols-[1fr_2fr]" : flip ? "lg:grid-cols-[1.7fr_1fr]" : "lg:grid-cols-[1fr_1.7fr]")}>
       <motion.div
         initial={reduce ? false : { opacity: 0, x: flip ? 36 : -36 }}
         whileInView={{ opacity: 1, x: 0 }}

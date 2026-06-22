@@ -1,97 +1,80 @@
-import { ArrowRight, CalendarDays, Mail, MapPin, Phone } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const reasons = [
-  {
-    title: "Infraestructura y conectividad",
-    desc: "Red propia de fibra óptica, torres y capacidad de despliegue para conectar equipamiento distribuido en el territorio.",
-  },
-  {
-    title: "Infraestructura, plataforma y soporte en campo",
-    desc: "Instalación, comunicaciones, plataforma, soporte y mantenimiento bajo una misma coordinación técnica.",
-  },
-  {
-    title: "Operación y soporte de campo",
-    desc: "Monitoreo, atención de incidentes y equipos técnicos para sostener la continuidad operativa.",
-  },
-  {
-    title: "Experiencia en proyectos críticos",
-    desc: "Trabajo con operadores de telecomunicaciones, organismos públicos, transporte e infraestructura. Partners de SICE en ITS.",
-  },
+const partners = [
+  { name: "Telecom", src: "./clients/telecom.png" },
+  { name: "Movistar", src: "./clients/movistar.png" },
+  { name: "Claro", src: "./clients/claro.png" },
+  { name: "iPlan", src: "./clients/iplan.png" },
+  { name: "ARSAT", src: "./clients/arsat.png" },
+  { name: "Cirion", src: "./clients/cirion.png" },
+  { name: "Provincia de Buenos Aires", src: "./clients/provincia.png" },
+  { name: "Trenes Argentinos", src: "./clients/trenes-argentinos.png" },
 ];
 
-// Logos de clientes/partners — reactivar cuando se sumen los archivos reales y autorización
-// const clients = [
-//   "Telecom", "Movistar", "Claro", "ARSAT", "Trenes Argentinos", "Provincia de Buenos Aires", "Cirion", "SICE",
-// ];
-
-export function WhyItTel() {
+export function WhyItTel({ onContact }: { onContact: () => void }) {
   return (
-    <section id="contacto" className="scroll-mt-24 bg-brand-deep py-20 text-ink-100 sm:py-28">
-      {/* Fondo: azul institucional plano (sumar <img> real cuando exista el archivo definitivo) */}
-
+    <section id="contacto" className="scroll-mt-24 border-t border-ink-200 bg-white py-20 sm:py-28">
       <div className="container-page">
-        {/* Header */}
+        {/* Encabezado — sobre IT-TEL */}
         <Reveal>
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Infraestructura y soporte operativo
+            <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              IT-TEL: infraestructura, integración y soporte
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg">
-              IT-TEL integra conectividad, equipamiento, software y soporte de campo
-              para implementar y sostener soluciones críticas en territorio.
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
+              Empresa argentina de tecnología y telecomunicaciones. Diseñamos,
+              desplegamos y mantenemos redes, equipamiento y plataformas para
+              organismos públicos, operadores e infraestructura crítica.
+              Alianza estratégica con SICE para ITS, movilidad y servicios
+              urbanos inteligentes.
             </p>
           </div>
         </Reveal>
 
-        {/* Razones — sin numeración, layout editorial con divisor */}
+        {/* Partners — grilla de logos sin wrappers */}
         <Reveal delay={0.1} className="mt-12">
-          <div className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
-            {reasons.map((r) => (
-              <div key={r.title} className="flex flex-col border-t border-white/10 pt-4">
-                <h3 className="text-base font-semibold text-white">{r.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-300">{r.desc}</p>
-              </div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">
+            Operadores y organismos
+          </p>
+          <div className="mt-6 grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-4 lg:grid-cols-8">
+            {partners.map((p) => (
+              <img
+                key={p.name}
+                src={p.src}
+                alt={p.name}
+                className="mx-auto max-h-12 w-auto max-w-full object-contain opacity-60 transition-opacity hover:opacity-100"
+                loading="lazy"
+              />
             ))}
           </div>
         </Reveal>
 
-        {/* Clients strip — oculto hasta contar con los logos reales
+        {/* Contacto — botón abre modal */}
         <Reveal delay={0.15} className="mt-14">
-          ...
-        </Reveal>
-        */}
-
-        {/* CTA + contacto */}
-        <Reveal delay={0.2} className="mt-16">
-          <div className="border-t border-white/10 pt-10">
+          <div className="border-t border-ink-200 pt-10">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div>
-                <h3 className="text-xl font-bold text-white sm:text-2xl">Contáctanos</h3>
-                <p className="mt-2 max-w-md text-sm leading-relaxed text-ink-300">
-                  Consultas sobre implementación, integración y características de la
-                  plataforma.
+                <h3 className="text-xl font-bold text-ink-900 sm:text-2xl">Contáctanos</h3>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-ink-600">
+                  Consultas sobre implementación, integración y características
+                  de la plataforma.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a href="mailto:administracion@it-tel.com.ar" className="btn-primary">
-                    Escribinos
-                    <ArrowRight className="size-4" />
-                  </a>
-                </div>
+                <button onClick={onContact} className="btn-primary mt-5">
+                  Enviar mensaje
+                  <ArrowRight className="size-4" aria-hidden />
+                </button>
               </div>
 
               <div className="flex flex-col gap-3 text-sm">
-                <span className="flex items-center gap-2 text-ink-300">
-                  <Mail className="size-4 text-cyan-glow" /> administracion@it-tel.com.ar
+                <a href="mailto:administracion@it-tel.com.ar" className="flex items-center gap-2 text-ink-600 transition-colors hover:text-ink-900">
+                  <Mail className="size-4 text-cyan-700" /> administracion@it-tel.com.ar
+                </a>
+                <span className="flex items-center gap-2 text-ink-600">
+                  <Phone className="size-4 text-cyan-700" /> 0810-345-ITTEL (4883)
                 </span>
-                <span className="flex items-center gap-2 text-ink-300">
-                  <Phone className="size-4 text-cyan-glow" /> 0810-345-ITTEL (4883)
-                </span>
-                <span className="flex items-center gap-2 text-ink-300">
-                  <MapPin className="size-4 text-cyan-glow" /> Av. Alicia Moreau de Justo 1930, CABA
-                </span>
-                <span className="flex items-center gap-2 text-xs text-ink-400">
-                  <CalendarDays className="size-3.5" /> Respuesta en 24 hs hábiles · soporte 7x24
+                <span className="flex items-center gap-2 text-ink-600">
+                  <MapPin className="size-4 text-cyan-700" /> Av. Alicia Moreau de Justo 1930, CABA
                 </span>
               </div>
             </div>
