@@ -1,19 +1,15 @@
 export const beforeAfter = {
   before: [
     "Sistemas y planillas separadas",
-    "Alertas sin responsable definido",
-    "Recorridos difíciles de verificar",
-    "Evidencia distribuida en distintos canales",
-    "Reclamos sin relación con activos o tareas",
+    "Alertas y tareas sin un seguimiento común",
+    "Recorridos y evidencias difíciles de verificar",
     "Indicadores preparados de forma manual",
   ],
   after: [
     "Activos, eventos y tareas sobre una base geográfica común",
     "Responsables, prioridades y vencimientos registrados",
-    "Recorridos y llegada al punto verificados por GPS",
-    "Evidencia asociada a cada intervención",
-    "Reclamos vinculados con servicios y activos",
-    "Indicadores actualizados desde la operación",
+    "Recorridos, llegada y evidencia asociados a cada intervención",
+    "Indicadores alimentados desde la operación",
   ],
 };
 
@@ -65,11 +61,18 @@ export const detectAct = [
   { id: "measure", label: "Medir", desc: "Se registra evidencia, SLA e indicadores." },
 ];
 
-export const navItems = [
-  { id: "plataforma", label: "Plataforma" },
-  { id: "soluciones", label: "Soluciones" },
-  { id: "incidentes", label: "Incidentes" },
-  { id: "analitica", label: "Analítica" },
-  { id: "tecnologia", label: "Tecnología" },
-  { id: "contacto", label: "Contacto" },
+export type NavItem = {
+  id: string;
+  label: string;
+  targetId: string;
+  sectionIds: string[];
+};
+
+export const navItems: NavItem[] = [
+  { id: "plataforma", label: "Plataforma", targetId: "plataforma", sectionIds: ["plataforma"] },
+  { id: "soluciones", label: "Soluciones", targetId: "soluciones", sectionIds: ["soluciones"] },
+  { id: "operacion", label: "Operación", targetId: "incidentes", sectionIds: ["incidentes", "reclamos", "antes-despues"] },
+  { id: "datos-ia", label: "Datos y analítica", targetId: "datos-ia", sectionIds: ["datos-ia"] },
+  { id: "integracion", label: "Integración", targetId: "integracion", sectionIds: ["integracion"] },
+  { id: "grupo-ittel", label: "Nosotros", targetId: "grupo-ittel", sectionIds: ["grupo-ittel"] },
 ];

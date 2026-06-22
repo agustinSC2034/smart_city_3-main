@@ -35,7 +35,7 @@ export function IncidentCoordination() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.74) 45%, rgba(5,16,35,0.9) 100%)",
+              "linear-gradient(180deg, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.74) 40%, rgba(5,16,35,0.96) 80%, rgba(5,16,35,1) 100%)",
           }}
         />
       </div>

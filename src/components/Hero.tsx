@@ -25,7 +25,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <img
-          src="./smart-city-caba-hero.png"
+          src="./smart-city-caba-hero-2.png"
           alt=""
           aria-hidden="true"
           className="size-full object-cover"
@@ -37,7 +37,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(5,16,35,0.94) 0%, rgba(5,16,35,0.82) 40%, rgba(5,16,35,0.4) 72%, rgba(5,16,35,0.1) 100%)",
+            "linear-gradient(to right, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.72) 40%, rgba(5,16,35,0.35) 72%, rgba(5,16,35,0.08) 100%)",
         }}
         aria-hidden="true"
       />
@@ -46,7 +46,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(5,16,35,0.35) 0%, transparent 22%, transparent 72%, rgba(5,16,35,0.7) 100%)",
+            "linear-gradient(to bottom, rgba(5,16,35,0.30) 0%, transparent 22%, transparent 72%, rgba(5,16,35,0.65) 100%)",
         }}
         aria-hidden="true"
       />

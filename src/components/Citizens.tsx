@@ -1,8 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
 
-// Activar cuando exista una imagen definitiva de la app ciudadana + panel municipal.
-const SHOW_CITIZENS_IMAGE = false;
-
 const flow = [
   { t: "Ciudadano reporta", d: "Desde web, app o 147/BOTI con foto, categoría y ubicación." },
   { t: "Geolocalización", d: "El reporte cae en el mapa con coordenadas y comuna." },
@@ -29,7 +26,7 @@ export function Citizens() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.74) 45%, rgba(5,16,35,0.9) 100%)",
+              "linear-gradient(180deg, rgba(5,16,35,0.88) 0%, rgba(5,16,35,0.74) 40%, rgba(5,16,35,0.96) 80%, rgba(5,16,35,1) 100%)",
           }}
         />
       </div>
@@ -63,18 +60,6 @@ export function Citizens() {
             ))}
           </ol>
         </Reveal>
-
-        {/* Espacio reservado para imagen de app ciudadana + panel municipal. */}
-        {SHOW_CITIZENS_IMAGE && (
-          <Reveal delay={0.1} className="mt-12">
-            <img
-              src="./plataforma/reclamos-app-panel.png"
-              alt="App ciudadana y panel municipal con reclamo geolocalizado."
-              className="mx-auto block w-full max-w-5xl"
-              loading="lazy"
-            />
-          </Reveal>
-        )}
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 
 type Variant = "A" | "B" | "C";
 
-const variantByIndex: Variant[] = ["C", "A", "B", "A", "B", "A"];
+const variantByIndex: Variant[] = ["C", "C", "B", "A", "B", "A"];
 
 export function SolutionsShowcase() {
   const go = (target?: string) => {
@@ -191,7 +191,7 @@ function VariantC({
           "relative z-10 -mt-48 max-w-xl rounded-lg p-6 sm:p-8 lg:-mt-60",
           dark
             ? "bg-brand-deep/90 text-ink-100"
-            : solution.id === "residuos"
+            : solution.id === "residuos" || solution.id === "cuadrillas"
               ? "bg-white/95 text-ink-900 border border-ink-200"
               : "bg-white/95 text-ink-900 shadow-soft"
         )}

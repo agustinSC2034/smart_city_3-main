@@ -5,10 +5,9 @@ import { PlatformOverview } from "@/components/PlatformOverview";
 import { SolutionsShowcase } from "@/components/SolutionsShowcase";
 import { IncidentCoordination } from "@/components/IncidentCoordination";
 import { Citizens } from "@/components/Citizens";
-import { Analytics } from "@/components/Analytics";
-import { HowItWorks } from "@/components/HowItWorks";
 import { BeforeAfter } from "@/components/BeforeAfter";
-import { Integrations } from "@/components/Integrations";
+import { Analytics } from "@/components/Analytics";
+import { IntegrationArchitecture } from "@/components/IntegrationArchitecture";
 import { WhyItTel } from "@/components/WhyItTel";
 import { Footer } from "@/components/Footer";
 import { ContactModal } from "@/components/ContactModal";
@@ -26,24 +25,25 @@ export default function App() {
       </a>
       <Header />
       <main>
-        {/* Inicio */}
+        {/* Qué es */}
         <Hero />
         <PlatformOverview />
 
-        {/* Soluciones — scrollytelling editorial */}
+        {/* Dónde se aplica */}
         <SolutionsShowcase />
 
-        {/* Operación transversal */}
+        {/* Cómo se opera */}
         <IncidentCoordination />
         <Citizens />
+        <BeforeAfter />
 
-        {/* Analítica transversal */}
+        {/* Cómo se supervisa */}
         <Analytics />
 
-        {/* Cierre */}
-        <HowItWorks />
-        <BeforeAfter />
-        <Integrations />
+        {/* Cómo se conecta */}
+        <IntegrationArchitecture />
+
+        {/* Quién lo implementa */}
         <WhyItTel onContact={() => setContactOpen(true)} />
       </main>
       <Footer />
