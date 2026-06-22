@@ -173,20 +173,20 @@ function VariantC({
   return (
     <div className="relative">
       <motion.div
-        initial={{ opacity: reduce ? 1 : 0.4 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.85, ease }}
+        initial={{ opacity: reduce ? 1 : 0, scale: reduce ? 1 : 0.97 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 1.1, ease }}
         className="overflow-hidden"
       >
-        <ChapterScreenshot solution={solution} clip="inset(-1px -1px 100% -1px)" reduce={reduce} />
+        <ChapterScreenshot solution={solution} clip="inset(-1px)" reduce={reduce} />
       </motion.div>
 
       <motion.div
-        initial={reduce ? false : { opacity: 0, y: 36 }}
+        initial={reduce ? false : { opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.75, ease, delay: 0.12 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.9, ease, delay: 0.25 }}
         className={cn(
           "relative z-10 -mt-48 max-w-xl rounded-lg p-6 sm:p-8 lg:-mt-60",
           dark
@@ -240,10 +240,11 @@ function ChapterScreenshot({
 }: {
   solution: Solution; clip: string; reduce: boolean | null;
 }) {
+  const noClip = clip === "inset(-1px)";
   return (
     <motion.div
-      initial={reduce ? undefined : { clipPath: clip }}
-      whileInView={reduce ? undefined : { clipPath: "inset(-1px)" }}
+      initial={reduce || noClip ? undefined : { clipPath: clip }}
+      whileInView={reduce || noClip ? undefined : { clipPath: "inset(-1px)" }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="overflow-hidden"
