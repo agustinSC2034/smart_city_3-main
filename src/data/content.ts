@@ -1,21 +1,19 @@
 export const beforeAfter = {
   before: [
-    "Datos dispersos en áreas y planillas",
-    "Reclamos aislados sin trazabilidad",
-    "Poca visibilidad del cumplimiento",
-    "Recorridos manuales y reactivos",
-    "Reportes tardíos y estáticos",
-    "Mantenimiento solo cuando falla",
-    "Auditoría basada en muestras",
+    "Sistemas y planillas separadas",
+    "Alertas sin responsable definido",
+    "Recorridos difíciles de verificar",
+    "Evidencia distribuida en distintos canales",
+    "Reclamos sin relación con activos o tareas",
+    "Indicadores preparados de forma manual",
   ],
   after: [
-    "Mapa único con activos, tareas y evidencias",
-    "Alertas por zona y por tipo de evento",
-    "Tareas priorizadas según criticidad y SLA",
-    "Cuadrillas coordinadas sobre el mapa",
-    "Evidencia antes y después de cada tarea",
-    "Indicadores de cumplimiento y productividad",
-    "Historial auditable por activo y responsable",
+    "Activos, eventos y tareas sobre una base geográfica común",
+    "Responsables, prioridades y vencimientos registrados",
+    "Recorridos y llegada al punto verificados por GPS",
+    "Evidencia asociada a cada intervención",
+    "Reclamos vinculados con servicios y activos",
+    "Indicadores actualizados desde la operación",
   ],
 };
 
@@ -71,6 +69,7 @@ export const navItems = [
   { id: "plataforma", label: "Plataforma" },
   { id: "soluciones", label: "Soluciones" },
   { id: "incidentes", label: "Incidentes" },
+  { id: "analitica", label: "Analítica" },
   { id: "tecnologia", label: "Tecnología" },
   { id: "contacto", label: "Contacto" },
 ];

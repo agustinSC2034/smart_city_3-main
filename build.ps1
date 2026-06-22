@@ -35,6 +35,13 @@ if (Test-Path "public\plataforma") {
   if (-not (Test-Path "plataforma")) { New-Item -ItemType Directory -Path "plataforma" | Out-Null }
   Copy-Item "public\plataforma\*" "plataforma" -Recurse -Force
 }
+if (Test-Path "public\clients") {
+  if (-not (Test-Path "clients")) { New-Item -ItemType Directory -Path "clients" | Out-Null }
+  Copy-Item "public\clients\*" "clients" -Recurse -Force
+}
+if (Test-Path "public\contacto.php") {
+  Copy-Item "public\contacto.php" "contacto.php" -Force
+}
 
 Write-Host "==> Reescribiendo index.html de produccion (landing)..." -ForegroundColor Cyan
 $prodHtml = @"
@@ -51,6 +58,7 @@ $prodHtml = @"
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 </head>
 <body>
   <div id="root"></div>
