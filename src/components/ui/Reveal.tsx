@@ -57,7 +57,7 @@ export function Reveal({
           ? { once, amount }
           : { once, margin: "-70px" }
       }
-      transition={{ duration: 0.6, delay, ease: EASE }}
+      transition={{ duration: 0.75, delay, ease: EASE }}
       variants={variantByDir[direction]}
     >
       {children}
@@ -104,7 +104,7 @@ export function RevealItem({
     <motion.div
       className={className}
       variants={itemFadeUp}
-      transition={{ duration: 0.55, ease: EASE }}
+      transition={{ duration: 0.7, ease: EASE }}
     >
       {children}
     </motion.div>

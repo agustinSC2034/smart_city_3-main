@@ -16,7 +16,7 @@ export function PlatformOverview() {
         <Reveal direction="up">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
-              Monitoreo de activos y servicios
+              Plataforma de supervisión operativa
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
               Contenedores, sensores, luminarias, cámaras, reclamos y equipos de campo
@@ -27,7 +27,7 @@ export function PlatformOverview() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} direction="scale" className="mt-12">
+        <Reveal delay={0.1} direction="up" amount={0.15} className="mt-12">
           <div className="mx-auto max-w-6xl">
             <ProductScreenshot
               src="./plataforma/plataforma1.png"

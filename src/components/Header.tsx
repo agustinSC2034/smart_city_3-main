@@ -19,11 +19,17 @@ export function Header({ homeHref }: { homeHref?: string }) {
   }, []);
 
   useEffect(() => {
-    const sections = navItems
-      .map((n) => document.getElementById(n.id))
+    const allSectionIds = navItems.flatMap((n) => n.sectionIds);
+    const sections = allSectionIds
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
     if (sections.length === 0) return;
+
+    const sectionToNavId = new Map<string, string>();
+    navItems.forEach((n) => {
+      n.sectionIds.forEach((sid) => sectionToNavId.set(sid, n.id));
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,7 +37,8 @@ export function Header({ homeHref }: { homeHref?: string }) {
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]) {
-          setActiveId(visible[0].target.id);
+          const navId = sectionToNavId.get(visible[0].target.id);
+          if (navId) setActiveId(navId);
         }
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.15, 0.3, 0.5] }
@@ -102,7 +109,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
               <span
                 className={cn(
                   "text-[12px] font-semibold tracking-wide transition-colors duration-300",
-                  dark ? "text-cyan-glow" : "text-cyan-700"
+                  dark ? "text-white" : "text-ink-900"
                 )}
               >
                 Smart City
@@ -124,7 +131,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
               <span
                 className={cn(
                   "text-[12px] font-semibold tracking-wide transition-colors duration-300",
-                  dark ? "text-cyan-glow" : "text-cyan-700"
+                  dark ? "text-white" : "text-ink-900"
                 )}
               >
                 Smart City
@@ -141,7 +148,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
             return (
               <button
                 key={n.id}
-                onClick={() => go(n.id)}
+                onClick={() => go(n.targetId)}
                 className={cn(
                   "relative rounded-lg px-3 py-2 text-[0.9rem] font-medium transition-colors duration-200",
                   dark
@@ -180,7 +187,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
             Iniciar sesión
           </a>
           <button
-            onClick={() => go("contacto")}
+            onClick={() => go("grupo-ittel")}
             className={cn(
               "btn-secondary transition-colors duration-300",
               dark &&
@@ -216,7 +223,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
             {navItems.map((n) => (
               <button
                 key={n.id}
-                onClick={() => go(n.id)}
+                onClick={() => go(n.targetId)}
                 className="rounded-lg px-3 py-3 text-left text-sm font-medium text-ink-700 hover:bg-ink-100"
               >
                 {n.label}
@@ -230,7 +237,7 @@ export function Header({ homeHref }: { homeHref?: string }) {
             >
               Iniciar sesión
             </a>
-            <button onClick={() => go("contacto")} className="btn-secondary mt-3 w-full">
+            <button onClick={() => go("grupo-ittel")} className="btn-secondary mt-3 w-full">
               Contacto
             </button>
           </nav>

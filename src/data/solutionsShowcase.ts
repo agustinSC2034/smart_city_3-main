@@ -41,7 +41,7 @@ export const solutions: Solution[] = [
     ],
     screenshot: "./plataforma/cuadrillas.png",
     alt: "Plataforma de auditoría de cuadrillas — tareas, GPS, evidencia y control de cumplimiento.",
-    aspect: "aspect-[16/10]",
+    aspect: "aspect-[1672/941]",
     fit: "contain",
   },
   {

@@ -42,6 +42,7 @@ if (Test-Path "public\clients") {
 if (Test-Path "public\contacto.php") {
   Copy-Item "public\contacto.php" "contacto.php" -Force
 }
+Copy-Item "public\smart-city-caba-hero-2.png" "smart-city-caba-hero-2.png" -Force
 
 Write-Host "==> Reescribiendo index.html de produccion (landing)..." -ForegroundColor Cyan
 $prodHtml = @"
@@ -99,5 +100,5 @@ Write-Host "==> Listo! Archivos para produccion:" -ForegroundColor Green
 Write-Host "    index.html, styles.css, app.js, favicon.png, Logo_Ittel_AI.png" -ForegroundColor Gray
 Write-Host "    presentacion/index.html, ../presentacion.js, ../presentacion.css" -ForegroundColor Gray
 Write-Host "    + plataforma/*.png" -ForegroundColor Gray
-Write-Host "    + smart-city-caba-hero.png, smart-city-operations-waste-its.png" -ForegroundColor Gray
+Write-Host "    + smart-city-caba-hero-2.png, smart-city-operations-waste-its.png" -ForegroundColor Gray
 Write-Host "    + robots.txt, llms.txt" -ForegroundColor Gray

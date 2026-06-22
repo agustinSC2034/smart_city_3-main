@@ -1,60 +1,81 @@
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
+import { Sparkles } from "lucide-react";
 
 const capabilities = [
   {
     title: "Indicadores operativos",
-    desc: "Cumplimiento, tiempos de atención, tareas vencidas, recorridos y productividad por servicio, zona, empresa o cuadrilla.",
+    desc: "Cumplimiento, tiempos de atención, recorridos, tareas vencidas y productividad por servicio, zona o cuadrilla.",
   },
   {
-    title: "Detección de desvíos",
-    desc: "Identificación de cambios de comportamiento, puntos recurrentes, aumentos de demanda y situaciones que requieren revisión.",
-  },
-  {
-    title: "Análisis territorial e histórico",
-    desc: "Comparación por zona, período, tipo de activo, servicio o responsable, con información georreferenciada.",
-  },
-  {
-    title: "Asistencia con inteligencia artificial",
-    desc: "Apoyo para resumir eventos, señalar patrones, priorizar revisiones y advertir información que podría pasar inadvertida en una supervisión manual.",
+    title: "Desvíos y recurrencias",
+    desc: "Cambios de comportamiento, aumentos de demanda y situaciones repetidas que requieren revisión.",
   },
 ];
 
 export function Analytics() {
   return (
-    <section id="analitica" className="scroll-mt-24 bg-ink-50 py-20 sm:py-28">
-      <div className="container-page">
-        <Reveal>
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
-              Analítica para supervisión y planificación
+    <section id="datos-ia" className="relative scroll-mt-24 overflow-hidden bg-white">
+      {/* Imagen de fondo — mapa analítico a ancho completo */}
+      <div className="absolute inset-0" aria-hidden>
+        <img
+          src="./plataforma/analiticas.png"
+          alt=""
+          className="size-full object-cover object-right"
+          loading="lazy"
+        />
+        {/* Gradiente blanco de izquierda a derecha para legibilidad */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 30%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 70%)",
+          }}
+        />
+      </div>
+
+      {/* Contenido — columna izquierda */}
+      <div className="container-page relative">
+        <div className="grid min-h-[480px] items-center py-14 lg:min-h-[560px] lg:py-16">
+          <Reveal direction="up" className="lg:max-w-[42%]">
+            <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.5rem] lg:leading-[1.1]">
+              Datos para supervisar la operación
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
-              La plataforma consolida datos de activos, sensores, reclamos, recorridos e
-              intervenciones para detectar desvíos, comparar resultados y orientar la
-              supervisión operativa.
+            <p className="mt-3 max-w-md text-base leading-relaxed text-ink-600">
+              La plataforma relaciona sensores, activos, reclamos, recorridos e
+              intervenciones para identificar desvíos, recurrencias y puntos que
+              requieren revisión.
             </p>
-          </div>
-        </Reveal>
 
-        <RevealStagger className="mt-12">
-          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:gap-x-14 lg:gap-y-10">
-            {capabilities.map((c) => (
-              <div key={c.title} className="border-t border-ink-200 pt-4">
-                <RevealItem>
-                  <h3 className="text-base font-semibold text-ink-900">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-600">{c.desc}</p>
-                </RevealItem>
+            {/* Capacidades — líneas editoriales con divisores */}
+            <RevealStagger className="mt-8 max-w-lg" stagger={0.08}>
+              <div className="divide-y divide-ink-200 border-t border-ink-200">
+                {capabilities.map((c) => (
+                  <RevealItem key={c.title}>
+                    <article className="py-3">
+                      <h3 className="text-sm font-semibold text-ink-900">{c.title}</h3>
+                      <p className="mt-0.5 text-[13px] leading-relaxed text-ink-600">{c.desc}</p>
+                    </article>
+                  </RevealItem>
+                ))}
               </div>
-            ))}
-          </div>
-        </RevealStagger>
+            </RevealStagger>
 
-        <Reveal delay={0.15} className="mt-10">
-          <p className="max-w-2xl border-t border-ink-200 pt-6 text-sm leading-relaxed text-ink-500">
-            Las sugerencias y alertas quedan sujetas a validación por los responsables
-            de la operación.
-          </p>
-        </Reveal>
+            {/* IA — bloque diferenciado */}
+            <Reveal delay={0.2} className="mt-5 max-w-lg">
+              <div className="border-l-2 border-cyan-700 bg-cyan-700/[0.04] px-4 py-3">
+                <h3 className="flex items-center gap-1.5 text-sm font-semibold text-cyan-700">
+                  <Sparkles className="size-3.5" />
+                  Asistencia con IA
+                </h3>
+                <p className="mt-0.5 text-[13px] leading-relaxed text-ink-600">
+                  Puede resumir eventos, agrupar patrones y señalar información que
+                  merece revisión. Las sugerencias quedan sujetas a validación por los
+                  responsables de la operación.
+                </p>
+              </div>
+            </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
