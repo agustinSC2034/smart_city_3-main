@@ -10,8 +10,8 @@ export function BeforeAfter() {
       <Reveal>
         <SectionHeading
           eyebrow="Antes y después"
-          title="De operación reactiva a operación en tiempo real"
-          description="El mismo municipio, los mismos recursos y una forma distinta de trabajar: conectada, priorizada y auditable."
+          title="De operación reactiva a operación con trazabilidad"
+          description="Los mismos recursos del municipio y un mismo sistema para registrar, priorizar y auditar el trabajo de campo."
         />
       </Reveal>
 

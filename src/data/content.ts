@@ -9,13 +9,13 @@ export const beforeAfter = {
     "Auditoría basada en muestras",
   ],
   after: [
-    "Mapa único de operación urbana",
-    "Alertas en tiempo real por zona",
-    "Tareas priorizadas por impacto",
-    "Cuadrillas coordinadas en mapa",
-    "Evidencia antes y después",
-    "Indicadores claros y vivos",
-    "Auditoría y mejora continua",
+    "Mapa único con activos, tareas y evidencias",
+    "Alertas por zona y por tipo de evento",
+    "Tareas priorizadas según criticidad y SLA",
+    "Cuadrillas coordinadas sobre el mapa",
+    "Evidencia antes y después de cada tarea",
+    "Indicadores de cumplimiento y productividad",
+    "Historial auditable por activo y responsable",
   ],
 };
 

@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/content";
 import { cn } from "@/lib/cn";
 
-export function Header() {
+export function Header({ homeHref }: { homeHref?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
@@ -44,8 +44,12 @@ export function Header() {
   const go = useCallback((id: string) => {
     setOpen(false);
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (homeHref) {
+      window.location.href = homeHref + "#" + id;
+    }
+  }, [homeHref]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -83,28 +87,52 @@ export function Header() {
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
         {/* Logo + texto */}
-        <a href="#top" className="flex items-center gap-3" onClick={() => go("top")}>
-          <Logo />
-          <span className="flex flex-col leading-tight">
-            <span
-              className={cn(
-                "text-[18px] font-extrabold tracking-tight transition-colors duration-300",
-                dark ? "text-white" : "text-ink-900"
-              )}
-            >
-              IT-TEL
+        {homeHref ? (
+          <a href={homeHref} className="flex items-center gap-3" aria-label="Inicio">
+            <Logo />
+            <span className="flex flex-col leading-tight">
+              <span
+                className={cn(
+                  "text-[18px] font-extrabold tracking-tight transition-colors duration-300",
+                  dark ? "text-white" : "text-ink-900"
+                )}
+              >
+                IT-TEL
+              </span>
+              <span
+                className={cn(
+                  "text-[12px] font-semibold tracking-wide transition-colors duration-300",
+                  dark ? "text-cyan-glow" : "text-cyan-700"
+                )}
+              >
+                Smart City
+              </span>
             </span>
-            <span
-              className={cn(
-                "text-[12px] font-semibold tracking-wide transition-colors duration-300",
-                dark ? "text-cyan-glow" : "text-cyan-700"
-              )}
-            >
-              Smart City
+          </a>
+        ) : (
+          <a href="#top" className="flex items-center gap-3" onClick={() => go("top")}>
+            <Logo />
+            <span className="flex flex-col leading-tight">
+              <span
+                className={cn(
+                  "text-[18px] font-extrabold tracking-tight transition-colors duration-300",
+                  dark ? "text-white" : "text-ink-900"
+                )}
+              >
+                IT-TEL
+              </span>
+              <span
+                className={cn(
+                  "text-[12px] font-semibold tracking-wide transition-colors duration-300",
+                  dark ? "text-cyan-glow" : "text-cyan-700"
+                )}
+              >
+                Smart City
+              </span>
             </span>
-          </span>
-          <span className="sr-only">, inicio</span>
-        </a>
+            <span className="sr-only">, inicio</span>
+          </a>
+        )}
 
         {/* Nav desktop */}
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">

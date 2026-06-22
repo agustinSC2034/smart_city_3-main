@@ -10,12 +10,13 @@ export function Integrations() {
         <Reveal direction="left">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-              Se conecta con lo que la ciudad ya tiene
+              Integración de dispositivos y sistemas
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-              No reemplazamos los sistemas municipales: los unimos. La plataforma se
-              integra con infraestructura existente, canales de reclamos, cámaras,
-              sensores, GPS y proveedores, y suma nuevas capas a su ritmo.
+              No reemplazamos los sistemas municipales: los conectamos. La plataforma
+              se integra con infraestructura existente, canales de reclamos, cámaras,
+              sensores de llenado, GPS de vehículos y cuadrillas, y suma nuevas capas
+              a su ritmo.
             </p>
             <p className="mt-5 text-[13px] leading-relaxed text-ink-500">
               Plataforma agnóstica de hardware y proveedores.

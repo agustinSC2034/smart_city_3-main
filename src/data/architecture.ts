@@ -135,15 +135,15 @@ export const archLayers: ArchLayer[] = [
 ];
 
 export const integrations = [
-  "Sistemas municipales",
+  "Sistemas municipales existentes",
   "147 / BOTI",
   "VMS de cámaras",
-  "Sensores IoT",
+  "Sensores de llenado y ambiente",
   "Controladores semafóricos",
-  "Luminarias inteligentes",
-  "GPS de flotas",
+  "Luminarias conectadas",
+  "GPS de flotas y cuadrillas",
   "Mapas GIS",
-  "Bases de datos",
+  "Bases de datos municipales",
   "Proveedores y contratistas",
   "APIs públicas",
   "APIs privadas",

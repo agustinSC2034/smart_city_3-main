@@ -14,17 +14,34 @@ export type Solution = {
 export const solutions: Solution[] = [
   {
     id: "residuos",
-    title: "Residuos inteligentes",
+    title: "Residuos, rutas y control de recolección",
     description:
-      "Sensores en contenedores seleccionados y puntos críticos para medir llenado, temperatura y otras variables. La plataforma selecciona qué puntos atender y calcula la ruta.",
+      "Sensores de llenado, ubicación de contenedores, recorridos y evidencia de campo para priorizar servicios y controlar el cumplimiento de la recolección.",
     capabilities: [
-      "Sensores de llenado, temperatura y variables según equipamiento",
-      "El sistema selecciona puntos y calcula la ruta del recorrido",
-      "Cumplimiento por punto, GPS y evidencia fotográfica",
+      "Nivel de llenado, temperatura, batería y estado del sensor",
+      "Priorización de puntos y planificación de recorridos según necesidad operativa",
+      "GPS, evidencia y control del servicio realizado",
     ],
     screenshot: "./plataforma/residuos.png",
-    alt: "Vista de residuos inteligentes con contenedor sensorizado, nivel de llenado crítico y ruta recomendada.",
+    alt: "Vista de residuos con contenedores sensorizados, niveles de llenado y recorrido de recolección.",
     aspect: "aspect-[1672/941]",
+    fit: "contain",
+    ctaLabel: "Ver solución de residuos",
+    ctaTarget: "/soluciones/residuos-inteligentes",
+  },
+  {
+    id: "cuadrillas",
+    title: "Auditoría de cuadrillas y tareas de limpieza",
+    description:
+      "La plataforma registra tareas, recorridos, ubicación GPS, evidencia y tiempos de cumplimiento para supervisar servicios de limpieza y mantenimiento en la vía pública.",
+    capabilities: [
+      "Tareas con prioridad, responsable y vencimiento",
+      "Recorridos, ubicación GPS y llegada al punto de trabajo",
+      "Evidencia antes y después, validación y control de cumplimiento",
+    ],
+    screenshot: "./plataforma/cuadrillas.png",
+    alt: "Plataforma de auditoría de cuadrillas — tareas, GPS, evidencia y control de cumplimiento.",
+    aspect: "aspect-[16/10]",
     fit: "contain",
   },
   {
@@ -75,21 +92,6 @@ export const solutions: Solution[] = [
     fit: "contain",
     ctaLabel: "Ver el centro de control",
     ctaTarget: "incidentes",
-  },
-  {
-    id: "cuadrillas",
-    title: "Gestión y auditoría de cuadrillas",
-    description:
-      "Tickets, rutas, GPS, evidencia fotográfica y control de SLA para supervisar trabajos de limpieza, mantenimiento e infraestructura en la vía pública.",
-    capabilities: [
-      "Orden de trabajo con prioridad, responsable y SLA",
-      "Ubicación GPS, ruta sugerida y llegada al lugar",
-      "Evidencia antes/después y validación de supervisor",
-    ],
-    screenshot: "./plataforma/cuadrillas.png",
-    alt: "Plataforma de gestión y auditoría de cuadrillas — tickets, GPS, evidencia y SLA",
-    aspect: "aspect-[16/10]",
-    fit: "contain",
   },
   {
     id: "ambiente",

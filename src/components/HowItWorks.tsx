@@ -4,7 +4,7 @@ import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 const groups = [
   {
     title: "Dispositivos y sensores",
-    desc: "Controladores, sensores ambientales, luminarias y equipos IoT distribuidos en el territorio.",
+    desc: "Sensores de llenado, controladores, luminarias, cámaras y equipos IoT distribuidos en el territorio.",
   },
   {
     title: "Video y analítica",
@@ -12,19 +12,19 @@ const groups = [
   },
   {
     title: "APIs y sistemas externos",
-    desc: "Integración con sistemas municipales, canales de reclamos, GPS y proveedores.",
+    desc: "Integración con sistemas municipales, canales de reclamos, GPS de vehículos y cuadrillas.",
   },
   {
     title: "Cartografía y georreferencia",
-    desc: "Capa GIS para ubicar cada activo, evento y recurso sobre el mapa de la ciudad.",
+    desc: "Capa GIS para ubicar cada contenedor, activo, evento y recurso sobre el mapa de la ciudad.",
   },
   {
     title: "Motor de eventos",
-    desc: "Reglas, clasificación, priorización y asignación automática de incidentes.",
+    desc: "Reglas, clasificación, priorización y asignación automática de incidentes y tareas de campo.",
   },
   {
     title: "Datos e indicadores",
-    desc: "Histórico, cumplimiento, SLA y reportería para auditar y planificar la operación.",
+    desc: "Histórico, cumplimiento, SLA y reportería para auditar servicios y planificar la operación.",
   },
 ];
 

@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
@@ -12,11 +11,6 @@ export function Hero() {
   });
 
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-
-  const go = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <section
@@ -57,24 +51,15 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-page relative flex min-h-[100svh] items-center pb-24 pt-28">
+      <div className="container-page relative flex min-h-[100svh] items-center py-28">
         <div className="max-w-2xl">
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm text-cyan-glow"
-          >
-            Plataforma para municipios, concesionarios y operadores urbanos
-          </motion.p>
-
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-3 text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
-            Operación urbana en tiempo real
+            Monitoreo y auditoría de servicios urbanos
           </motion.h1>
 
           <motion.p
@@ -83,31 +68,10 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg"
           >
-            Centralizamos semáforos, luminarias, sensores, cámaras, reclamos y
-            cuadrillas sobre un mismo mapa operativo. Cada evento puede generar una
-            alerta, una orden de trabajo y un registro auditable.
+            Sensores, activos, reclamos y equipos de campo conectados a una misma
+            operación para supervisar servicios, asignar tareas y verificar el trabajo
+            realizado.
           </motion.p>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            <button
-              onClick={() => go("contacto")}
-              className="btn-primary"
-            >
-              Solicitar demo
-              <ArrowRight className="size-4" aria-hidden />
-            </button>
-            <button
-              onClick={() => go("plataforma")}
-              className="btn border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/15"
-            >
-              Ver la plataforma
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>

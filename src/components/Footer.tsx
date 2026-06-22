@@ -1,9 +1,13 @@
 import { navItems } from "@/data/content";
 
-export function Footer() {
+export function Footer({ homeHref }: { homeHref?: string }) {
   const go = (id: string) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (homeHref) {
+      window.location.href = homeHref + "#" + id;
+    }
   };
 
   return (
@@ -64,9 +68,16 @@ export function Footer() {
               <li>Semáforos inteligentes</li>
               <li>Alumbrado inteligente</li>
               <li>Cámaras inteligentes</li>
-              <li>Residuos y sensores</li>
-              <li>Cuadrillas en tiempo real</li>
-              <li>Peajes y accesos</li>
+              <li>
+                <a
+                  href="/soluciones/residuos-inteligentes"
+                  className="text-ink-600 transition-colors hover:text-ink-900"
+                >
+                  Residuos, rutas y recolección
+                </a>
+              </li>
+              <li>Cuadrillas y auditoría</li>
+              <li>Monitoreo ambiental</li>
             </ul>
 
             <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-ink-600">

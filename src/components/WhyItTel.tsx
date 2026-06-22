@@ -7,7 +7,7 @@ const reasons = [
     desc: "Red propia de fibra óptica, torres y capacidad de despliegue para conectar equipamiento distribuido en el territorio.",
   },
   {
-    title: "Integración de punta a punta",
+    title: "Infraestructura, plataforma y soporte en campo",
     desc: "Instalación, comunicaciones, plataforma, soporte y mantenimiento bajo una misma coordinación técnica.",
   },
   {
@@ -35,11 +35,11 @@ export function WhyItTel() {
         <Reveal>
           <div className="max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Infraestructura y operación para proyectos urbanos
+              Infraestructura y soporte operativo
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-200 sm:text-lg">
-              Grupo ITTEL integra conectividad, equipamiento, software y soporte de
-              campo para implementar y sostener soluciones críticas en territorio.
+              IT-TEL integra conectividad, equipamiento, software y soporte de campo
+              para implementar y sostener soluciones críticas en territorio.
             </p>
           </div>
         </Reveal>

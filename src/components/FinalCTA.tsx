@@ -22,8 +22,7 @@ export function FinalCTA() {
               Hablemos de tu ciudad
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              Diseñemos un piloto{" "}
-              <span className="text-cyan-glow">Smart City a tu medida</span>
+              Diseñemos un piloto para tu operación
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300">
               Te mostramos la plataforma en acción y armamos un piloto con los dispositivos
@@ -39,7 +38,7 @@ export function FinalCTA() {
                 href="mailto:administracion@it-tel.com.ar"
                 className="btn border border-white/20 bg-white/5 text-white hover:bg-white/10"
               >
-                Diseñar un piloto Smart City
+                Diseñar un piloto
               </a>
             </div>
 

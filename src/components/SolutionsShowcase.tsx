@@ -6,11 +6,15 @@ import { cn } from "@/lib/cn";
 
 type Variant = "A" | "B" | "C";
 
-const variantByIndex: Variant[] = ["C", "A", "B", "B", "C", "A"];
+const variantByIndex: Variant[] = ["C", "A", "B", "A", "B", "A"];
 
 export function SolutionsShowcase() {
   const go = (target?: string) => {
     if (!target) return;
+    if (target.startsWith("/") || /^https?:\/\//.test(target)) {
+      window.location.href = target;
+      return;
+    }
     const el = document.getElementById(target);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -105,7 +109,7 @@ function VariantA({
   const flip = solution.id === "residuos";
   const ease = [0.22, 1, 0.36, 1] as const;
   return (
-    <div className={cn("grid items-center gap-10 lg:gap-16", flip ? "lg:grid-cols-[1.7fr_1fr]" : "lg:grid-cols-[1fr_1.7fr]")}>
+    <div className={cn("grid items-center gap-10 lg:gap-16", solution.id === "cuadrillas" ? "lg:grid-cols-[1fr_1.35fr]" : flip ? "lg:grid-cols-[1.7fr_1fr]" : "lg:grid-cols-[1fr_1.7fr]")}>
       <motion.div
         initial={reduce ? false : { opacity: 0, x: flip ? 36 : -36 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -185,7 +189,11 @@ function VariantC({
         transition={{ duration: 0.75, ease, delay: 0.12 }}
         className={cn(
           "relative z-10 -mt-48 max-w-xl rounded-lg p-6 sm:p-8 lg:-mt-60",
-          dark ? "bg-brand-deep/90 text-ink-100" : "bg-white/95 text-ink-900 shadow-soft"
+          dark
+            ? "bg-brand-deep/90 text-ink-100"
+            : solution.id === "residuos"
+              ? "bg-white/95 text-ink-900 border border-ink-200"
+              : "bg-white/95 text-ink-900 shadow-soft"
         )}
       >
         <ChapterText solution={solution} dark={dark} onCta={onCta} compact />

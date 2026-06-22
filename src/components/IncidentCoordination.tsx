@@ -4,17 +4,17 @@ const capabilities = [
   {
     title: "Información vinculada al territorio",
     description:
-      "Sensores, cámaras, reclamos y activos se relacionan con un mismo punto del mapa y con el incidente correspondiente.",
+      "Sensores, cámaras, reclamos y activos se relacionan con un mismo punto del mapa y con el incidente correspondiente. Un contenedor con riesgo de desborde, un semáforo en falla o una luminaria apagada generan el mismo tipo de registro.",
   },
   {
     title: "Asignación y seguimiento",
     description:
-      "La operación registra responsables, prioridad, vencimiento, ubicación de los equipos y estado de la intervención.",
+      "La operación registra responsables, prioridad, vencimiento, ubicación de los equipos y estado de la intervención. Cada tarea de limpieza, mantenimiento o reparación queda vinculada a una cuadrilla y a un punto del mapa.",
   },
   {
     title: "Historial auditable",
     description:
-      "Evidencias, cambios de estado, tiempos de respuesta y validaciones quedan asociados al mismo evento.",
+      "Evidencias, cambios de estado, tiempos de respuesta y validaciones quedan asociados al mismo evento. El registro permite reconstruir qué ocurrió, quién intervino y con qué resultado.",
   },
 ];
 
@@ -49,8 +49,8 @@ export function IncidentCoordination() {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-200 sm:text-lg">
               Cada incidente queda asociado a una ubicación, los activos involucrados,
-              un responsable, un vencimiento y un historial de acciones. Sensores,
-              cámaras y equipos de campo operan sobre el mismo registro.
+              un responsable, un vencimiento y un historial de acciones. Sensores de
+              llenado, cámaras, reclamos y equipos de campo operan sobre el mismo registro.
             </p>
           </div>
         </Reveal>

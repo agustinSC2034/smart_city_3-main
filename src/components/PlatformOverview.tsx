@@ -2,11 +2,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProductScreenshot } from "@/components/ui/Feature";
 
 const capabilities = [
-  { label: "Fuentes de información", hint: "Sensores, cámaras, reclamos, GPS y activos." },
+  { label: "Activos y sensores", hint: "Contenedores, luminarias, controladores, cámaras y equipos IoT en el territorio." },
   { label: "Plataforma geográfica", hint: "Datos, georreferencia y motor de eventos." },
   { label: "Alertas y reglas", hint: "Priorización, asignación y vencimientos." },
-  { label: "Operación de campo", hint: "Cuadrillas, evidencia, SLA y cierre." },
-  { label: "Indicadores y auditoría", hint: "Cumplimiento, productividad y reportería." },
+  { label: "Operación de campo", hint: "Cuadrillas, evidencia, SLA y cierre de tareas." },
+  { label: "Indicadores y auditoría", hint: "Cumplimiento, productividad y control de recorridos." },
 ];
 
 export function PlatformOverview() {
@@ -16,12 +16,13 @@ export function PlatformOverview() {
         <Reveal direction="up">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.9rem] lg:leading-[1.1]">
-              Una plataforma para centralizar la operación urbana
+              Monitoreo de activos y servicios
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
-              Activos, alertas, cámaras, reclamos y equipos de campo comparten una
-              misma base geográfica. La plataforma permite supervisar servicios,
-              asignar intervenciones y medir el cumplimiento desde una única operación.
+              Contenedores, sensores, luminarias, cámaras, reclamos y equipos de campo
+              comparten una misma base geográfica. La plataforma permite supervisar
+              servicios, asignar tareas de campo y medir el cumplimiento desde una misma
+              operación.
             </p>
           </div>
         </Reveal>
