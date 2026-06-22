@@ -21,24 +21,17 @@ export function WhyItTel({ onContact }: { onContact: () => void }) {
       <div className="container-page">
         {/* Encabezado — sobre IT-TEL */}
         <Reveal>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12">
-            <div className="max-w-2xl flex-1">
-              <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-                IT-TEL: infraestructura, integración y soporte
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
-                Empresa argentina de tecnología y telecomunicaciones. Diseñamos,
-                desplegamos y mantenemos redes, equipamiento y plataformas para
-                organismos públicos, operadores e infraestructura crítica.
-                Alianza estratégica con SICE para ITS, movilidad y servicios
-                urbanos inteligentes.
-              </p>
-            </div>
-            <img
-              src="./favicon.png"
-              alt="IT-TEL"
-              className="w-16 shrink-0 opacity-80 lg:w-20"
-            />
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              IT-TEL: infraestructura, integración y soporte
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-600 sm:text-lg">
+              Empresa argentina de tecnología y telecomunicaciones. Diseñamos,
+              desplegamos y mantenemos redes, equipamiento y plataformas para
+              organismos públicos, operadores e infraestructura crítica.
+              Alianza estratégica con SICE para ITS, movilidad y servicios
+              urbanos inteligentes.
+            </p>
           </div>
         </Reveal>
 
